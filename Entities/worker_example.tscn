@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://by4808kddmtvr"]
+
+[ext_resource type="Script" uid="uid://dlwk3sw4nohn3" path="res://Entities/Scripts/worker.gd" id="1_o03ov"]
+[ext_resource type="Texture2D" uid="uid://dmkog4e4preux" path="res://Assets/Sprites/Unit.png" id="2_qwyu0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bg6yo"]
+size = Vector2(33.399998, 62.449997)
+
+[node name="worker" type="CharacterBody2D" unique_id=694194185 groups=["Base", "Worker"]]
+collision_mask = 0
+script = ExtResource("1_o03ov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=965509576]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_bg6yo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=818375144]
+scale = Vector2(0.52127665, 0.55851066)
+texture = ExtResource("2_qwyu0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1478104793]
+wait_time = 3.0
+one_shot = true

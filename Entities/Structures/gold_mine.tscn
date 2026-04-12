@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6t3pyvv5adxh"]
+
+[ext_resource type="Script" uid="uid://bn1htswjvfxo0" path="res://Entities/Structures/gold_mine.gd" id="1_afr5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv24a"]
+
+[node name="Area2D" type="Area2D" unique_id=53667084]
+script = ExtResource("1_afr5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1918741140]
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_dv24a")
+debug_color = Color(0.57227916, 0.5555416, 7.70092e-07, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

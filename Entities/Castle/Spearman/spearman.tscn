@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://3r7ogg08xmk4"]
+
+[ext_resource type="Script" uid="uid://c01m3ph56oth3" path="res://Entities/Castle/Spearman/spearman.gd" id="1_m7nx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7nx8"]
+size = Vector2(33.399998, 62.449997)
+
+[node name="spearman" type="CharacterBody2D" unique_id=17860198 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
+script = ExtResource("1_m7nx8")
+hitbox = NodePath("RayCast2D")
+attackCoolDown = NodePath("Timer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=910285707]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_m7nx8")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1200402998]
+scale = Vector2(5, 5)
+target_position = Vector2(139, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=1015620247]
+one_shot = true

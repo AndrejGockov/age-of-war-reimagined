@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bdq3af8q1t3pe"]
+
+[ext_resource type="PackedScene" uid="uid://sah1s5uptpii" path="res://Entities/base.tscn" id="1_i12id"]
+[ext_resource type="PackedScene" uid="uid://by4808kddmtvr" path="res://Entities/Units/Worker/worker.tscn" id="1_ooans"]
+[ext_resource type="PackedScene" uid="uid://6t3pyvv5adxh" path="res://Entities/gold_mine.tscn" id="2_rwhk2"]
+[ext_resource type="PackedScene" uid="uid://3r7ogg08xmk4" path="res://Entities/Units/Castle/Spearman/spearman.tscn" id="4_p5unt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb0t0"]
+size = Vector2(3791.5, 47)
+
+[node name="Debug" type="Node2D" unique_id=1575956829]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1627627867]
+zoom = Vector2(0.31, 0.31)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=281713288]
+
+[node name="surface" type="CollisionShape2D" parent="StaticBody2D" unique_id=1536793760]
+position = Vector2(-7.25, 650.5)
+shape = SubResource("RectangleShape2D_kb0t0")
+
+[node name="Worker2" parent="." unique_id=694194185 instance=ExtResource("1_ooans")]
+position = Vector2(-626, 863)
+price = null
+speed = null
+direction = null
+
+[node name="Worker" parent="." unique_id=1080031165 instance=ExtResource("1_ooans")]
+position = Vector2(-430, 859)
+price = null
+speed = null
+direction = null
+
+[node name="GoldMine" parent="." unique_id=572016559 instance=ExtResource("2_rwhk2")]
+position = Vector2(1389, 519)
+
+[node name="Area2D" parent="." unique_id=448835638 instance=ExtResource("1_i12id")]
+position = Vector2(-1357, 156)
+
+[node name="spearman" parent="." unique_id=17860198 instance=ExtResource("4_p5unt")]
+position = Vector2(-645, 367)
+hitpoints = null
+attackDamage = null
+attackSpeed = null
+price = null
+speed = null
+direction = null
