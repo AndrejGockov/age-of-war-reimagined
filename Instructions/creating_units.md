@@ -47,11 +47,11 @@ unit_raycast - How far the unit reaches for it's attack
 
 unit_collision_shape_2d - The hurtbox e.g  what needs to be collide with the raycast for a unit to take damage
 
-3.4 Select CharacterBody2D > Go to Inspector
+4.2 Select CharacterBody2D > Go to Inspector
 
-&emsp;3.4.1 Find the Hitbox > Set it to be unit_raycast
+&emsp;4.2.1 Find the Hitbox > Set it to be unit_raycast
 
-&emsp;3.4.2 Find the Hitbox > Set it to be unit_timer
+&emsp;4.2.2 Find the Hitbox > Set it to be unit_timer
 
 ## 5. Customize
 
