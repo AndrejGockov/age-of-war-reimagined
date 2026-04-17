@@ -7,7 +7,7 @@ class_name Entity
 @export var speed : float = 500
 @export var direction : float = 1.0
 
-func setDirection(direction : float) -> void:
+func set_direction(direction : float) -> void:
 	self.direction = direction
 
 func move() -> void:

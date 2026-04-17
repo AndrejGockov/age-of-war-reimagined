@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Worker"):
 		print("Depositing gold")
-		body.depositGold(1.0)
+		body.deposit_gold(1.0)

@@ -1,22 +1,18 @@
 [gd_scene format=3 uid="uid://3r7ogg08xmk4"]
 
 [ext_resource type="Script" uid="uid://c01m3ph56oth3" path="res://Entities/Castle/Spearman/spearman.gd" id="1_m7nx8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7nx8"]
-size = Vector2(33.399998, 62.449997)
+[ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Shared/Unit/unit_collision_shape_2d.tscn" id="2_7hk38"]
+[ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Shared/Unit/unit_raycast.tscn" id="3_6ckx7"]
+[ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Shared/Unit/unit_timer.tscn" id="4_raorf"]
 
 [node name="spearman" type="CharacterBody2D" unique_id=17860198 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 script = ExtResource("1_m7nx8")
-hitbox = NodePath("RayCast2D")
-attackCoolDown = NodePath("Timer")
+hitbox = NodePath("unit_raycast")
+attackCoolDown = NodePath("unit_timer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=910285707]
-scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_m7nx8")
+[node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_7hk38")]
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1200402998]
-scale = Vector2(5, 5)
-target_position = Vector2(139, 0)
+[node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("3_6ckx7")]
+target_position = Vector2(140, 0)
 
-[node name="Timer" type="Timer" parent="." unique_id=1015620247]
-one_shot = true
+[node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_raorf")]

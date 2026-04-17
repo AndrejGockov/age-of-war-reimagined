@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dc8a6p1ytenow"]
+
+[ext_resource type="Script" uid="uid://c8pjs2s7vfddk" path="res://Entities/Castle/Musketeer/musketeer.gd" id="1_jnj2k"]
+[ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Shared/Unit/unit_collision_shape_2d.tscn" id="2_iogmw"]
+[ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Shared/Unit/unit_raycast.tscn" id="3_ldx10"]
+[ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Shared/Unit/unit_timer.tscn" id="4_e8f3i"]
+
+[node name="Musketeer" type="CharacterBody2D" unique_id=1617145020 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
+script = ExtResource("1_jnj2k")
+hitbox = NodePath("unit_raycast")
+attackCoolDown = NodePath("unit_timer")
+
+[node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_iogmw")]
+
+[node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("3_ldx10")]
+
+[node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_e8f3i")]

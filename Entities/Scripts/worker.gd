@@ -9,15 +9,15 @@ func _process(delta: float) -> void:
 	if timer.is_stopped():
 		move()
 
-func collectGold(duration : float):
+func collect_gold(duration : float):
 	work(duration)
-	changeDirection()
+	change_direction()
 
-func depositGold(duration : float):
+func deposit_gold(duration : float):
 	work(duration)
-	changeDirection()
+	change_direction()
 
-func changeDirection():
+func change_direction():
 	direction *= (-1)
 
 func work(duration : float):

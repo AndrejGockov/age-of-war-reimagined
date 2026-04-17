@@ -1,0 +1,115 @@
+MULTIPLAYER MANAGER
+
+extends Node
+
+signal norayConnected
+
+#const serverPort = 8080
+#const serverIP = "127.0.0.1"
+
+const serverPort = 8890
+const serverIP = "tomfol.io"
+
+var peer = ENetMultiplayerPeer.new()
+var isHost : bool = false
+
+var externalOnlineId : String = ""
+
+func _ready() -> void:
+	Noray.on_connect_to_host.connect(on_noray_connected)
+	Noray.on_connect_nat.connect(handle_nat_connection)
+	Noray.on_connect_relay.connect(handle_relay_connection)
+	Noray.connect_to_host(serverIP, serverPort)
+
+func join(onlineId):
+	Noray.connect_nat(onlineId)
+	externalOnlineId = onlineId
+
+func host():
+	peer.create_server(Noray.local_port)
+	multiplayer.multiplayer_peer = peer
+	isHost = true
+	
+	multiplayer.peer_connected.connect(_on_player_connected)
+
+func _on_player_connected(id : int):
+	print("Player ", id, " has joined the game!")
+
+func handle_relay_connection(address, port):
+	return await connect_to_server(address, port)
+
+func on_noray_connected():
+	print("Connected to server")
+	Noray.register_host()
+	await Noray.on_pid
+	await Noray.register_remote()
+	norayConnected.emit()
+
+func handle_nat_connection(address, port):
+	var err = await connect_to_server(address, port)
+	
+	if err != OK and !isHost:
+		print("NAT failed to connect")
+		Noray.connect_relay(externalOnlineId)
+		err = OK
+	
+	return err
+
+func connect_to_server(address, port):
+	var err = OK
+	
+	if !isHost:
+		var udp = PacketPeerUDP.new()
+		udp.bind(Noray.local_port)
+		udp.set_dest_address(address, port)
+		
+		err = await PacketHandshake.over_packet_peer(udp)
+		udp.close()
+		
+		if err != OK and err != ERR_BUSY:
+			return err
+		
+		peer.create_client(address, port, 0, 0, 0, Noray.local_port)
+		
+		if err != OK:
+			return err
+		
+		multiplayer.multiplayer_peer = peer
+		return OK
+	
+	err = await PacketHandshake.over_enet(
+		multiplayer.multiplayer_peer.host, address, port)
+	
+	return err
+
+
+
+MAIN MENU
+extends Node2D
+
+@onready var gameButtons : VBoxContainer = $GameButtons
+@onready var joinGame : VBoxContainer = $JoinGame
+@onready var hostGame : VBoxContainer = $HostGame
+
+@onready var joinGameCode : LineEdit = $JoinGame/LineEdit
+
+@onready var hostGameCode : LineEdit = $HostGame/LineEdit
+
+func _ready() -> void:
+	await Multiplayer.norayConnected
+	hostGameCode.text = Noray.oid
+
+func _on_join_game_pressed() -> void:
+	gameButtons.hide()
+	joinGame.show()
+
+func _on_host_game_pressed() -> void:
+	gameButtons.hide()
+	hostGame.show()
+
+func _on_connect_pressed() -> void:
+	Multiplayer.join(joinGameCode.text)
+
+
+func _on_start_game_pressed() -> void:
+	Multiplayer.host()

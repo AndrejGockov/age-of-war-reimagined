@@ -17,7 +17,13 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Variables="*uid://dq88gwx3143nw"
+Multiplayer="*uid://4rbk7vssjubx"
+Noray="*uid://gu4bv4tgms3x"
+PacketHandshake="*uid://tt3j25a05n7c"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/netfox.internals/plugin.cfg", "res://addons/netfox.noray/plugin.cfg", "res://addons/nodetunnel/plugin.cfg")
 
 [global_group]
 
