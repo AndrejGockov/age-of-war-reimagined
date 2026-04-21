@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6t3pyvv5adxh"]
 
-[ext_resource type="Script" uid="uid://bn1htswjvfxo0" path="res://Entities/Structures/gold_mine.gd" id="1_afr5u"]
+[ext_resource type="Script" uid="uid://bn1htswjvfxo0" path="res://Entities/Structures/GoldMine/gold_mine.gd" id="1_afr5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv24a"]
 

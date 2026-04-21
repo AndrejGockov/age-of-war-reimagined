@@ -3,7 +3,7 @@ extends Node
 var peer: NodeTunnelPeer = NodeTunnelPeer.new()
 
 func _ready() -> void:
-	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "---")
+	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxx")
 	multiplayer.multiplayer_peer = peer
 	
 	# DO NOT TRY HOSTING OR CONNECTING BEFORE THIS HAPPENS

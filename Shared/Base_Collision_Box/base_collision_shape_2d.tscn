@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://nri0geei7tpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vq775"]
+
+[node name="base" type="CollisionShape2D" unique_id=941657374]
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_vq775")
+debug_color = Color(1, 1, 1, 0.41960785)

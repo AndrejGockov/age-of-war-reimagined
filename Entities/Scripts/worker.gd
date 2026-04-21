@@ -1,9 +1,10 @@
 extends Entity
 
 @onready var timer : Timer = $Timer
+@export var hasGold : bool
 
 func _ready() -> void:
-	pass
+	hasGold = false
 
 func _process(delta: float) -> void:
 	if timer.is_stopped():
@@ -12,10 +13,17 @@ func _process(delta: float) -> void:
 func collect_gold(duration : float):
 	work(duration)
 	change_direction()
+	hasGold = true
+	print(hasGold)
 
 func deposit_gold(duration : float):
+	print(hasGold)
+	if !hasGold:
+		return
+	
 	work(duration)
 	change_direction()
+	hasGold = false
 
 func change_direction():
 	direction *= (-1)

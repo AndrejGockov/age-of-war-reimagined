@@ -1,32 +1,34 @@
 [gd_scene format=3 uid="uid://bdq3af8q1t3pe"]
 
-[ext_resource type="PackedScene" uid="uid://sah1s5uptpii" path="res://Entities/Castle/base.tscn" id="1_i12id"]
-[ext_resource type="PackedScene" uid="uid://by4808kddmtvr" path="res://Entities/dummy_worker.tscn" id="1_ooans"]
-[ext_resource type="PackedScene" uid="uid://6t3pyvv5adxh" path="res://Entities/Structures/gold_mine.tscn" id="2_rwhk2"]
+[ext_resource type="PackedScene" uid="uid://by4808kddmtvr" path="res://Entities/DebugEntities/Worker/dummy_worker.tscn" id="1_ooans"]
+[ext_resource type="Script" uid="uid://kft4r4nbmt14" path="res://Scenes/debug.gd" id="1_xdxg4"]
+[ext_resource type="PackedScene" uid="uid://cau4y46jjkajq" path="res://Entities/Structures/FactionBase/base.tscn" id="2_048c7"]
+[ext_resource type="PackedScene" uid="uid://6t3pyvv5adxh" path="res://Entities/Structures/GoldMine/gold_mine.tscn" id="2_rwhk2"]
 [ext_resource type="PackedScene" uid="uid://3r7ogg08xmk4" path="res://Entities/Castle/Spearman/spearman.tscn" id="4_p5unt"]
-[ext_resource type="PackedScene" uid="uid://tfebjdnjkj3y" path="res://Entities/dummy_troop.tscn" id="5_bpjht"]
+[ext_resource type="PackedScene" uid="uid://tfebjdnjkj3y" path="res://Entities/DebugEntities/Unit/dummy_troop.tscn" id="5_bpjht"]
 [ext_resource type="PackedScene" uid="uid://dc8a6p1ytenow" path="res://Entities/Castle/Musketeer/musketeer.tscn" id="6_048c7"]
 
 [node name="Debug" type="Node2D" unique_id=1575956829]
+script = ExtResource("1_xdxg4")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1627627867]
-zoom = Vector2(0.31, 0.31)
+position = Vector2(-2415, 343)
+zoom = Vector2(0.55, 0.55)
 
 [node name="GoldMine" parent="." unique_id=572016559 instance=ExtResource("2_rwhk2")]
-position = Vector2(1389, 519)
+position = Vector2(-78, 523)
 
-[node name="Area2D" parent="." unique_id=448835638 instance=ExtResource("1_i12id")]
-position = Vector2(-2159, 123)
-
-[node name="Worker2" parent="." unique_id=694194185 instance=ExtResource("1_ooans")]
-position = Vector2(-626, 863)
+[node name="Base" parent="." unique_id=1787322015 instance=ExtResource("2_048c7")]
+position = Vector2(-2523, 129)
 
 [node name="Worker" parent="." unique_id=1080031165 instance=ExtResource("1_ooans")]
-position = Vector2(-297, 467)
+position = Vector2(-2275, 468)
 
-[node name="spearman2" parent="." unique_id=2029203350 instance=ExtResource("4_p5unt")]
-position = Vector2(-1262, 461)
-direction = -1.0
+[node name="worker2" parent="." unique_id=694194185 instance=ExtResource("1_ooans")]
+position = Vector2(-2461, 455)
+
+[node name="worker" parent="." unique_id=470532717 instance=ExtResource("1_ooans")]
+position = Vector2(-2055, 471)
 
 [node name="spearman" parent="." unique_id=1601131868 instance=ExtResource("4_p5unt")]
 position = Vector2(-1391, 14)
@@ -41,3 +43,18 @@ direction = -1.0
 
 [node name="Musketeer" parent="." unique_id=1617145020 instance=ExtResource("6_048c7")]
 position = Vector2(-1073, 25)
+hitpoints = 100
+attackDamage = 10
+attackSpeed = 1.0
+price = 100
+speed = 500.0
+direction = 1.0
+
+[node name="Button" type="Button" parent="." unique_id=1679114918]
+offset_left = -2953.0
+offset_top = 91.0
+offset_right = -2513.0
+offset_bottom = 236.0
+text = "SPAWN WORKER"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
