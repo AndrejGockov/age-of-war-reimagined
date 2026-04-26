@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bul2g10we2cv6"]
 
-[ext_resource type="Script" uid="uid://c7kyvenrgdenq" path="res://Scenes/Main_Menu/main_menu.gd" id="1_uqdog"]
+[ext_resource type="Script" uid="uid://c7kyvenrgdenq" path="res://Scenes/Play/play.gd" id="1_g62g8"]
 
-[node name="MainMenu" type="Node2D" unique_id=579384653]
-script = ExtResource("1_uqdog")
+[node name="Play" type="Node2D" unique_id=579384653]
+script = ExtResource("1_g62g8")
 
 [node name="GameButtons" type="VBoxContainer" parent="." unique_id=24938874]
 offset_right = 40.0
@@ -19,8 +19,12 @@ text = "host game"
 
 [node name="JoinGame" type="VBoxContainer" parent="." unique_id=1818578254]
 visible = false
-offset_right = 329.0
-offset_bottom = 143.0
+offset_right = 598.0
+offset_bottom = 299.0
+
+[node name="CloseJoin" type="Button" parent="JoinGame" unique_id=815499504]
+layout_mode = 2
+text = "Close join game"
 
 [node name="Connect" type="Button" parent="JoinGame" unique_id=433097579]
 layout_mode = 2
@@ -30,20 +34,7 @@ text = "Connect"
 layout_mode = 2
 placeholder_text = "Enter Code"
 
-[node name="HostGame" type="VBoxContainer" parent="." unique_id=1494011565]
-visible = false
-offset_right = 458.0
-offset_bottom = 66.0
-
-[node name="StartGame" type="Button" parent="HostGame" unique_id=1278532422]
-layout_mode = 2
-text = "Start Game"
-
-[node name="LineEdit" type="LineEdit" parent="HostGame" unique_id=313977786]
-layout_mode = 2
-placeholder_text = "Loading Code"
-
 [connection signal="pressed" from="GameButtons/JoinGame" to="." method="_on_join_game_pressed"]
 [connection signal="pressed" from="GameButtons/HostGame" to="." method="_on_host_game_pressed"]
+[connection signal="pressed" from="JoinGame/CloseJoin" to="." method="_on_close_join_pressed"]
 [connection signal="pressed" from="JoinGame/Connect" to="." method="_on_connect_pressed"]
-[connection signal="pressed" from="HostGame/StartGame" to="." method="_on_start_game_pressed"]

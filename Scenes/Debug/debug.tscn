@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bdq3af8q1t3pe"]
 
-[ext_resource type="Script" uid="uid://kft4r4nbmt14" path="res://Scenes/debug.gd" id="1_fee55"]
+[ext_resource type="Script" uid="uid://kft4r4nbmt14" path="res://Scenes/Debug/debug.gd" id="1_fee55"]
 [ext_resource type="PackedScene" uid="uid://6t3pyvv5adxh" path="res://Entities/Structures/Gold_Mine/gold_mine.tscn" id="2_5mfbk"]
 [ext_resource type="PackedScene" uid="uid://cau4y46jjkajq" path="res://Entities/Structures/Faction_Base/base.tscn" id="3_j2m1g"]
 [ext_resource type="PackedScene" uid="uid://by4808kddmtvr" path="res://Entities/Debug_Entities/Worker/dummy_worker.tscn" id="4_edppr"]

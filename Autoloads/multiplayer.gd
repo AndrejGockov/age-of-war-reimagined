@@ -1,6 +1,7 @@
 extends Node
 
 var peer: NodeTunnelPeer = NodeTunnelPeer.new()
+var hostID : int = -1
 
 func _ready() -> void:
 	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxx")
@@ -15,7 +16,7 @@ func join(roomId : String):
 	print("Joining room...")
 	
 	await peer.room_connected
-	
+	print(peer.get_unique_id())
 	print("Connected to room: ", peer.room_id)
 
 func host():
@@ -24,4 +25,6 @@ func host():
 	print("Hosting room...")
 	
 	await peer.room_connected
+	print(peer.get_unique_id())
 	print("Connected to room: ", peer.room_id)
+	hostID = peer.get_unique_id()

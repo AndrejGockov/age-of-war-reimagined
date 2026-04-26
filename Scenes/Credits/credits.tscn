@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d3qu1iydq0x7j"]
+
+[ext_resource type="Script" uid="uid://b5dlp5e34s3su" path="res://Scenes/Credits/credits.gd" id="1_ykwev"]
+
+[node name="Credits" type="Node2D" unique_id=852592441]
+script = ExtResource("1_ykwev")
+
+[node name="Back" type="Button" parent="." unique_id=26311404]
+offset_right = 96.0
+offset_bottom = 31.0
+text = "Back Home"
+
+[node name="Label" type="Label" parent="." unique_id=614176172]
+offset_top = 55.0
+offset_right = 173.0
+offset_bottom = 104.0
+text = "TODO:
+Add credits for project"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

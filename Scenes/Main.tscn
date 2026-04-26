@@ -1,3 +1,11 @@
 [gd_scene format=3 uid="uid://t2ry3concf3g"]
 
+[ext_resource type="Script" uid="uid://dm762uo2krmld" path="res://Scenes/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://bxeietqrxci6e" path="res://Scenes/HomeScreen/home_screen.tscn" id="2_8gbba"]
+
 [node name="Main" type="Node2D" unique_id=1708144856]
+script = ExtResource("1_jjgbg")
+
+[node name="Level" type="Node" parent="." unique_id=127442325]
+
+[node name="HomeScreen" parent="Level" unique_id=1638291709 instance=ExtResource("2_8gbba")]

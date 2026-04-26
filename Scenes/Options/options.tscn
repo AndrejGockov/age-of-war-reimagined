@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://p1xf3br4ya0b"]
+
+[ext_resource type="Script" uid="uid://crmiv2ari7ovd" path="res://Scenes/Options/options.gd" id="1_3qnyo"]
+
+[node name="Options" type="Node2D" unique_id=1628394815]
+script = ExtResource("1_3qnyo")
+
+[node name="Back" type="Button" parent="." unique_id=1010228525]
+offset_right = 96.0
+offset_bottom = 31.0
+text = "Back Home"
+
+[node name="Label" type="Label" parent="." unique_id=319113313]
+offset_top = 51.0
+offset_right = 368.0
+offset_bottom = 100.0
+text = "TODO: 
+Add tools for changing game's sound and music"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

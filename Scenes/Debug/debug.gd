@@ -10,13 +10,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_button_pressed() -> void:
 	var base = $Base
 	var worker
 	
 	worker = load(
-		"res://Entities/DebugEntities/Worker/dummy_worker.tscn").instantiate()
+		"res://Entities/Debug_Entities/Worker/dummy_worker.tscn").instantiate()
 	get_parent().add_child(worker)
 	print(base.spawnPoint.global_position)
 	
