@@ -1,17 +1,45 @@
 extends Node
 
-var peer: NodeTunnelPeer = NodeTunnelPeer.new()
+var peer : NodeTunnelPeer
 var hostID : int = -1
 
 func _ready() -> void:
-	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxx")
+	pass
+
+func _process(delta: float) -> void:
+	pass
+	# Uncomment for debugging purpouses
+	#if multiplayer.multiplayer_peer == null:
+		#return
+	#
+	#if !multiplayer.is_server():
+		#return
+	#
+	#await get_tree().create_timer(5.0).timeout
+	#var total_participants = multiplayer.get_peers().size() + 1
+	#print("Connected clients: ", total_participants)
+
+func setupNewPeer() -> void:
+	# Closes old peer if it exists
+	if peer:
+		peer.close()
+	
+	# Creates new peer and connects to nodetunnel
+	peer = NodeTunnelPeer.new()
+	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxxx")
 	multiplayer.multiplayer_peer = peer
 	
-	# DO NOT TRY HOSTING OR CONNECTING BEFORE THIS HAPPENS
+	# DO NOT TRY HOSTING OR CONNECTING BEFORE THIS PRINTS -Andrej
 	await peer.authenticated
-	print("Authenticated")
+	print("Peer authenticated")
+
+func disconnectPeer() -> void:
+	Multiplayer.peer.close()
+	multiplayer.multiplayer_peer = null
+	#Multiplayer.peer.disconnect_peer(Multiplayer.peer.get_unique_id())
 
 func join(roomId : String):
+	await setupNewPeer()
 	peer.join_room(roomId)
 	print("Joining room...")
 	
@@ -20,11 +48,15 @@ func join(roomId : String):
 	print("Connected to room: ", peer.room_id)
 
 func host():
+	await setupNewPeer()
 	peer.host_room(false, "")
-	
 	print("Hosting room...")
 	
 	await peer.room_connected
-	print(peer.get_unique_id())
 	print("Connected to room: ", peer.room_id)
 	hostID = peer.get_unique_id()
+
+
+@rpc("authority", "call_remote", "reliable")
+func changeSceneForClients(scene_path: String) -> void:
+	Global.changeLevelTo(scene_path)

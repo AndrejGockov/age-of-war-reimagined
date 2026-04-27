@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://qae447ocjeyk"]
 
 [node name="Game" type="Node2D" unique_id=564710753]
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=1124126593]
+offset_left = 38.0
+offset_top = 88.0
+offset_right = 242.0
+offset_bottom = 137.0

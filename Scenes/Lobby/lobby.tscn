@@ -5,15 +5,22 @@
 [node name="Lobby" type="Node2D" unique_id=1596259199]
 script = ExtResource("1_dec0e")
 
+[node name="BackButton" type="Button" parent="." unique_id=638649625]
+offset_right = 130.0
+offset_bottom = 31.0
+text = "Back"
+
 [node name="StartGame" type="Button" parent="." unique_id=466190885]
-offset_top = 89.0
-offset_right = 96.0
-offset_bottom = 120.0
+offset_top = 199.0
+offset_right = 130.0
+offset_bottom = 230.0
 text = "Start Game"
 
 [node name="GameCode" type="LineEdit" parent="." unique_id=782738634]
-offset_right = 68.5
-offset_bottom = 31.0
+offset_top = 142.0
+offset_right = 130.0
+offset_bottom = 173.0
 placeholder_text = "Loading Code"
 
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
