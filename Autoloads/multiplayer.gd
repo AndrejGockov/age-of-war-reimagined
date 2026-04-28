@@ -3,6 +3,8 @@ extends Node
 var peer : NodeTunnelPeer
 var hostID : int = -1
 
+var roomCode : String = ""
+
 func _ready() -> void:
 	pass
 
@@ -26,7 +28,7 @@ func setupNewPeer() -> void:
 	
 	# Creates new peer and connects to nodetunnel
 	peer = NodeTunnelPeer.new()
-	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxxx")
+	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxx")
 	multiplayer.multiplayer_peer = peer
 	
 	# DO NOT TRY HOSTING OR CONNECTING BEFORE THIS PRINTS -Andrej
@@ -36,14 +38,17 @@ func setupNewPeer() -> void:
 func disconnectPeer() -> void:
 	Multiplayer.peer.close()
 	multiplayer.multiplayer_peer = null
+	setupNewPeer()
 	#Multiplayer.peer.disconnect_peer(Multiplayer.peer.get_unique_id())
 
-func join(roomId : String):
+func join(roomID : String):
 	await setupNewPeer()
-	peer.join_room(roomId)
+	peer.join_room(roomID)
 	print("Joining room...")
 	
 	await peer.room_connected
+	
+	roomCode = roomID
 	print(peer.get_unique_id())
 	print("Connected to room: ", peer.room_id)
 
@@ -54,9 +59,15 @@ func host():
 	
 	await peer.room_connected
 	print("Connected to room: ", peer.room_id)
+	
 	hostID = peer.get_unique_id()
-
 
 @rpc("authority", "call_remote", "reliable")
 func changeSceneForClients(scene_path: String) -> void:
 	Global.changeLevelTo(scene_path)
+
+func getSenderID() -> int:
+	var senderID = multiplayer.get_remote_sender_id()
+	if senderID == 0: 
+		senderID = multiplayer.get_unique_id()
+	return senderID
