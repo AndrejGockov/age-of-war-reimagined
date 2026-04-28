@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://qae447ocjeyk"]
 
+[ext_resource type="Script" uid="uid://exwxbfy8thcr" path="res://Scenes/Game/game.gd" id="1_rdw05"]
+
 [node name="Game" type="Node2D" unique_id=564710753]
+script = ExtResource("1_rdw05")
 
 [node name="TextEdit" type="TextEdit" parent="." unique_id=1124126593]
-offset_left = 38.0
-offset_top = 88.0
+offset_top = 45.0
 offset_right = 242.0
-offset_bottom = 137.0
+offset_bottom = 94.0
+
+[node name="TextEdit2" type="TextEdit" parent="." unique_id=675234380]
+offset_top = 127.0
+offset_right = 242.0
+offset_bottom = 180.0

@@ -3,8 +3,6 @@ extends Node2D
 @onready var startGameButton : Button = $StartGame
 @onready var gameCode : LineEdit = $GameCode
 
-@onready var players : Panel = $Players
-
 func _ready() -> void:
 	if multiplayer.is_server():
 		gameCode.text = Multiplayer.peer.room_id
@@ -21,15 +19,18 @@ func _ready() -> void:
 		# Only hosts can start the game
 		startGameButton.disabled = true
 	
-	for player in players.get_children():
+	for player in $Players.get_children():
 		var factionList = player.get_node("FactionList")
 		
 		for faction in Global.factions:
 			factionList.add_item(faction)
 
-# WIP
-# Need to pass in player's name and faction to next scene
+# Handles game starting
 func _on_start_game_pressed() -> void:
+	setPlayerData.rpc()
+	
+	await get_tree().process_frame
+	
 	Global.changeLevelTo("res://Scenes/Game/Game.tscn")
 
 # Called when either player leaves lobby
@@ -64,10 +65,10 @@ func onPeerConnects(id : int) -> void:
 
 # Reset fresh values when peer disconnects
 func resetPeerData(id : int) -> void:
-	print("RESETING")
 	$Players/Player_2/PlayerName.text = "Player_2"
 	$Players/Player_2/FactionList.selected = 1
 
+# Sends updated player name to peers
 @rpc("any_peer", "call_local", "reliable")
 func updatePlayerName(senderID : int, playerName : String) -> void:
 	var selectedCaret : int
@@ -80,9 +81,23 @@ func updatePlayerName(senderID : int, playerName : String) -> void:
 		$Players/Player_2/PlayerName.text = playerName
 		$Players/Player_2/PlayerName.caret_column = selectedCaret
 
+# Sends updated faction to peers
 @rpc("any_peer", "call_local", "reliable")
 func updateFaction(senderID : int, index : int) -> void:
 	if senderID == 1:
 		$Players/Player_1/FactionList.selected = index
 	else:
 		$Players/Player_2/FactionList.selected = index
+
+@rpc("any_peer", "call_local", "reliable")
+func setPlayerData() -> void:
+	var playerName : String = $Players/Player_1/PlayerName.text
+	var faction : Faction = Global.setFaction($Players/Player_1/FactionList.selected)
+	var direction : int = 1
+	
+	if !multiplayer.is_server():
+		playerName = $Players/Player_2/PlayerName.text
+		faction = Global.setFaction($Players/Player_2/FactionList.selected)
+		direction = -1
+	
+	Global.setPlayerData(playerName, faction, direction)

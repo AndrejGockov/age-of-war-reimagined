@@ -5,9 +5,6 @@ var hostID : int = -1
 
 var roomCode : String = ""
 
-func _ready() -> void:
-	pass
-
 func _process(delta: float) -> void:
 	pass
 	# Uncomment for debugging purpouses
@@ -28,7 +25,7 @@ func setupNewPeer() -> void:
 	
 	# Creates new peer and connects to nodetunnel
 	peer = NodeTunnelPeer.new()
-	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxx")
+	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxxx")
 	multiplayer.multiplayer_peer = peer
 	
 	# DO NOT TRY HOSTING OR CONNECTING BEFORE THIS PRINTS -Andrej
