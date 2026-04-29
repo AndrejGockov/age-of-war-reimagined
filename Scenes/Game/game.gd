@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @onready var menu : Control = $InGameMenu
 
 @onready var playerOneBase : Base = $Player_1_Base
@@ -11,6 +10,8 @@ func _ready() -> void:
 	
 	menu.get_node("PlayerName").text = Global.playerName
 	
+	# TODO
+	# Adding troop buttons to menu
 	#for unit in Global.faction:
 		#menu.create_node
 

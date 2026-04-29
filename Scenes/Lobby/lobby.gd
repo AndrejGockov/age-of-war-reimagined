@@ -77,27 +77,34 @@ func updatePlayerName(senderID : int, playerName : String) -> void:
 		selectedCaret = $Players/Player_1/PlayerName.caret_column
 		$Players/Player_1/PlayerName.text = playerName
 		$Players/Player_1/PlayerName.caret_column = selectedCaret
-	else:
-		selectedCaret = $Players/Player_2/PlayerName.caret_column
-		$Players/Player_2/PlayerName.text = playerName
-		$Players/Player_2/PlayerName.caret_column = selectedCaret
+		return
+	
+	selectedCaret = $Players/Player_2/PlayerName.caret_column
+	$Players/Player_2/PlayerName.text = playerName
+	$Players/Player_2/PlayerName.caret_column = selectedCaret
 
 # Sends updated faction to peers
 @rpc("any_peer", "call_local", "reliable")
 func updateFaction(senderID : int, index : int) -> void:
 	if senderID == 1:
 		$Players/Player_1/FactionList.selected = index
-	else:
-		$Players/Player_2/FactionList.selected = index
+		return
+	
+	$Players/Player_2/FactionList.selected = index
 
 @rpc("any_peer", "call_local", "reliable")
 func setPlayerData() -> void:
-	var playerName : String = $Players/Player_1/PlayerName.text
-	var faction : Faction = Global.setFaction($Players/Player_1/FactionList.selected)
-	var enemyFaction : Faction = Global.setFaction($Players/Player_2/FactionList.selected)
-	var direction : int = 1
+	var playerName : String
+	var faction : Faction
+	var enemyFaction : Faction
+	var direction : int
 	
-	if !multiplayer.is_server():
+	if multiplayer.is_server():
+		playerName = $Players/Player_1/PlayerName.text
+		faction = Global.setFaction($Players/Player_1/FactionList.selected)
+		enemyFaction = Global.setFaction($Players/Player_2/FactionList.selected)
+		direction = 1
+	else:
 		playerName = $Players/Player_2/PlayerName.text
 		faction = Global.setFaction($Players/Player_2/FactionList.selected)
 		enemyFaction = Global.setFaction($Players/Player_1/FactionList.selected)
