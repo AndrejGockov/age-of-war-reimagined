@@ -8,7 +8,7 @@ func _ready() -> void:
 		gameCode.text = Multiplayer.peer.room_id
 		
 		multiplayer.peer_connected.connect(onPeerConnects)
-		multiplayer.peer_disconnected.connect(resetPeerData)
+		multiplayer.peer_disconnected.connect(onPeerDisconnects)
 		$Players/Player_2/PlayerName.editable = false
 		$Players/Player_2/FactionList.disabled = true
 	else:
@@ -64,9 +64,10 @@ func onPeerConnects(id : int) -> void:
 	updateFaction.rpc_id(id, Multiplayer.getSenderID(), hostFaction)
 
 # Reset fresh values when peer disconnects
-func resetPeerData(id : int) -> void:
+func onPeerDisconnects(id : int) -> void:
+	print("Player 2 disconnected")
 	$Players/Player_2/PlayerName.text = "Player_2"
-	$Players/Player_2/FactionList.selected = 1
+	$Players/Player_2/FactionList.selected = 0
 
 # Sends updated player name to peers
 @rpc("any_peer", "call_local", "reliable")

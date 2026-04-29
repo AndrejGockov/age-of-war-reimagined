@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dc2mjqhm6fn13"]
+
+[ext_resource type="Script" uid="uid://cmce2vvdg8745" path="res://Scenes/Lobby/lobby.gd" id="1_dec0e"]
+
+[node name="Lobby" type="Node2D" unique_id=1596259199]
+script = ExtResource("1_dec0e")
+
+[node name="DisconnectButton" type="Button" parent="." unique_id=638649625]
+offset_top = 32.0
+offset_right = 130.0
+offset_bottom = 63.0
+text = "Disconnect"
+
+[node name="StartGame" type="Button" parent="." unique_id=466190885]
+offset_left = 296.0
+offset_top = 32.0
+offset_right = 426.0
+offset_bottom = 63.0
+text = "Start Game"
+
+[node name="GameCode" type="LineEdit" parent="." unique_id=782738634]
+offset_left = 144.0
+offset_top = 32.0
+offset_right = 274.0
+offset_bottom = 63.0
+placeholder_text = "Loading Code"
+
+[node name="Players" type="Panel" parent="." unique_id=859955628]
+offset_top = 104.0
+offset_right = 1152.0
+offset_bottom = 576.0
+
+[node name="Player_1" type="VBoxContainer" parent="Players" unique_id=400239018]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 24.0
+offset_right = 512.0
+offset_bottom = 408.0
+
+[node name="PlayerName" type="LineEdit" parent="Players/Player_1" unique_id=1890045231]
+layout_mode = 2
+text = "Player_1"
+
+[node name="FactionList" type="OptionButton" parent="Players/Player_1" unique_id=274912715]
+layout_mode = 2
+
+[node name="Player_2" type="VBoxContainer" parent="Players" unique_id=1161129784]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 24.0
+offset_right = 1090.0
+offset_bottom = 408.0
+
+[node name="PlayerName" type="LineEdit" parent="Players/Player_2" unique_id=1271043659]
+layout_mode = 2
+text = "Player_2"
+
+[node name="FactionList" type="OptionButton" parent="Players/Player_2" unique_id=835799366]
+layout_mode = 2
+
+[connection signal="pressed" from="DisconnectButton" to="." method="_on_disconnect_button_pressed"]
+[connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="text_changed" from="Players/Player_1/PlayerName" to="." method="_on_player_name_text_changed"]
+[connection signal="item_selected" from="Players/Player_1/FactionList" to="." method="_on_faction_list_item_selected"]
+[connection signal="text_changed" from="Players/Player_2/PlayerName" to="." method="_on_player_name_text_changed"]
+[connection signal="item_selected" from="Players/Player_2/FactionList" to="." method="_on_faction_list_item_selected"]

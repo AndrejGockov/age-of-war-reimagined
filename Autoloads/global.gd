@@ -6,22 +6,28 @@ signal changeLevel
 func changeLevelTo(path : String) -> void:
 	changeLevel.emit(path)
 
+
+# Setting faction before game
 enum factions { Castle, Horde, Artificer, Undead }
+var registrerFaction = {
+	factions.Castle : Castle,
+	factions.Horde: Horde,
+	factions.Artificer: Artificer,
+	factions.Undead: Undead
+}
 
 func setFaction(index : int) -> Faction:
-	var registry = {
-		factions.Castle : Castle,
-		factions.Horde: Horde,
-		factions.Artificer: Artificer,
-		factions.Undead: Undead
-	}
-	
-	return registry[index].new()
+	return registrerFaction[index].new()
 
-# For tracking choices during game
+
+# Variables during match
 @export var playerName : String
 @export var faction : Faction
 @export var globalDirection : int
+@export var gold : int
+
+@export var enemyPlayerName : String
+@export var enemyFaction : Faction
 
 func setPlayerData(playerName : String, 
 faction : Faction, globalDirection : int) -> void:

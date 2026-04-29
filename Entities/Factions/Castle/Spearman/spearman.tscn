@@ -9,6 +9,7 @@
 script = ExtResource("1_m7nx8")
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
+unitName = "Spearman"
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_7hk38")]
 

@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Entity
 
 # Default values
+@export var unitName : String = "Worker"
 @export var price : int = 100
 @export var speed : float = 500
 @export var direction : float = 1.0

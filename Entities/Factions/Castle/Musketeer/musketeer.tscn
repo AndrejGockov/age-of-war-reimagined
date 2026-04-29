@@ -12,6 +12,7 @@ attackDamage = null
 attackSpeed = null
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
+unitName = "Musketeer"
 price = null
 speed = null
 direction = null

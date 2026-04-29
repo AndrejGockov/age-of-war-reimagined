@@ -5,7 +5,11 @@ var hostID : int = -1
 
 var roomCode : String = ""
 
+var config = ConfigFile.new()
+var err
+
 func _process(delta: float) -> void:
+	err = config.load("res://secrets.cfg")
 	pass
 	# Uncomment for debugging purpouses
 	#if multiplayer.multiplayer_peer == null:
@@ -19,13 +23,18 @@ func _process(delta: float) -> void:
 	#print("Connected clients: ", total_participants)
 
 func setupNewPeer() -> void:
+	if err != OK:
+		print("Failed to connect to nodetunnel")
+		return
+	
 	# Closes old peer if it exists
 	if peer:
 		peer.close()
 	
 	# Creates new peer and connects to nodetunnel
 	peer = NodeTunnelPeer.new()
-	peer.connect_to_relay("eu_central.nodetunnel.io:8080", "xxxxx")
+	peer.connect_to_relay("eu_central.nodetunnel.io:8080", 
+	config.get_value("nodetunnel", "id"))
 	multiplayer.multiplayer_peer = peer
 	
 	# DO NOT TRY HOSTING OR CONNECTING BEFORE THIS PRINTS -Andrej
@@ -56,7 +65,6 @@ func host():
 	
 	await peer.room_connected
 	print("Connected to room: ", peer.room_id)
-	
 	hostID = peer.get_unique_id()
 
 @rpc("authority", "call_remote", "reliable")
