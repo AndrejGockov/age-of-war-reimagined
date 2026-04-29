@@ -31,7 +31,7 @@ func setFaction(index : int) -> Faction:
 
 func setPlayerData(
 	playerName : String, 
-	faction : Faction, 
+	faction : Faction,
 	enemyFaction : Faction, 
 	globalDirection : int) -> void:
 	self.playerName = playerName

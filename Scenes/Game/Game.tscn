@@ -12,6 +12,7 @@ script = ExtResource("1_rdw05")
 [node name="Player_1_Base" parent="." unique_id=1787322015 instance=ExtResource("2_xbxml")]
 
 [node name="Player_2_Base" parent="." unique_id=395976895 instance=ExtResource("2_xbxml")]
+position = Vector2(1152, 0)
 
 [node name="Player_1_Units" type="Node2D" parent="." unique_id=1694820944]
 

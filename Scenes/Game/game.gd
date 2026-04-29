@@ -13,7 +13,7 @@ func _ready() -> void:
 	# TODO
 	# Adding troop buttons to menu
 	#for unit in Global.faction:
-		#menu.create_node
+		#menu.add_child()
 
 func _process(delta: float) -> void:
 	pass
