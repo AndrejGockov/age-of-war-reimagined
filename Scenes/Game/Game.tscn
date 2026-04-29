@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://qae447ocjeyk"]
 
 [ext_resource type="Script" uid="uid://exwxbfy8thcr" path="res://Scenes/Game/game.gd" id="1_rdw05"]
+[ext_resource type="PackedScene" uid="uid://cw2l0tlxs8tfg" path="res://Scenes/UI/In_Game_Menu/in_game_menu.tscn" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://cau4y46jjkajq" path="res://Entities/Structures/Faction_Base/base.tscn" id="2_xbxml"]
 
 [node name="Game" type="Node2D" unique_id=564710753]
 script = ExtResource("1_rdw05")
 
-[node name="TextEdit" type="TextEdit" parent="." unique_id=1124126593]
-offset_top = 45.0
-offset_right = 242.0
-offset_bottom = 94.0
+[node name="InGameMenu" parent="." unique_id=331908393 instance=ExtResource("2_gwu2e")]
 
-[node name="TextEdit2" type="TextEdit" parent="." unique_id=675234380]
-offset_top = 127.0
-offset_right = 242.0
-offset_bottom = 180.0
+[node name="Player_1_Base" parent="." unique_id=1787322015 instance=ExtResource("2_xbxml")]
+
+[node name="Player_2_Base" parent="." unique_id=395976895 instance=ExtResource("2_xbxml")]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1694820944]

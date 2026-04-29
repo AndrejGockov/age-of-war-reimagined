@@ -30,7 +30,10 @@ func setFaction(index : int) -> Faction:
 @export var enemyFaction : Faction
 
 func setPlayerData(playerName : String, 
-faction : Faction, globalDirection : int) -> void:
+faction : Faction, 
+enemyFaction : Faction, 
+globalDirection : int) -> void:
 	self.playerName = playerName
 	self.faction = faction
+	self.enemyFaction = enemyFaction
 	self.globalDirection = globalDirection

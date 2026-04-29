@@ -3,7 +3,7 @@ extends Faction
 
 func _init() -> void:
 	super("Horde", 
-	"res://Entities/Structures/Faction_Base/base.tscn",
+	Variables.HORDE_HP,
 	["res://Entities/Factions/Castle/Spearman/spearman.tscn"])
 
 func _ready() -> void:

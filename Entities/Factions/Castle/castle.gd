@@ -4,7 +4,7 @@ extends Faction
 func _init() -> void:
 	super(
 		"Castle",
-		"res://Entities/Structures/Faction_Base/base.tscn",
+		Variables.CASTLE_HP,
 		["res://Entities/Factions/Castle/Spearman/spearman.tscn"]
 	)
 

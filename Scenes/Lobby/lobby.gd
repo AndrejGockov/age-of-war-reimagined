@@ -94,11 +94,13 @@ func updateFaction(senderID : int, index : int) -> void:
 func setPlayerData() -> void:
 	var playerName : String = $Players/Player_1/PlayerName.text
 	var faction : Faction = Global.setFaction($Players/Player_1/FactionList.selected)
+	var enemyFaction : Faction = Global.setFaction($Players/Player_2/FactionList.selected)
 	var direction : int = 1
 	
 	if !multiplayer.is_server():
 		playerName = $Players/Player_2/PlayerName.text
 		faction = Global.setFaction($Players/Player_2/FactionList.selected)
+		enemyFaction = Global.setFaction($Players/Player_1/FactionList.selected)
 		direction = -1
 	
-	Global.setPlayerData(playerName, faction, direction)
+	Global.setPlayerData(playerName, faction, enemyFaction, direction)
