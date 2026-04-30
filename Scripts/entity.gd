@@ -1,6 +1,5 @@
-extends CharacterBody2D
-
 class_name Entity
+extends CharacterBody2D
 
 # Default values
 @export var unitName : String = "Worker"

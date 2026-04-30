@@ -17,7 +17,3 @@ position = Vector2(1152, 0)
 [node name="Player_1_Units" type="Node2D" parent="." unique_id=1694820944]
 
 [node name="Player_2_Units" type="Node2D" parent="." unique_id=1847819805]
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=532356038]
-position = Vector2(544, 0)
-zoom = Vector2(0.47, 0.47)

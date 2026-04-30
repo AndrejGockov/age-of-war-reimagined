@@ -30,6 +30,7 @@ enabled=PackedStringArray("res://addons/nodetunnel/plugin.cfg")
 Worker=""
 Unit=""
 Base=""
+Troop_Buttons=""
 
 [physics]
 

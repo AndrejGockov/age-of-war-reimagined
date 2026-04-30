@@ -27,10 +27,9 @@ func _ready() -> void:
 
 # Handles game starting
 func _on_start_game_pressed() -> void:
+	# Sets players name & faction
 	setPlayerData.rpc()
-	
 	await get_tree().process_frame
-	
 	Global.changeLevelTo("res://Scenes/Game/Game.tscn")
 
 # Called when either player leaves lobby
@@ -65,7 +64,6 @@ func onPeerConnects(id : int) -> void:
 
 # Reset fresh values when peer disconnects
 func onPeerDisconnects(id : int) -> void:
-	print("Player 2 disconnected")
 	$Players/Player_2/PlayerName.text = "Player_2"
 	$Players/Player_2/FactionList.selected = 0
 

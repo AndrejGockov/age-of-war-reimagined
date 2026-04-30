@@ -1,6 +1,5 @@
+@abstract class_name Unit
 extends Entity
-
-class_name Unit
 
 # Default values
 @export var hitpoints : int = 100

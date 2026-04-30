@@ -38,3 +38,6 @@ func setPlayerData(
 	self.faction = faction
 	self.enemyFaction = enemyFaction
 	self.globalDirection = globalDirection
+	
+	# REPLACE WITH STARTER GOLD
+	gold = 100

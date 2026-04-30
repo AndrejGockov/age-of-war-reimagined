@@ -13,3 +13,52 @@ offset_bottom = 43.0
 text = "Loading Name . . ."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Worker" type="Button" parent="." unique_id=1976680711 groups=["Troop_Buttons"]]
+layout_mode = 0
+offset_top = 43.0
+offset_right = 119.0
+offset_bottom = 79.0
+text = "Worker"
+
+[node name="Unit_1" type="Button" parent="." unique_id=1635629379 groups=["Troop_Buttons"]]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 43.0
+offset_right = 255.0
+offset_bottom = 79.0
+text = "Light"
+
+[node name="Unit_2" type="Button" parent="." unique_id=1962897376 groups=["Troop_Buttons"]]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 43.0
+offset_right = 391.0
+offset_bottom = 79.0
+text = "Ranged"
+
+[node name="Unit_3" type="Button" parent="." unique_id=1007468525 groups=["Troop_Buttons"]]
+layout_mode = 0
+offset_left = 408.0
+offset_top = 43.0
+offset_right = 527.0
+offset_bottom = 79.0
+text = "Heavy"
+
+[node name="Unit_4" type="Button" parent="." unique_id=1894270412 groups=["Troop_Buttons"]]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 43.0
+offset_right = 663.0
+offset_bottom = 79.0
+text = "Light Special"
+
+[node name="Unit_5" type="Button" parent="." unique_id=705172192 groups=["Troop_Buttons"]]
+layout_mode = 0
+offset_left = 680.0
+offset_top = 43.0
+offset_right = 799.0
+offset_bottom = 79.0
+text = "Heavy Special"
+
+[connection signal="pressed" from="Worker" to="." method="_on_worker_pressed"]
