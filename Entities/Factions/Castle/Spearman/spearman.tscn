@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Shared/Unit/unit_collision_shape_2d.tscn" id="2_7hk38"]
 [ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Shared/Unit/unit_raycast.tscn" id="3_6ckx7"]
 [ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Shared/Unit/unit_timer.tscn" id="4_raorf"]
+[ext_resource type="Texture2D" uid="uid://db6ju2mmebou3" path="res://Assets/Sprites/spearman.png" id="5_uqd1b"]
 
 [node name="spearman" type="CharacterBody2D" unique_id=17860198 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
+collision_mask = 0
 script = ExtResource("1_m7nx8")
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
@@ -17,3 +19,8 @@ unitName = "Spearman"
 target_position = Vector2(140, 0)
 
 [node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_raorf")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1122497211]
+position = Vector2(-4.4999948, 0.7499498)
+scale = Vector2(0.7362205, 0.9025421)
+texture = ExtResource("5_uqd1b")

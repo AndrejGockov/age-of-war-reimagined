@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Shared/Unit/unit_timer.tscn" id="4_e8f3i"]
 
 [node name="Musketeer" type="CharacterBody2D" unique_id=1617145020 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
+collision_mask = 0
 script = ExtResource("1_jnj2k")
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://crmw70nry6822"]
+
+[ext_resource type="Script" uid="uid://baeuicf67oaya" path="res://Entities/Factions/Artificer/Robot_Dog/robot_dog.gd" id="1_13iwg"]
+[ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Shared/Unit/unit_collision_shape_2d.tscn" id="2_kuvnk"]
+[ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Shared/Unit/unit_raycast.tscn" id="3_swlcd"]
+[ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Shared/Unit/unit_timer.tscn" id="4_nxity"]
+[ext_resource type="Texture2D" uid="uid://b78eqspsnypny" path="res://Assets/Sprites/robot_dog.png" id="5_swlcd"]
+
+[node name="RobotDog" type="CharacterBody2D" unique_id=487380906 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
+collision_mask = 0
+script = ExtResource("1_13iwg")
+hitpoints = 50
+attackDamage = 5
+attackSpeed = 0.3
+hitbox = NodePath("unit_raycast")
+attackCoolDown = NodePath("unit_timer")
+unitName = "Robot Dog"
+
+[node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_kuvnk")]
+
+[node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("3_swlcd")]
+target_position = Vector2(40, 0)
+
+[node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_nxity")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=629081626]
+position = Vector2(-1.1368684e-13, 44)
+scale = Vector2(0.3557143, 0.3267857)
+texture = ExtResource("5_swlcd")
