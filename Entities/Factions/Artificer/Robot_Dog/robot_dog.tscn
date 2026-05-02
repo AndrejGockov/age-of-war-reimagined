@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Entities/Shared/Unit/unit_raycast.tscn" id="3_swlcd"]
 [ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Entities/Shared/Unit/unit_timer.tscn" id="4_nxity"]
 [ext_resource type="Texture2D" uid="uid://b78eqspsnypny" path="res://Assets/Sprites/robot_dog.png" id="5_swlcd"]
+[ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="6_nxity"]
 
 [node name="RobotDog" type="CharacterBody2D" unique_id=487380906 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
@@ -27,3 +28,5 @@ target_position = Vector2(40, 0)
 position = Vector2(-1.1368684e-13, 44)
 scale = Vector2(0.3557143, 0.3267857)
 texture = ExtResource("5_swlcd")
+
+[node name="MultiplayerSynchronizer" parent="." unique_id=2049026701 instance=ExtResource("6_nxity")]

@@ -1,3 +1,4 @@
+class_name Worker
 extends Entity
 
 @onready var timer : Timer = $Timer
@@ -7,7 +8,7 @@ func _ready() -> void:
 	hasGold = false
 
 func _process(delta: float) -> void:
-	if timer.is_stopped():
+	if is_multiplayer_authority() && timer.is_stopped():
 		move()
 
 func collect_gold(duration : float):

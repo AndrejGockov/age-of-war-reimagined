@@ -67,6 +67,9 @@ unit_timer - Cooldown timer between each attack
 	direction
 	spawnOwnerID
 
+(Or copy paste the MultiplayerSynchronizer from an existing unit)
+
+
 ## 5. Customize
 
 From here you can customize each unit based on what you want it's behavior to behaviour to be.

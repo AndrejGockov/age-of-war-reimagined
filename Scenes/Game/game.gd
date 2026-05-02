@@ -12,30 +12,20 @@ func _ready() -> void:
 	menu.get_node("PlayerName").text = Global.playerName
 	setBases.rpc()
 	
-	instantiateUnits()
+	if multiplayer.get_unique_id() == 1:
+		addUnitsToSynchronizer(playerOneSpawner, Global.faction.units)
+		addUnitsToSynchronizer(playerTwoSpawner, Global.enemyFaction.units)
+	else:
+		addUnitsToSynchronizer(playerTwoSpawner, Global.faction.units)
+		addUnitsToSynchronizer(playerOneSpawner, Global.enemyFaction.units)
+	
 	await get_tree().process_frame
 	setTroopButtons()
 
-# Creates an instance of every unit in the faction
-func instantiateUnits() -> void:
-	# Your units
-	var unitCount : int = Global.faction.units.size()
-	#units.resize(unitCount)
-	
-	for i : int in unitCount:
-		#units[i] = Global.faction.units[i]#.instantiate()
-		playerOneSpawner.add_spawnable_scene(Global.faction.units[i].resource_path)
-		playerTwoSpawner.add_spawnable_scene(Global.faction.units[i].resource_path)
-	
-	
-	# Enemy units
-	var enemyUnitCount : int = Global.enemyFaction.units.size()
-	#enemyUnits.resize(enemyUnitCount)
-	
-	for i : int in enemyUnitCount:
-		#enemyUnits[i] = Global.enemyFaction.units[i]#.instantiate()
-		playerOneSpawner.add_spawnable_scene(Global.enemyFaction.units[i].resource_path)
-		playerTwoSpawner.add_spawnable_scene(Global.enemyFaction.units[i].resource_path)
+# Adds units to corresponding MultiplayerSpawner
+func addUnitsToSynchronizer(spawner : MultiplayerSpawner, units : Array[PackedScene]) -> void:
+	for scene in units:
+		spawner.add_spawnable_scene(scene.resource_path)
 
 @rpc("any_peer", "call_local", "reliable")
 func setBases() -> void:
@@ -45,9 +35,7 @@ func setBases() -> void:
 	
 	playerTwoBase.hitpoints = Global.enemyFaction.baseHP
 
-#playerOneBase.hitpoints = Global.faction.baseHP
-#playerTwoBase.hitpoints = Global.enemyFaction.baseHP
-
+# Sets the buttons to spawn the appropriate troops
 func setTroopButtons() -> void:
 	var buttons = get_tree().get_nodes_in_group("Troop_Buttons")
 	var totalUnits : int = Global.faction.units.size()
@@ -56,16 +44,12 @@ func setTroopButtons() -> void:
 		buttons[i].text = Global.faction.units[i].instantiate().unitName
 		buttons[i].pressed.connect(spawnUnit.bind(i))
 
-
-# Global position is only tracked for one player, aka p1 doesnt know p2 dir
 func spawnUnit(index : int) -> void:
-	var direction = Global.globalDirection
-	var spawnPoint : Vector2 = playerOneBase.spawnPoint.global_position
-	
-	if direction != 1:
-		spawnPoint = playerTwoBase.spawnPoint.global_position
-	
-	spawnForAllPlayers.rpc(index, multiplayer.get_unique_id(), direction)
+	spawnForAllPlayers.rpc(
+		index, 
+		multiplayer.get_unique_id(), 
+		Global.globalDirection
+	)
 
 @rpc("any_peer", "call_local", "reliable")
 func spawnForAllPlayers(index : int, spawnerID : int, direction : int) -> void:
@@ -77,10 +61,8 @@ func spawnForAllPlayers(index : int, spawnerID : int, direction : int) -> void:
 	# Determines who spawned the unit
 	if multiplayer.get_unique_id() == spawnerID:
 		unit = Global.faction.units[index].instantiate()
-		#unit.set_direction(direction)#Global.globalDirection)
 	else:
 		unit = Global.enemyFaction.units[index].instantiate()
-		#unit.set_direction(direction)#Global.globalDirection * -1)
 	
 	unit.set_direction(direction)
 	unit.spawnOwnerID = spawnerID
