@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cau4y46jjkajq"]
 
 [ext_resource type="Script" uid="uid://bpqa34g00i23m" path="res://Entities/Structures/Faction_Base/base.gd" id="1_nnhjt"]
-[ext_resource type="PackedScene" uid="uid://nri0geei7tpe" path="res://Shared/Base/base_collision_shape_2d.tscn" id="1_qxknv"]
-[ext_resource type="PackedScene" uid="uid://cjkmf1gvl5ctb" path="res://Shared/Base/spawn_point.tscn" id="2_nnhjt"]
+[ext_resource type="PackedScene" uid="uid://nri0geei7tpe" path="res://Entities/Shared/Base/base_collision_shape_2d.tscn" id="1_qxknv"]
+[ext_resource type="PackedScene" uid="uid://cjkmf1gvl5ctb" path="res://Entities/Shared/Base/spawn_point.tscn" id="2_nnhjt"]
 
 [node name="Base" type="Area2D" unique_id=1787322015 node_paths=PackedStringArray("spawnPoint") groups=["Base"]]
 script = ExtResource("1_nnhjt")

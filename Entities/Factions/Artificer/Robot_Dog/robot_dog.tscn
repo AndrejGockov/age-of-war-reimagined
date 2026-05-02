@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://crmw70nry6822"]
 
 [ext_resource type="Script" uid="uid://baeuicf67oaya" path="res://Entities/Factions/Artificer/Robot_Dog/robot_dog.gd" id="1_13iwg"]
-[ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Shared/Unit/unit_collision_shape_2d.tscn" id="2_kuvnk"]
-[ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Shared/Unit/unit_raycast.tscn" id="3_swlcd"]
-[ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Shared/Unit/unit_timer.tscn" id="4_nxity"]
+[ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Entities/Shared/Unit/unit_collision_shape_2d.tscn" id="2_kuvnk"]
+[ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Entities/Shared/Unit/unit_raycast.tscn" id="3_swlcd"]
+[ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Entities/Shared/Unit/unit_timer.tscn" id="4_nxity"]
 [ext_resource type="Texture2D" uid="uid://b78eqspsnypny" path="res://Assets/Sprites/robot_dog.png" id="5_swlcd"]
 
 [node name="RobotDog" type="CharacterBody2D" unique_id=487380906 node_paths=PackedStringArray("hitbox", "attackCoolDown")]

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://3r7ogg08xmk4"]
 
 [ext_resource type="Script" uid="uid://c01m3ph56oth3" path="res://Entities/Factions/Castle/Spearman/spearman.gd" id="1_m7nx8"]
-[ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Shared/Unit/unit_collision_shape_2d.tscn" id="2_7hk38"]
-[ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Shared/Unit/unit_raycast.tscn" id="3_6ckx7"]
-[ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Shared/Unit/unit_timer.tscn" id="4_raorf"]
+[ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Entities/Shared/Unit/unit_collision_shape_2d.tscn" id="2_7hk38"]
+[ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Entities/Shared/Unit/unit_raycast.tscn" id="3_6ckx7"]
+[ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Entities/Shared/Unit/unit_timer.tscn" id="4_raorf"]
 [ext_resource type="Texture2D" uid="uid://db6ju2mmebou3" path="res://Assets/Sprites/spearman.png" id="5_uqd1b"]
 
 [node name="spearman" type="CharacterBody2D" unique_id=17860198 node_paths=PackedStringArray("hitbox", "attackCoolDown")]

@@ -25,6 +25,16 @@ Variables="*uid://dq88gwx3143nw"
 
 enabled=PackedStringArray("res://addons/nodetunnel/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "yellow",
+"res://Autoloads/": "red",
+"res://Entities/": "teal",
+"res://Entities/Shared/": "teal",
+"res://Scenes/": "green"
+}
+
 [global_group]
 
 Worker=""
