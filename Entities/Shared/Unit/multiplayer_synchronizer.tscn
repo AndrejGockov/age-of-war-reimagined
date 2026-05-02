@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bdg7r2nyqofxi"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_gobrs"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:direction")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:spawnOwnerID")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" unique_id=2049026701]
+replication_config = SubResource("SceneReplicationConfig_gobrs")

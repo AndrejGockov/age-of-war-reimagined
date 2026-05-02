@@ -5,8 +5,8 @@ extends Node2D
 @onready var playerOneBase : Base = $Player_1_Base
 @onready var playerTwoBase : Base = $Player_2_Base
 
-var units : Array[Entity]
-var enemyUnits : Array[Entity]
+@onready var playerOneSpawner : MultiplayerSpawner = $Player_1_MultiplayerSpawner
+@onready var playerTwoSpawner : MultiplayerSpawner = $Player_2_MultiplayerSpawner
 
 func _ready() -> void:
 	menu.get_node("PlayerName").text = Global.playerName
@@ -20,21 +20,22 @@ func _ready() -> void:
 func instantiateUnits() -> void:
 	# Your units
 	var unitCount : int = Global.faction.units.size()
-	units.resize(unitCount)
+	#units.resize(unitCount)
 	
 	for i : int in unitCount:
-		units[i] = Global.faction.units[i].instantiate()
+		#units[i] = Global.faction.units[i]#.instantiate()
+		playerOneSpawner.add_spawnable_scene(Global.faction.units[i].resource_path)
+		playerTwoSpawner.add_spawnable_scene(Global.faction.units[i].resource_path)
 	
 	
 	# Enemy units
 	var enemyUnitCount : int = Global.enemyFaction.units.size()
-	enemyUnits.resize(enemyUnitCount)
+	#enemyUnits.resize(enemyUnitCount)
 	
 	for i : int in enemyUnitCount:
-		enemyUnits[i] = Global.enemyFaction.units[i].instantiate()
-
-func _process(delta: float) -> void:
-	pass
+		#enemyUnits[i] = Global.enemyFaction.units[i]#.instantiate()
+		playerOneSpawner.add_spawnable_scene(Global.enemyFaction.units[i].resource_path)
+		playerTwoSpawner.add_spawnable_scene(Global.enemyFaction.units[i].resource_path)
 
 @rpc("any_peer", "call_local", "reliable")
 func setBases() -> void:
@@ -58,27 +59,37 @@ func setTroopButtons() -> void:
 
 # Global position is only tracked for one player, aka p1 doesnt know p2 dir
 func spawnUnit(index : int) -> void:
-	spawnForAllPlayers.rpc(index, multiplayer.get_unique_id(), Global.globalDirection)
+	var direction = Global.globalDirection
+	var spawnPoint : Vector2 = playerOneBase.spawnPoint.global_position
+	
+	if direction != 1:
+		spawnPoint = playerTwoBase.spawnPoint.global_position
+	
+	spawnForAllPlayers.rpc(index, multiplayer.get_unique_id(), direction)
 
 @rpc("any_peer", "call_local", "reliable")
 func spawnForAllPlayers(index : int, spawnerID : int, direction : int) -> void:
+	if !multiplayer.is_server():
+		return
+	
 	var unit : Entity
 	
 	# Determines who spawned the unit
 	if multiplayer.get_unique_id() == spawnerID:
-		unit = units[index]
+		unit = Global.faction.units[index].instantiate()
 		#unit.set_direction(direction)#Global.globalDirection)
 	else:
-		unit = enemyUnits[index]
+		unit = Global.enemyFaction.units[index].instantiate()
 		#unit.set_direction(direction)#Global.globalDirection * -1)
 	
 	unit.set_direction(direction)
+	unit.spawnOwnerID = spawnerID
 	
 	# Determines where to spawn the unit
 	if direction == 1:
 		unit.global_position = playerOneBase.spawnPoint.global_position
-		$Player_1_Units.add_child(unit.duplicate())
+		$Player_1_Units.add_child(unit, true)
 		return
 	
 	unit.global_position = playerTwoBase.spawnPoint.global_position
-	$Player_2_Units.add_child(unit.duplicate())
+	$Player_2_Units.add_child(unit, true)

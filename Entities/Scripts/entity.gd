@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var speed : float = 500
 @export var direction : float = 1.0
 
+# Tracks who spawned the entity
+@export var spawnOwnerID : int = 1 
+
 func set_direction(direction : float) -> void:
 	self.direction = direction
 
