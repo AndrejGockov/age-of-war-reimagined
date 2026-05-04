@@ -4,6 +4,8 @@ extends Node2D
 @onready var gameCode : LineEdit = $GameCode
 
 func _ready() -> void:
+	startGameButton.disabled = true
+	
 	if multiplayer.is_server():
 		gameCode.text = Multiplayer.peer.room_id
 		
@@ -15,9 +17,6 @@ func _ready() -> void:
 		gameCode.text = Multiplayer.roomCode
 		$Players/Player_1/PlayerName.editable = false
 		$Players/Player_1/FactionList.disabled = true
-		
-		# Only hosts can start the game
-		startGameButton.disabled = true
 	
 	for player in $Players.get_children():
 		var factionList = player.get_node("FactionList")
@@ -54,6 +53,9 @@ func _on_faction_list_item_selected(index : int) -> void:
 
 # Send hosts data when peer connects
 func onPeerConnects(id : int) -> void:
+	# Host can now start the game
+	startGameButton.disabled = false
+	
 	# Gets the hosts data
 	var hostName = $Players/Player_1/PlayerName.text
 	var hostFaction = $Players/Player_1/FactionList.selected
@@ -62,10 +64,11 @@ func onPeerConnects(id : int) -> void:
 	updatePlayerName.rpc_id(id, Multiplayer.getSenderID(), hostName)
 	updateFaction.rpc_id(id, Multiplayer.getSenderID(), hostFaction)
 
-# Reset fresh values when peer disconnects
+# Resets values when peer disconnects and host can't start game
 func onPeerDisconnects(id : int) -> void:
 	$Players/Player_2/PlayerName.text = "Player_2"
 	$Players/Player_2/FactionList.selected = 0
+	startGameButton.disabled = true
 
 # Sends updated player name to peers
 @rpc("any_peer", "call_local", "reliable")
