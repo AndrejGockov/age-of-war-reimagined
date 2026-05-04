@@ -58,6 +58,10 @@ text = "Player_2"
 [node name="FactionList" type="OptionButton" parent="Players/Player_2" unique_id=835799366]
 layout_mode = 2
 
+[node name="StartGameTimer" type="Timer" parent="." unique_id=831973700]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="pressed" from="DisconnectButton" to="." method="_on_disconnect_button_pressed"]
 [connection signal="pressed" from="StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="text_changed" from="Players/Player_1/PlayerName" to="." method="_on_player_name_text_changed"]

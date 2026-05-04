@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var startGameButton : Button = $StartGame
+@onready var startGameTimer : Timer = $StartGameTimer
 @onready var gameCode : LineEdit = $GameCode
 
 func _ready() -> void:
@@ -28,7 +29,14 @@ func _ready() -> void:
 func _on_start_game_pressed() -> void:
 	# Sets players name & faction
 	setPlayerData.rpc()
+	
+	
+	# Uncomment and finish later
+	#startGameTimer.start()
+	#await startGameTimer.timeout
+	
 	await get_tree().process_frame
+	
 	Global.changeLevelTo("res://Scenes/Game/Game.tscn")
 
 # Called when either player leaves lobby
