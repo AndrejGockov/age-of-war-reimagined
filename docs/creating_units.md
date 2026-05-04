@@ -50,12 +50,23 @@ unit_raycast - How far the unit reaches for it's attack
 
 unit_timer - Cooldown timer between each attack
 
+![Unit Nodes](assets/unit_nodes_folder.png)
+<br>
+<br>
 3.4 Select CharacterBody2D > Go to Inspector
 
 &emsp;3.4.1 Find the Hitbox > Set it to be unit_raycast
 
 &emsp;3.4.2 Find the Hitbox > Set it to be unit_timer
 
+&emsp;3.4.5 Scroll to Collision section and match the image:
+
+![Collision Mask](assets/collision_layer_&_mask.png)
+<br>
+
+This is so units don't collide with one another so they stack together
+
+<br>
 3.5 Select MultiplayerSynchronizer
 
 &emsp;3.5.1 Go into the bottom and select Replication
@@ -67,8 +78,13 @@ unit_timer - Cooldown timer between each attack
 	direction
 	spawnOwnerID
 
-(Or copy paste the MultiplayerSynchronizer from an existing unit)
+&emsp;(Or copy paste the MultiplayerSynchronizer from an existing unit)
 
+<br>
+
+&emsp;That unit should have these values appear in the Replication window:
+<br>
+&emsp;![Replication tab](assets/replication_tab.png)
 
 ## 5. Customize
 

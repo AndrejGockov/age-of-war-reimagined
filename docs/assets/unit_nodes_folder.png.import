@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs34c200e2bn7"
-path="res://.godot/imported/spearman.png-1afd1e34088f9c3e0890978c5517fc74.ctex"
+uid="uid://dnwuwpiehvkuy"
+path="res://.godot/imported/unit_nodes_folder.png-851735776e0aef17d544424a7697d581.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/spearman.png"
-dest_files=["res://.godot/imported/spearman.png-1afd1e34088f9c3e0890978c5517fc74.ctex"]
+source_file="res://docs/assets/unit_nodes_folder.png"
+dest_files=["res://.godot/imported/unit_nodes_folder.png-851735776e0aef17d544424a7697d581.ctex"]
 
 [params]
 

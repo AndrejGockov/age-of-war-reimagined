@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs34c200e2bn7"
-path="res://.godot/imported/spearman.png-1afd1e34088f9c3e0890978c5517fc74.ctex"
+uid="uid://b5coc4lmymsse"
+path="res://.godot/imported/collision_layer_&_mask.png-5535d137596524a1596d6e920bfda949.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/spearman.png"
-dest_files=["res://.godot/imported/spearman.png-1afd1e34088f9c3e0890978c5517fc74.ctex"]
+source_file="res://docs/assets/collision_layer_&_mask.png"
+dest_files=["res://.godot/imported/collision_layer_&_mask.png-5535d137596524a1596d6e920bfda949.ctex"]
 
 [params]
 
