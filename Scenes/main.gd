@@ -3,7 +3,7 @@ extends Node2D
 @onready var level : Node = $Level
 
 func _ready() -> void:
-	# Set up signal for changing levels
+	# Sets up signal for changing levels
 	Global.changeLevel.connect(onChangeLevel)
 
 func onChangeLevel(levelPath : String) -> void:
