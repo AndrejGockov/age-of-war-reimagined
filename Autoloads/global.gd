@@ -19,12 +19,10 @@ var registrerFaction = {
 func setFaction(index : int) -> Faction:
 	return registrerFaction[index].new()
 
-
 # Variables during match
 @export var playerName : String
 @export var faction : Faction
 @export var globalDirection : int
-@export var gold : int
 
 @export var enemyPlayerName : String
 @export var enemyFaction : Faction
@@ -32,12 +30,11 @@ func setFaction(index : int) -> Faction:
 func setPlayerData(
 	playerName : String, 
 	faction : Faction,
-	enemyFaction : Faction, 
+	enemyPlayerName : String,
+	enemyFaction : Faction,
 	globalDirection : int) -> void:
 	self.playerName = playerName
 	self.faction = faction
+	self.enemyPlayerName = enemyPlayerName
 	self.enemyFaction = enemyFaction
 	self.globalDirection = globalDirection
-	
-	# REPLACE WITH STARTER GOLD
-	gold = 100

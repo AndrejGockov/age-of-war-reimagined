@@ -106,17 +106,20 @@ func setPlayerData() -> void:
 	var playerName : String
 	var faction : Faction
 	var enemyFaction : Faction
+	var enemyPlayerName : String
 	var direction : int
 	
 	if multiplayer.is_server():
 		playerName = $Players/Player_1/PlayerName.text
 		faction = Global.setFaction($Players/Player_1/FactionList.selected)
+		enemyPlayerName = $Players/Player_2/PlayerName.text
 		enemyFaction = Global.setFaction($Players/Player_2/FactionList.selected)
 		direction = 1
 	else:
 		playerName = $Players/Player_2/PlayerName.text
 		faction = Global.setFaction($Players/Player_2/FactionList.selected)
+		enemyPlayerName = $Players/Player_1/PlayerName.text
 		enemyFaction = Global.setFaction($Players/Player_1/FactionList.selected)
 		direction = -1
 	
-	Global.setPlayerData(playerName, faction, enemyFaction, direction)
+	Global.setPlayerData(playerName, faction, enemyPlayerName, enemyFaction, direction)
