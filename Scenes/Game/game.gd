@@ -8,6 +8,8 @@ extends Node2D
 @onready var playerOneSpawner : MultiplayerSpawner = $Player_1_MultiplayerSpawner
 @onready var playerTwoSpawner : MultiplayerSpawner = $Player_2_MultiplayerSpawner
 
+@onready var gold : int
+
 func _ready() -> void:
 	menu.get_node("PlayerName").text = Global.playerName
 	setBases.rpc()

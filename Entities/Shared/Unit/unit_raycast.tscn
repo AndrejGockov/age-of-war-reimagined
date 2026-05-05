@@ -3,3 +3,4 @@
 [node name="unit_raycast" type="RayCast2D" unique_id=1754191596]
 scale = Vector2(5, 5)
 target_position = Vector2(25, 0)
+collide_with_areas = true

@@ -13,7 +13,7 @@ script = ExtResource("1_fee55")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1627627867]
 position = Vector2(-2415, 343)
-zoom = Vector2(-0.255, -0.255)
+zoom = Vector2(0.255, 0.255)
 
 [node name="GoldMine" parent="." unique_id=572016559 instance=ExtResource("2_5mfbk")]
 position = Vector2(-78, 523)
@@ -31,24 +31,14 @@ position = Vector2(-2461, 455)
 position = Vector2(-2055, 471)
 
 [node name="spearman" parent="." unique_id=1601131868 instance=ExtResource("5_suyoq")]
-position = Vector2(-1391, 14)
-
-[node name="DummyTroop2" parent="." unique_id=336929723 instance=ExtResource("6_rkd8b")]
-position = Vector2(-112, 8)
-direction = -1.0
+position = Vector2(-3867, -78)
 
 [node name="DummyTroop" parent="." unique_id=547027357 instance=ExtResource("6_rkd8b")]
-position = Vector2(-575, 11)
+position = Vector2(-3565, -741)
 direction = -1.0
 
 [node name="Musketeer" parent="." unique_id=1617145020 instance=ExtResource("7_k4ivx")]
-position = Vector2(-1073, 25)
-hitpoints = 100
-attackDamage = 10
-attackSpeed = 1.0
-price = 100
-speed = 500.0
-direction = 1.0
+position = Vector2(-3021, 1286)
 
 [node name="Button" type="Button" parent="." unique_id=1679114918]
 offset_left = -2953.0

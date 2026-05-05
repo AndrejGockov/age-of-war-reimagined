@@ -29,8 +29,9 @@ func attack() -> void:
 	if !attackCoolDown.is_stopped():
 		return
 	
-	var enemy : Entity = hitbox.get_collider()
-	enemy.hitpoints -= attackDamage
+	var collidedObject = hitbox.get_collider()
+	
+	collidedObject.hitpoints -= attackDamage
 	
 	# Start cooldown after attack
 	attackCoolDown.start()

@@ -7,6 +7,10 @@ extends Area2D
 func _ready() -> void:
 	spawnPoint = $spawn_point
 
+func _process(delta: float) -> void:
+	if multiplayer.is_server():
+		$BaseHitpoints.text = str(hitpoints)
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Worker"):
 		print("Depositing gold")
