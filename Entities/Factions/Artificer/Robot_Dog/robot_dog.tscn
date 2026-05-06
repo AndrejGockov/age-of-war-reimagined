@@ -11,7 +11,7 @@
 collision_mask = 0
 script = ExtResource("1_13iwg")
 hitpoints = 50
-attackDamage = 5
+attackDamage = 20
 attackSpeed = 0.3
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")

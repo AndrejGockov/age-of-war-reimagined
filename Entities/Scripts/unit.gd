@@ -30,8 +30,16 @@ func attack() -> void:
 		return
 	
 	var collidedObject = hitbox.get_collider()
-	
-	collidedObject.hitpoints -= attackDamage
+
+# checks direction of enemy entity
+	if collidedObject is Unit:
+		if collidedObject.direction == direction:
+			return
+		collidedObject.hitpoints -= attackDamage
+# temp solution for base
+	if collidedObject is Base:
+		collidedObject.hitpoints -= attackDamage
+		
 	
 	# Start cooldown after attack
 	attackCoolDown.start()

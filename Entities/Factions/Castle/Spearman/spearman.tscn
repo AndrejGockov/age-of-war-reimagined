@@ -10,14 +10,19 @@
 [node name="spearman" type="CharacterBody2D" unique_id=17860198 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
 script = ExtResource("1_m7nx8")
+attackSpeed = null
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
 unitName = "Spearman"
+price = null
+speed = null
+direction = null
+spawnOwnerID = null
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_7hk38")]
 
 [node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("3_6ckx7")]
-target_position = Vector2(140, 0)
+target_position = Vector2(40, 0)
 
 [node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_raorf")]
 

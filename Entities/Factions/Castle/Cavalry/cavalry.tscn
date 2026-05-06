@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dj6dfnwyg644b"]
+
+[ext_resource type="Script" uid="uid://b542aoglftci5" path="res://Entities/Factions/Castle/Cavalry/cavalry.gd" id="1_nml11"]
+[ext_resource type="PackedScene" uid="uid://byx78uft1jp5s" path="res://Entities/Shared/Unit/unit_collision_shape_2d.tscn" id="2_5yoxu"]
+[ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Entities/Shared/Unit/unit_raycast.tscn" id="3_0p7ex"]
+[ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Entities/Shared/Unit/unit_timer.tscn" id="4_575q0"]
+[ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="5_pyvk6"]
+[ext_resource type="Texture2D" uid="uid://dd1a6bqu3at35" path="res://Assets/Sprites/cavalry.png" id="6_5yoxu"]
+
+[node name="cavalry" type="CharacterBody2D" unique_id=798456635 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
+script = ExtResource("1_nml11")
+hitpoints = 200
+attackDamage = 30
+hitbox = NodePath("unit_raycast")
+attackCoolDown = NodePath("unit_timer")
+unitName = "Cavalry"
+
+[node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_5yoxu")]
+
+[node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("3_0p7ex")]
+target_position = Vector2(50, 0)
+
+[node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_575q0")]
+
+[node name="MultiplayerSynchronizer" parent="." unique_id=2049026701 instance=ExtResource("5_pyvk6")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1121830534]
+scale = Vector2(0.58966744, 0.5902256)
+texture = ExtResource("6_5yoxu")

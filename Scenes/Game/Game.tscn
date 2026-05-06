@@ -8,11 +8,16 @@
 script = ExtResource("1_qikps")
 
 [node name="InGameMenu" parent="." unique_id=331908393 instance=ExtResource("2_i1e5p")]
+offset_left = 80.0
+offset_top = -668.0
+offset_right = 1281.0
+offset_bottom = -504.0
 
 [node name="Player_1_Base" parent="." unique_id=1787322015 instance=ExtResource("3_ciybh")]
+position = Vector2(-539, 100)
 
 [node name="Player_2_Base" parent="." unique_id=395976895 instance=ExtResource("3_ciybh")]
-position = Vector2(1152, 0)
+position = Vector2(1569, 100)
 
 [node name="Player_1_Units" type="Node2D" parent="." unique_id=1694820944]
 
@@ -29,7 +34,7 @@ spawn_path = NodePath("../Player_1_Units")
 spawn_path = NodePath("../Player_2_Units")
 
 [node name="winnertext" type="LineEdit" parent="." unique_id=2060114761]
-offset_left = 391.0
-offset_top = -583.0
-offset_right = 746.0
-offset_bottom = -540.0
+offset_left = 315.0
+offset_top = -520.0
+offset_right = 670.0
+offset_bottom = -477.0

@@ -9,7 +9,11 @@ func _init() -> void:
 			# REPLACE DUMMY WORKER AFTER TESTING
 			load("res://Entities/Debug_Entities/Worker/dummy_worker.tscn"),
 			load("res://Entities/Factions/Castle/Spearman/spearman.tscn"),
-			load("res://Entities/Factions/Castle/Musketeer/musketeer.tscn")
+			load("res://Entities/Factions/Castle/Musketeer/musketeer.tscn"),
+			load("res://Entities/Factions/Castle/Knight/knight.tscn"),
+			load("res://Entities/Factions/Castle/Priest/priest.tscn"),
+			load("res://Entities/Factions/Castle/Cavalry/cavalry.tscn")
+			
 		]
 	)
 

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://biw0d71nctylu" path="res://Entities/Shared/Unit/unit_raycast.tscn" id="3_ldx10"]
 [ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Entities/Shared/Unit/unit_timer.tscn" id="4_e8f3i"]
 [ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="5_eb2wv"]
+[ext_resource type="Texture2D" uid="uid://bd5q17wgt07ia" path="res://Assets/Sprites/musketeer.jpg" id="6_wsa7e"]
 
 [node name="Musketeer" type="CharacterBody2D" unique_id=1617145020 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
@@ -16,7 +17,13 @@ unitName = "Musketeer"
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_iogmw")]
 
 [node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("3_ldx10")]
+target_position = Vector2(80, 0)
 
 [node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_e8f3i")]
 
 [node name="MultiplayerSynchronizer" parent="." unique_id=2049026701 instance=ExtResource("5_eb2wv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=613715667]
+position = Vector2(-3.4999907, 1.0000012)
+scale = Vector2(0.9324895, 1.1563637)
+texture = ExtResource("6_wsa7e")
