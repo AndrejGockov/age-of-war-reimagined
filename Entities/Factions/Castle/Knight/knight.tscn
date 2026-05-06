@@ -10,7 +10,7 @@
 [node name="knight" type="CharacterBody2D" unique_id=1405163039 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
 script = ExtResource("1_mulu6")
-attackDamage = 50
+attackDamage = 12
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
 unitName = "Knight"
@@ -21,7 +21,6 @@ unitName = "Knight"
 target_position = Vector2(40, 0)
 
 [node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_w83lo")]
-one_shot = false
 
 [node name="MultiplayerSynchronizer" parent="." unique_id=2049026701 instance=ExtResource("5_fiv7c")]
 

@@ -7,14 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="4_m4wc7"]
 [ext_resource type="Texture2D" uid="uid://54snyyhe1bok" path="res://Assets/Sprites/priest.png" id="6_dojap"]
 
-[node name="priest" type="CharacterBody2D" unique_id=1235379818 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dojap"]
+size = Vector2(958, 20)
+
+[node name="priest" type="CharacterBody2D" unique_id=1235379818 node_paths=PackedStringArray("healing_cooldown", "healing_hitbox", "hitbox", "attackCoolDown")]
 collision_mask = 0
 script = ExtResource("1_mc38g")
-hitpoints = 80
-attackDamage = 0
+healing_cooldown = NodePath("healing_cooldown")
+healing_hitbox = NodePath("healing_hitbox")
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
 unitName = "Priest"
+hitpoints = 80
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("1_maixf")]
 
@@ -27,3 +31,13 @@ target_position = Vector2(40, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=327907439]
 texture = ExtResource("6_dojap")
+
+[node name="healing_hitbox" type="Area2D" parent="." unique_id=815149299]
+position = Vector2(-195, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="healing_hitbox" unique_id=299184084]
+position = Vector2(195, 34)
+shape = SubResource("RectangleShape2D_dojap")
+
+[node name="healing_cooldown" type="Timer" parent="." unique_id=812001701]
+one_shot = true

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://qae447ocjeyk"]
+
+[ext_resource type="Script" uid="uid://exwxbfy8thcr" path="res://Scenes/Game/game.gd" id="1_rdw05"]
+[ext_resource type="PackedScene" uid="uid://cw2l0tlxs8tfg" path="res://Scenes/UI/In_Game_Menu/in_game_menu.tscn" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://cau4y46jjkajq" path="res://Entities/Structures/Faction_Base/base.tscn" id="2_xbxml"]
+
+[node name="Game" type="Node2D" unique_id=564710753]
+script = ExtResource("1_rdw05")
+
+[node name="InGameMenu" parent="." unique_id=331908393 instance=ExtResource("2_gwu2e")]
+
+[node name="Player_1_Base" parent="." unique_id=1787322015 instance=ExtResource("2_xbxml")]
+
+[node name="Player_2_Base" parent="." unique_id=395976895 instance=ExtResource("2_xbxml")]
+position = Vector2(1152, 0)
+
+[node name="Player_1_Units" type="Node2D" parent="." unique_id=1694820944]
+
+[node name="Player_2_Units" type="Node2D" parent="." unique_id=1847819805]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=532356038]
+position = Vector2(544, 0)
+zoom = Vector2(0.47, 0.47)
+
+[node name="Player_1_MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1607185544]
+spawn_path = NodePath("../Player_1_Units")
+
+[node name="Player_2_MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=766395679]
+spawn_path = NodePath("../Player_2_Units")
+
+[node name="winnertext" type="LineEdit" parent="." unique_id=2060114761]
+offset_right = 68.5
+offset_bottom = 31.0

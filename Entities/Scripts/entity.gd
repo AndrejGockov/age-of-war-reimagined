@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var price : int = 100
 @export var speed : float = 500
 @export var direction : float = 1.0
+@export var hitpoints : int = 100
 
 # Tracks who spawned the entity
 @export var spawnOwnerID : int = 1 

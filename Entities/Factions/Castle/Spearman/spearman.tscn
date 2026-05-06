@@ -10,14 +10,10 @@
 [node name="spearman" type="CharacterBody2D" unique_id=17860198 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
 script = ExtResource("1_m7nx8")
-attackSpeed = null
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
 unitName = "Spearman"
-price = null
-speed = null
-direction = null
-spawnOwnerID = null
+hitpoints = 50
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_7hk38")]
 

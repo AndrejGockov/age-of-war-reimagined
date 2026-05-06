@@ -2,7 +2,6 @@
 extends Entity
 
 # Default values
-@export var hitpoints : int = 100
 @export var attackDamage : int = 10
 @export var attackSpeed : float = 1.0
 
@@ -15,7 +14,7 @@ func _init(price : int, speed : float, direction : float,
 	self.speed = speed
 	self.direction = direction
 	self.hitpoints = hitpoints
-	self.attackDamage = hitpoints
+	self.attackDamage = attackDamage
 	self.attackSpeed = attackSpeed
 
 func _ready() -> void:
@@ -49,6 +48,8 @@ func meelee_algorithm() -> void:
 	if hitpoints <= 0:
 		queue_free()
 	
+		
+		
 	# Attack enemy when in range
 	if hitbox.is_colliding():
 		attack()
