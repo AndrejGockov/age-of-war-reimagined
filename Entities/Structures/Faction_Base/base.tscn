@@ -21,8 +21,8 @@ position = Vector2(0, 380)
 [node name="BaseHitpoints" type="Label" parent="." unique_id=492564132]
 offset_left = -109.0
 offset_top = -21.0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 257.0
+offset_bottom = 116.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=743586365]
 replication_config = SubResource("SceneReplicationConfig_fk6ua")

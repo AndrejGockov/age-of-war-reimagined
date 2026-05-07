@@ -24,22 +24,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func attack() -> void:
+func attack(collidedObject) -> void:
 	if !attackCoolDown.is_stopped():
 		return
 	
-	var collidedObject = hitbox.get_collider()
-
-# checks direction of enemy entity
-	if collidedObject is Unit:
-		if collidedObject.direction == direction:
-			return
-		collidedObject.hitpoints -= attackDamage
-# temp solution for base
-	if collidedObject is Base:
-		collidedObject.hitpoints -= attackDamage
-		
-	
+	collidedObject.hitpoints -= attackDamage
 	# Start cooldown after attack
 	attackCoolDown.start()
 
@@ -48,12 +37,13 @@ func meelee_algorithm() -> void:
 	if hitpoints <= 0:
 		queue_free()
 	
-		
-		
 	# Attack enemy when in range
 	if hitbox.is_colliding():
-		attack()
-		return
+		var collidedObject = hitbox.get_collider()
+		
+		if collidedObject is Base || collidedObject.direction != direction:
+			attack(collidedObject)
+			return
 	
 	move()
 

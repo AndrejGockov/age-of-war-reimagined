@@ -6,6 +6,7 @@ extends Area2D
 
 func _ready() -> void:
 	spawnPoint = $spawn_point
+	
 
 func _process(delta: float) -> void:
 	$BaseHitpoints.text = str(hitpoints)
