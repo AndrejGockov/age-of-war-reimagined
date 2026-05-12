@@ -10,10 +10,12 @@
 [node name="knight" type="CharacterBody2D" unique_id=1405163039 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
 script = ExtResource("1_mulu6")
-attackDamage = 12
+attackDamage = 50
+maxHitpoints = 4000
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
 unitName = "Knight"
+hitpoints = 4000
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_77xu6")]
 

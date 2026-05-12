@@ -4,30 +4,34 @@ extends Entity
 # Default values
 @export var attackDamage : int = 10
 @export var attackSpeed : float = 1.0
+@export var maxHitpoints : int = 100
 
 @export var hitbox : RayCast2D
 @export var attackCoolDown : Timer
 
 func _init(price : int, speed : float, direction : float, 
-		hitpoints : int, attackDamage : int, attackSpeed : float) -> void:
+		hitpoints : int, maxHitpoints : int, attackSpeed : float) -> void:
 	self.price = price
 	self.speed = speed
 	self.direction = direction
 	self.hitpoints = hitpoints
+	self.maxHitpoints = maxHitpoints
 	self.attackDamage = attackDamage
 	self.attackSpeed = attackSpeed
 
 func _ready() -> void:
 	# Changes which direction it's facing
-	hitbox.target_position.x *= direction
+	hitbox.target_position.x = abs(hitbox.target_position.x) * direction
+	# hitbox.target_position.x *= direction
+
 
 func _process(delta: float) -> void:
 	pass
 
 func attack(collidedObject) -> void:
 	if !attackCoolDown.is_stopped():
-		return
-	
+		return		
+		
 	collidedObject.hitpoints -= attackDamage
 	# Start cooldown after attack
 	attackCoolDown.start()
@@ -41,10 +45,16 @@ func meelee_algorithm() -> void:
 	if hitbox.is_colliding():
 		var collidedObject = hitbox.get_collider()
 		
+		if !is_instance_valid(collidedObject):
+			return
+		
 		if collidedObject is Base || collidedObject.direction != direction:
 			attack(collidedObject)
 			return
-	
+		
+		# if we want units to not stack ontop of eachother	
+		return
+			
 	move()
 
 # TODO

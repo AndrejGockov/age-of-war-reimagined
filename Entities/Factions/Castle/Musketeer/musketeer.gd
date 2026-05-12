@@ -9,3 +9,6 @@ func _process(delta: float) -> void:
 		return
 	
 	meelee_algorithm()
+	
+func heal(amount: int) -> void:
+	hitpoints = min(hitpoints + amount, maxHitpoints)

@@ -17,7 +17,7 @@ unitName = "Musketeer"
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_iogmw")]
 
 [node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("3_ldx10")]
-target_position = Vector2(80, 0)
+target_position = Vector2(70, 0)
 
 [node name="unit_timer" parent="." unique_id=2135722032 instance=ExtResource("4_e8f3i")]
 
