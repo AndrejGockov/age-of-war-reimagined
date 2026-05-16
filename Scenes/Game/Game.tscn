@@ -3,21 +3,16 @@
 [ext_resource type="Script" uid="uid://exwxbfy8thcr" path="res://Scenes/Game/game.gd" id="1_qikps"]
 [ext_resource type="PackedScene" uid="uid://cw2l0tlxs8tfg" path="res://Scenes/UI/In_Game_Menu/in_game_menu.tscn" id="2_i1e5p"]
 [ext_resource type="PackedScene" uid="uid://cau4y46jjkajq" path="res://Entities/Structures/Faction_Base/base.tscn" id="3_ciybh"]
+[ext_resource type="Script" uid="uid://cmm16ylyks3yg" path="res://Scenes/Game/camera_2d.gd" id="4_ln2h6"]
 
 [node name="Game" type="Node2D" unique_id=564710753]
 script = ExtResource("1_qikps")
 
-[node name="InGameMenu" parent="." unique_id=331908393 instance=ExtResource("2_i1e5p")]
-offset_left = 80.0
-offset_top = -668.0
-offset_right = 1281.0
-offset_bottom = -504.0
-
 [node name="Player_1_Base" parent="." unique_id=1787322015 instance=ExtResource("3_ciybh")]
-position = Vector2(-539, 100)
+position = Vector2(-1000, 100)
 
 [node name="Player_2_Base" parent="." unique_id=395976895 instance=ExtResource("3_ciybh")]
-position = Vector2(1569, 100)
+position = Vector2(2000, 100)
 
 [node name="Player_1_Units" type="Node2D" parent="." unique_id=1694820944]
 
@@ -26,6 +21,15 @@ position = Vector2(1569, 100)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=532356038]
 position = Vector2(544, 0)
 zoom = Vector2(0.47, 0.47)
+script = ExtResource("4_ln2h6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=54269020]
+
+[node name="InGameMenu" parent="Camera2D/CanvasLayer" unique_id=331908393 instance=ExtResource("2_i1e5p")]
+offset_left = 75.0
+offset_right = 75.0
+offset_bottom = 0.0
+scale = Vector2(0.8, 0.8)
 
 [node name="Player_1_MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1607185544]
 spawn_path = NodePath("../Player_1_Units")
@@ -34,7 +38,7 @@ spawn_path = NodePath("../Player_1_Units")
 spawn_path = NodePath("../Player_2_Units")
 
 [node name="winnertext" type="LineEdit" parent="." unique_id=2060114761]
-offset_left = 315.0
-offset_top = -520.0
-offset_right = 670.0
-offset_bottom = -477.0
+offset_left = 360.0
+offset_top = -655.0
+offset_right = 715.0
+offset_bottom = -612.0

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var menu : Control = $InGameMenu
+@onready var menu : Control = $Camera2D/CanvasLayer/InGameMenu
 
 @onready var playerOneBase : Base = $Player_1_Base
 @onready var playerOneUnits : Node2D = $Player_1_Units
