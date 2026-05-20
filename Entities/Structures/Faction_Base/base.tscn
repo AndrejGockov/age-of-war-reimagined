@@ -14,6 +14,7 @@ script = ExtResource("1_nnhjt")
 spawnPoint = NodePath("spawn_point")
 
 [node name="base" parent="." unique_id=941657374 instance=ExtResource("1_qxknv")]
+debug_color = Color(0.44257218, 0.7871579, 0.33771947, 1)
 
 [node name="spawn_point" parent="." unique_id=459909708 groups=["Base"] instance=ExtResource("2_nnhjt")]
 position = Vector2(0, 380)
