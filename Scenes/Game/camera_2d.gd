@@ -4,7 +4,7 @@ extends Camera2D
 @export var edge_margin: float = 150.0
 @export var left_limit: float = -2000.0
 @export var right_limit: float = 2000.0
-
+# camera lol
 func _process(delta: float) -> void:
 	var mouse_x = get_viewport().get_mouse_position().x
 	var screen_width = get_viewport().get_visible_rect().size.x
