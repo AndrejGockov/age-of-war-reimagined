@@ -29,13 +29,27 @@ extends Unit
 func _init() -> void:
 	pass
 
+func _ready() -> void:
+	super._ready()
+	health_bar.setup(maxHitpoints, hitpoints)
+	
+	
 func _process(delta: float) -> void:
 	# Only host processes this
 	if !is_multiplayer_authority():
 		return
+	
+	meelee_algorithm()
+	update_healthbar()
+	
+func update_healthbar() -> void:
+	health_bar.set_hp(hitpoints)
+	
+func heal(amount: int) -> void:
+	hitpoints = min(hitpoints + amount, maxHitpoints)
 ```
 
-NOTE: You will have to write more in _process for units with special abilities
+NOTE: You will have to write more in _process or override the attack() or XYZ_algorithm() for units with special abilities
 
 
 ## 4. Child Nodes
@@ -49,6 +63,10 @@ unit_collision_shape_2d - The hurtbox e.g  what needs to be collide with the ray
 unit_raycast - How far the unit reaches for it's attack
 
 unit_timer - Cooldown timer between each attack
+
+HealthBar - Health bar for units
+	- ProgressBar - Progress bar that gives a visual indicator of the troops current hp
+	- Label - The text that displays the units hp and max hp
 
 ![Unit Nodes](assets/unit_nodes_folder.png)
 <br>
