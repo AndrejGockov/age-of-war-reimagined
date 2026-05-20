@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ltjxnj2caxmg"]
+
+[ext_resource type="Script" uid="uid://br1uekyo1256m" path="res://Entities/Scripts/health_bar.gd" id="1_peh47"]
+
+[node name="HealthBar" type="Control" unique_id=967409695]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_peh47")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1856311145]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -217.0
+offset_right = 84.0
+offset_bottom = -155.0
+step = 1.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="." unique_id=247884585]
+layout_mode = 0
+offset_left = -75.0
+offset_top = -198.0
+offset_right = 76.0
+offset_bottom = -175.0
+text = "Health:"

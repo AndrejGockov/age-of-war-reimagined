@@ -9,6 +9,9 @@ extends Entity
 @export var hitbox : RayCast2D
 @export var attackCoolDown : Timer
 
+# healthbar
+@onready var health_bar = $HealthBar
+
 func _init(price : int, speed : float, direction : float, 
 		hitpoints : int, maxHitpoints : int, attackSpeed : float) -> void:
 	self.price = price

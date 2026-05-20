@@ -1,6 +1,6 @@
 extends Camera2D
 
-@export var pan_speed: float = 600.0
+@export var pan_speed: float = 1000.0
 @export var edge_margin: float = 150.0
 @export var left_limit: float = -2000.0
 @export var right_limit: float = 2000.0

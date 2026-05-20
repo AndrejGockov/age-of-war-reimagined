@@ -9,6 +9,7 @@ func _init() -> void:
 			
 func _ready() -> void:
 	super._ready()
+	health_bar.setup(maxHitpoints, hitpoints)
 	healing_cooldown.timeout.connect(_on_heal_timeout)
 	healing_cooldown.start()
 
@@ -17,6 +18,10 @@ func _process(delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
 	meelee_algorithm()
+	update_healthbar()
+	
+func update_healthbar() -> void:
+	health_bar.set_hp(hitpoints)
 	
 func meelee_algorithm() -> void:
 	# Remove dead unit
@@ -36,7 +41,6 @@ func meelee_algorithm() -> void:
 		return
 	move()
 func _on_heal_timeout() -> void:
-	print("func start")
 	if !is_multiplayer_authority():
 		return
 		

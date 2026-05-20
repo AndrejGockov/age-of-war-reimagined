@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Entities/Shared/Unit/unit_timer.tscn" id="3_dojap"]
 [ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="4_m4wc7"]
 [ext_resource type="Texture2D" uid="uid://54snyyhe1bok" path="res://Assets/Sprites/priest.png" id="6_dojap"]
+[ext_resource type="Script" uid="uid://br1uekyo1256m" path="res://Entities/Scripts/health_bar.gd" id="7_m4wc7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dojap"]
 size = Vector2(958, 20)
@@ -18,7 +19,6 @@ healing_hitbox = NodePath("healing_hitbox")
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
 unitName = "Priest"
-hitpoints = 80
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("1_maixf")]
 
@@ -41,3 +41,27 @@ shape = SubResource("RectangleShape2D_dojap")
 
 [node name="healing_cooldown" type="Timer" parent="." unique_id=812001701]
 one_shot = true
+
+[node name="HealthBar" type="Control" parent="." unique_id=1523852231]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("7_m4wc7")
+
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar" unique_id=1182027126]
+layout_mode = 0
+offset_left = -83.0
+offset_top = -217.0
+offset_right = 84.0
+offset_bottom = -155.0
+step = 1.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="HealthBar" unique_id=1504193585]
+layout_mode = 0
+offset_left = -75.0
+offset_top = -198.0
+offset_right = 76.0
+offset_bottom = -175.0
+text = "Health:"
+metadata/_edit_use_anchors_ = true
