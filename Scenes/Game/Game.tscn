@@ -45,10 +45,12 @@ offset_right = 670.0
 offset_bottom = -477.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1560498722]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1560498722 node_paths=PackedStringArray("left_marker", "right_marker")]
 position = Vector2(3025, -336)
 zoom = Vector2(0.2, 0.2)
 script = ExtResource("4_ln2h6")
+left_marker = NodePath("../LeftMarker")
+right_marker = NodePath("../RightMarker")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1771999926]
 
@@ -58,3 +60,9 @@ offset_right = 75.0
 offset_bottom = 0.0
 scale = Vector2(0.8, 0.8)
 metadata/_edit_use_anchors_ = true
+
+[node name="LeftMarker" type="Marker2D" parent="." unique_id=440820848]
+position = Vector2(-2000, 480)
+
+[node name="RightMarker" type="Marker2D" parent="." unique_id=255929026]
+position = Vector2(7928, 536)
