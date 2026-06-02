@@ -14,12 +14,8 @@ var edge_margin: float
 func _ready() -> void:
 	_update_screen_size()
 	get_viewport().size_changed.connect(_update_screen_size)
-	if left_marker:
-		left_limit = left_marker.global_position.x
-	if right_marker:
-		right_limit = right_marker.global_position.x
-	# print("left_limit: ", left_limit, " right_limit: ", right_limit)
-
+	_update_limits()
+	
 func _process(delta: float) -> void:
 	mouse_x = get_viewport().get_mouse_position().x / get_viewport().get_final_transform().get_scale().x
 	
@@ -34,4 +30,12 @@ func _process(delta: float) -> void:
 func _update_screen_size() -> void:
 	screen_width = get_viewport().get_window().size.x
 	edge_margin = screen_width * edge_margin_ratio
+	
+func _update_limits() -> void:
+	# half of the screen size
+	var half = (get_viewport().get_visible_rect().size.x/2.0)/zoom.x
+	if left_marker:
+		left_limit = left_marker.global_position.x + half
+	if right_marker:
+		right_limit = right_marker.global_position.x - half
 	

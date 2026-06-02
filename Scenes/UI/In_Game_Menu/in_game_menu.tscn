@@ -1,5 +1,41 @@
 [gd_scene format=3 uid="uid://cw2l0tlxs8tfg"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_e18qd"]
+action = &"spawn_worker"
+
+[sub_resource type="Shortcut" id="Shortcut_mfpj2"]
+events = [SubResource("InputEventAction_e18qd")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_64qkc"]
+action = &"spawn_first_unit"
+
+[sub_resource type="Shortcut" id="Shortcut_u12ce"]
+events = [SubResource("InputEventAction_64qkc")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_mfpj2"]
+action = &"spawn_second_unit"
+
+[sub_resource type="Shortcut" id="Shortcut_64qkc"]
+events = [SubResource("InputEventAction_mfpj2")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_u12ce"]
+action = &"spawn_third_unit"
+
+[sub_resource type="Shortcut" id="Shortcut_1ysys"]
+events = [SubResource("InputEventAction_u12ce")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_vhi5u"]
+action = &"spawn_forth_unit"
+
+[sub_resource type="Shortcut" id="Shortcut_t3xdp"]
+events = [SubResource("InputEventAction_vhi5u")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_b083l"]
+action = &"spawn_fifth_unit"
+
+[sub_resource type="Shortcut" id="Shortcut_co8ag"]
+events = [SubResource("InputEventAction_b083l")]
+
 [node name="InGameMenu" type="Control" unique_id=331908393]
 layout_mode = 3
 anchors_preset = 0
@@ -19,6 +55,7 @@ layout_mode = 0
 offset_top = 43.0
 offset_right = 119.0
 offset_bottom = 79.0
+shortcut = SubResource("Shortcut_mfpj2")
 text = "Worker"
 
 [node name="Unit_1" type="Button" parent="." unique_id=1635629379 groups=["Troop_Buttons"]]
@@ -27,6 +64,7 @@ offset_left = 136.0
 offset_top = 43.0
 offset_right = 255.0
 offset_bottom = 79.0
+shortcut = SubResource("Shortcut_u12ce")
 text = "Light"
 
 [node name="Unit_2" type="Button" parent="." unique_id=1962897376 groups=["Troop_Buttons"]]
@@ -35,6 +73,7 @@ offset_left = 272.0
 offset_top = 43.0
 offset_right = 391.0
 offset_bottom = 79.0
+shortcut = SubResource("Shortcut_64qkc")
 text = "Ranged"
 
 [node name="Unit_3" type="Button" parent="." unique_id=1007468525 groups=["Troop_Buttons"]]
@@ -43,6 +82,7 @@ offset_left = 408.0
 offset_top = 43.0
 offset_right = 527.0
 offset_bottom = 79.0
+shortcut = SubResource("Shortcut_1ysys")
 text = "Heavy"
 
 [node name="Unit_4" type="Button" parent="." unique_id=1894270412 groups=["Troop_Buttons"]]
@@ -51,6 +91,7 @@ offset_left = 544.0
 offset_top = 43.0
 offset_right = 663.0
 offset_bottom = 79.0
+shortcut = SubResource("Shortcut_t3xdp")
 text = "Light Special"
 
 [node name="Unit_5" type="Button" parent="." unique_id=705172192 groups=["Troop_Buttons"]]
@@ -59,6 +100,7 @@ offset_left = 680.0
 offset_top = 43.0
 offset_right = 799.0
 offset_bottom = 79.0
+shortcut = SubResource("Shortcut_co8ag")
 text = "Heavy Special"
 
 [connection signal="pressed" from="Worker" to="." method="_on_worker_pressed"]
