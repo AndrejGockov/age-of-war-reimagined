@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://cw2l0tlxs8tfg"]
 
+[ext_resource type="Texture2D" uid="uid://dog5gcww3jahu" path="res://Assets/Sprites/temp200x200.png" id="1_mfpj2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfpj2"]
+
 [sub_resource type="InputEventAction" id="InputEventAction_e18qd"]
 action = &"spawn_worker"
 
@@ -58,6 +62,23 @@ theme_override_constants/margin_right = 12
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=319230106]
 layout_mode = 2
 theme_override_constants/separation = 12
+
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1008357352]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Control" unique_id=681842538]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 200.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_mfpj2")
+flip_h = true
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer" unique_id=1439368544]
+layout_mode = 2
+theme_override_constants/separation = 116
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mfpj2")
 
 [node name="PlayerName" type="Label" parent="MarginContainer/HBoxContainer" unique_id=205584789]
 layout_mode = 2
