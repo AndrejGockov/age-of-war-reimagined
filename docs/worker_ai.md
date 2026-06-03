@@ -20,7 +20,7 @@ func _ready() -> void:
 4. That function calls collect_gold(duration : float) which does the following:
    1. Tells the worker to collect gold by calling: work(duration : float), which starts a timer and makes the unit wait in place for the duration.
    2. When the timer finishes, the unit does the following:
-      - Changes it's direction: change_direction()
+	  - Changes it's direction: change_direction()
       - It now has gold deliver back: hasGold = true
       - It starts moving back to the base
       
@@ -38,8 +38,8 @@ func _ready() -> void:
 
 ```
 func _on_body_entered(body: Node2D) -> void:
-    if body.is_in_group("Worker"):
-        body.collect_gold(3.0)
+	if body.is_in_group("Worker"):
+		body.collect_gold(3.0)
 ```
 
 ### base.gd

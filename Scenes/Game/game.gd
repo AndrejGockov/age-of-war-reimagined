@@ -18,7 +18,7 @@ extends Node2D
 
 func _ready() -> void:
 	# Sets player names
-	menu.get_node("PlayerName").text = Global.playerName
+	menu.get_node("MarginContainer/HBoxContainer/PlayerName").text = Global.playerName
 	
 	setBases.rpc()
 	
@@ -101,7 +101,11 @@ func spawnForAllPlayers(index : int, spawnerID : int, direction : int) -> void:
 	else:
 		unit = Global.enemyFaction.units[index].instantiate()
 	
-	unit.set_direction(direction)
+	# flip workers
+	if unit is Worker:
+		unit.set_direction(direction*(-1))
+	else: # set dir for regular troops
+		unit.set_direction(direction)
 	unit.spawnOwnerID = spawnerID
 	
 	# Determines where to spawn the unit

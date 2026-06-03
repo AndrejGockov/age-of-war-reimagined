@@ -37,70 +37,67 @@ action = &"spawn_fifth_unit"
 events = [SubResource("InputEventAction_b083l")]
 
 [node name="InGameMenu" type="Control" unique_id=331908393]
+layout_direction = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="PlayerName" type="Label" parent="." unique_id=205584789]
-layout_mode = 0
-offset_right = 250.0
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1042397478]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=319230106]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PlayerName" type="Label" parent="MarginContainer/HBoxContainer" unique_id=205584789]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Loading Name . . ."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Worker" type="Button" parent="." unique_id=1976680711 groups=["Troop_Buttons"]]
-layout_mode = 0
-offset_top = 43.0
-offset_right = 119.0
-offset_bottom = 79.0
+[node name="Worker" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1976680711 groups=["Troop_Buttons"]]
+layout_mode = 2
 shortcut = SubResource("Shortcut_mfpj2")
 text = "Worker"
 
-[node name="Unit_1" type="Button" parent="." unique_id=1635629379 groups=["Troop_Buttons"]]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 43.0
-offset_right = 255.0
-offset_bottom = 79.0
+[node name="Unit_1" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1635629379 groups=["Troop_Buttons"]]
+layout_mode = 2
 shortcut = SubResource("Shortcut_u12ce")
 text = "Light"
 
-[node name="Unit_2" type="Button" parent="." unique_id=1962897376 groups=["Troop_Buttons"]]
-layout_mode = 0
-offset_left = 272.0
-offset_top = 43.0
-offset_right = 391.0
-offset_bottom = 79.0
+[node name="Unit_2" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1962897376 groups=["Troop_Buttons"]]
+layout_mode = 2
 shortcut = SubResource("Shortcut_64qkc")
 text = "Ranged"
 
-[node name="Unit_3" type="Button" parent="." unique_id=1007468525 groups=["Troop_Buttons"]]
-layout_mode = 0
-offset_left = 408.0
-offset_top = 43.0
-offset_right = 527.0
-offset_bottom = 79.0
+[node name="Unit_3" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1007468525 groups=["Troop_Buttons"]]
+layout_mode = 2
 shortcut = SubResource("Shortcut_1ysys")
 text = "Heavy"
 
-[node name="Unit_4" type="Button" parent="." unique_id=1894270412 groups=["Troop_Buttons"]]
-layout_mode = 0
-offset_left = 544.0
-offset_top = 43.0
-offset_right = 663.0
-offset_bottom = 79.0
+[node name="Unit_4" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1894270412 groups=["Troop_Buttons"]]
+layout_mode = 2
 shortcut = SubResource("Shortcut_t3xdp")
 text = "Light Special"
 
-[node name="Unit_5" type="Button" parent="." unique_id=705172192 groups=["Troop_Buttons"]]
-layout_mode = 0
-offset_left = 680.0
-offset_top = 43.0
-offset_right = 799.0
-offset_bottom = 79.0
+[node name="Unit_5" type="Button" parent="MarginContainer/HBoxContainer" unique_id=705172192 groups=["Troop_Buttons"]]
+layout_mode = 2
 shortcut = SubResource("Shortcut_co8ag")
 text = "Heavy Special"
 
-[connection signal="pressed" from="Worker" to="." method="_on_worker_pressed"]
+[node name="Menu" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1520119963]
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Menu"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Worker" to="." method="_on_worker_pressed"]
