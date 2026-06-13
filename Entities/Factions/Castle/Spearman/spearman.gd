@@ -12,8 +12,9 @@ func _process(delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
 	
+	print(multiplayer.get_unique_id(), " ",  hitpoints)
+	
 	unit_algorithm()
-	#health_bar.set_hp(hitpoints)
 	update_healthbar()
 
 func update_healthbar() -> void:

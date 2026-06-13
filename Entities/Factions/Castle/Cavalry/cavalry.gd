@@ -38,16 +38,17 @@ func attack(collidedObject) -> void:
 		time_since_last_attack = 0.0
 		
 		if !attackCoolDown.is_stopped():
-			return		
+			return
 			
 		collidedObject.hitpoints -= attackDamage + bonus_damage
-		attackCoolDown.start()	
+		attackCoolDown.start()
 		
+	
 	if !attackCoolDown.is_stopped():
 		return
+	
 	collidedObject.hitpoints -= attackDamage
 	attackCoolDown.start()
-	
 
 func update_healthbar() -> void:
 	health_bar.set_hp(hitpoints)
@@ -56,15 +57,3 @@ func heal(amount: int) -> void:
 	hitpoints = min(hitpoints + amount, maxHitpoints)
 	update_healthbar()
 	print(name, " healed to ", hitpoints)
-
-
-	
-
-
-
-
-		
-		
-		
-
-	

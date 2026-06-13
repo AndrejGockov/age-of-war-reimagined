@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
 	
-	meelee_algorithm()
+	unit_algorithm()
 	update_healthbar()
 	
 func update_healthbar() -> void:

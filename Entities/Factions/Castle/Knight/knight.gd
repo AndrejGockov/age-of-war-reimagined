@@ -11,9 +11,10 @@ func _process(delta: float) -> void:
 	# Whichever algorithm based on the units type (eg. meelee, ranged, aoe)
 	if !is_multiplayer_authority():
 		return	
+	
 	unit_algorithm()
 	update_healthbar()
-	
+
 func update_healthbar() -> void:
 	health_bar.set_hp(hitpoints)
 	
