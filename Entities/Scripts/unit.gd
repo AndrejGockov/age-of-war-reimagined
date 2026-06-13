@@ -4,7 +4,6 @@ extends Entity
 # Default values
 @export var attackDamage : int = 10
 @export var attackSpeed : float = 1.0
-@export var maxHitpoints : int = 100
 
 @export var hitbox : RayCast2D
 @export var attackCoolDown : Timer
@@ -13,12 +12,13 @@ extends Entity
 @onready var health_bar = $HealthBar
 
 func _init(price : int, speed : float, direction : float, 
-		hitpoints : int, maxHitpoints : int, attackSpeed : float) -> void:
+		hitpoints : int, attackSpeed : float) -> void:
+	#maxHitpoints : int,
 	self.price = price
 	self.speed = speed
 	self.direction = direction
 	self.hitpoints = hitpoints
-	self.maxHitpoints = maxHitpoints
+	#self.maxHitpoints = maxHitpoints
 	self.attackDamage = attackDamage
 	self.attackSpeed = attackSpeed
 
@@ -27,13 +27,12 @@ func _ready() -> void:
 	hitbox.target_position.x = abs(hitbox.target_position.x) * direction
 	# hitbox.target_position.x *= direction
 
-
 func _process(delta: float) -> void:
 	pass
 
 func attack(collidedObject) -> void:
 	if !attackCoolDown.is_stopped():
-		return		
+		return
 		
 	collidedObject.hitpoints -= attackDamage
 	# Start cooldown after attack

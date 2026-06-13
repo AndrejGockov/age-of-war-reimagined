@@ -14,10 +14,11 @@ func _process(delta: float) -> void:
 		return
 	
 	meelee_algorithm()
+	#health_bar.set_hp(hitpoints)
 	update_healthbar()
-	
+
 func update_healthbar() -> void:
 	health_bar.set_hp(hitpoints)
-	
+
 func heal(amount: int) -> void:
 	hitpoints = min(hitpoints + amount, maxHitpoints)
