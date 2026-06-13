@@ -38,7 +38,7 @@ func attack(collidedObject) -> void:
 	# Start cooldown after attack
 	attackCoolDown.start()
 
-func meelee_algorithm() -> void:
+func unit_algorithm() -> void:
 	# Remove dead unit
 	if hitpoints <= 0:
 		queue_free()
@@ -56,12 +56,5 @@ func meelee_algorithm() -> void:
 		
 		# if we want units to not stack ontop of eachother	
 		return
-			
+	
 	move()
-
-# TODO
-func ranged_algorithm() -> void:
-	pass
-
-func aoe_algorithm() -> void:
-	pass

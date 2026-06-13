@@ -6,14 +6,13 @@ func _init() -> void:
 func _ready() -> void:
 	super._ready()
 	health_bar.setup(maxHitpoints, hitpoints)
-	
-	
+
 func _process(delta: float) -> void:
 	# Only host processes this
 	if !is_multiplayer_authority():
 		return
 	
-	meelee_algorithm()
+	unit_algorithm()
 	#health_bar.set_hp(hitpoints)
 	update_healthbar()
 

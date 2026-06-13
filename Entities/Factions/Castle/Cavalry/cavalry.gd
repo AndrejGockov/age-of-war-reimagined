@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		speed = charge_speed
 		charge_ready = true
 	
-	meelee_algorithm()
+	unit_algorithm()
 
 # attack logic for this unit
 func attack(collidedObject) -> void:

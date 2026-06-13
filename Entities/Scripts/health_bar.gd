@@ -8,14 +8,13 @@ func _ready() -> void:
 
 # setup func
 func setup(max_hp: int, curr_hp: int) -> void:
-	# Only host processes this
-	if !is_multiplayer_authority():
-		return
-	
 	bar.max_value = max_hp
 	set_hp(curr_hp)
 
 # set hitpoints
 func set_hp(curr_hp: int) -> void:
+	if not is_inside_tree(): 
+		await ready
+	
 	bar.value = curr_hp
 	label.text = str(curr_hp)+"/"+str(int(bar.max_value))

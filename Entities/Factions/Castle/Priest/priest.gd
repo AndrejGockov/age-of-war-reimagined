@@ -40,6 +40,7 @@ func meelee_algorithm() -> void:
 		# if we want units to not stack ontop of eachother
 		return
 	move()
+
 func _on_heal_timeout() -> void:
 	if !is_multiplayer_authority():
 		return
@@ -56,6 +57,3 @@ func _on_heal_timeout() -> void:
 		else: print("has no method heal or has different direction")
 		
 	healing_cooldown.start()
-	
-
-	
