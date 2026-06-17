@@ -38,17 +38,16 @@ func _process(delta: float) -> void:
 		return
 	
 	if playerOneBase.hitpoints <= 0:
+		matchIsOver = true
 		endMatch.rpc(Global.enemyPlayerName)
 	
 	if playerTwoBase.hitpoints <= 0:
+		matchIsOver = true
 		endMatch.rpc(Global.playerName)
 
 @rpc("any_peer", "call_local", "reliable")
-func endMatch(winnerName : String):
-	matchIsOver = true
-	
+func endMatch(winnerName : String):	
 	winner.text = winnerName + " WINS"
-	
 	disableTroopButtons()
 
 # Adds units to corresponding MultiplayerSpawner
@@ -58,7 +57,9 @@ func addUnitsToSynchronizer(spawner : MultiplayerSpawner, units : Array[PackedSc
 
 @rpc("any_peer", "call_local", "reliable")
 func setBases() -> void:
-	if multiplayer.get_remote_sender_id() == 1:
+	var senderID = Multiplayer.getSenderID()
+	
+	if senderID == 1:
 		playerOneBase.hitpoints = Global.faction.baseHP
 	else:
 		playerTwoBase.hitpoints = Global.enemyFaction.baseHP
@@ -69,8 +70,10 @@ func setTroopButtons() -> void:
 	var totalUnits : int = Global.faction.units.size()
 	
 	for i : int in totalUnits:
-		buttons[i].text = Global.faction.units[i].instantiate().unitName
+		var unit = Global.faction.units[i].instantiate()
+		buttons[i].text = unit.unitName
 		buttons[i].pressed.connect(spawnUnit.bind(i))
+		unit.free()
 
 func disableTroopButtons() -> void:
 	var buttons = get_tree().get_nodes_in_group("Troop_Buttons")

@@ -44,7 +44,7 @@ func setupNewPeer() -> void:
 	print("Peer authenticated")
 
 func disconnectPeer() -> void:
-	Multiplayer.peer.close()
+	peer.close()
 	multiplayer.multiplayer_peer = null
 	setupNewPeer()
 	#Multiplayer.peer.disconnect_peer(Multiplayer.peer.get_unique_id())
