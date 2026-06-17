@@ -23,6 +23,8 @@ func deposit_gold(duration : float):
 		return
 	
 	work(duration)
+	await timer.is_stopped()
+	Variables.gold += Variables.collectedGold
 	change_direction()
 	hasGold = false
 

@@ -6,7 +6,6 @@ signal changeLevel
 func changeLevelTo(path : String) -> void:
 	changeLevel.emit(path)
 
-
 # Setting faction before game
 enum factions { Castle, Horde, Artificer, Undead }
 var registrerFaction = {

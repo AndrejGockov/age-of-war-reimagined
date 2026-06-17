@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cw2l0tlxs8tfg"]
 
+[ext_resource type="Script" uid="uid://2r23o2gmhyrt" path="res://Scenes/UI/In_Game_Menu/in_game_menu.gd" id="1_64qkc"]
 [ext_resource type="Texture2D" uid="uid://dog5gcww3jahu" path="res://Assets/Sprites/temp200x200.png" id="1_mfpj2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfpj2"]
@@ -48,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_64qkc")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1042397478]
 layout_mode = 1
@@ -86,6 +88,10 @@ theme_override_font_sizes/font_size = 18
 text = "Loading Name . . ."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Gold" type="Label" parent="MarginContainer/HBoxContainer" unique_id=69388261]
+layout_mode = 2
+text = "Loading Gold. . ."
 
 [node name="Worker" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1976680711 groups=["Troop_Buttons"]]
 layout_mode = 2

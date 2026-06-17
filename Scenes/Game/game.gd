@@ -12,8 +12,6 @@ extends Node2D
 
 @export var matchIsOver : bool = false
 
-@onready var gold : int
-
 @onready var winner : LineEdit = $winnertext
 
 func _ready() -> void:
