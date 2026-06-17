@@ -8,8 +8,10 @@ var roomCode : String = ""
 var config = ConfigFile.new()
 var err
 
-func _process(delta: float) -> void:
+func _ready() -> void:
 	err = config.load("res://secrets.cfg")
+
+func _process(delta: float) -> void:
 	pass
 	# Uncomment for debugging purpouses
 	#if multiplayer.multiplayer_peer == null:

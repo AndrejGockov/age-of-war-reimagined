@@ -9,11 +9,6 @@ properties/0/path = NodePath(".:hitpoints")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5whcw"]
-properties/0/path = NodePath(".:hitpoints")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-
 [node name="Base" type="Area2D" unique_id=1787322015 node_paths=PackedStringArray("spawnPoint") groups=["Base"]]
 script = ExtResource("1_nnhjt")
 spawnPoint = NodePath("spawn_point")
@@ -32,8 +27,5 @@ offset_bottom = 116.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=743586365]
 replication_config = SubResource("SceneReplicationConfig_fk6ua")
-
-[node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="." unique_id=1329224704]
-replication_config = SubResource("SceneReplicationConfig_5whcw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

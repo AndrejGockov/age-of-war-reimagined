@@ -11,11 +11,11 @@
 [node name="cavalry" type="CharacterBody2D" unique_id=798456635 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 script = ExtResource("1_nml11")
 attackDamage = 50
-maxHitpoints = 200
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
 unitName = "Cavalry"
 hitpoints = 200
+maxHitpoints = 200
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_5yoxu")]
 
