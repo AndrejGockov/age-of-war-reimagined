@@ -14,9 +14,13 @@ extends Node2D
 
 @onready var winner : LineEdit = $winnertext
 
+var unitPrices : Array[int]
+
 func _ready() -> void:
 	# Sets player names
+	Variables.gold = Variables.startingGold
 	menu.get_node("MarginContainer/HBoxContainer/PlayerName").text = Global.playerName
+	menu.get_node("MarginContainer/HBoxContainer/Gold").text = str(Variables.gold)
 	
 	setBases()
 	
@@ -39,7 +43,7 @@ func _process(delta: float) -> void:
 		endMatch.rpc(Global.playerName)
 
 @rpc("any_peer", "call_local", "reliable")
-func endMatch(winnerName : String):	
+func endMatch(winnerName : String):
 	winner.text = winnerName + " WINS"
 	disableTroopButtons()
 
@@ -56,11 +60,13 @@ func setBases() -> void:
 func setTroopButtons() -> void:
 	var buttons = get_tree().get_nodes_in_group("Troop_Buttons")
 	var totalUnits : int = Global.faction.units.size()
+	unitPrices.resize(Global.faction.units.size())
 	
 	for i : int in totalUnits:
 		var unit = Global.faction.units[i].instantiate() as Entity
 		buttons[i].text = unit.unitName
 		buttons[i].pressed.connect(spawnUnit.bind(i))
+		unitPrices[i] = unit.price
 		unit.free()
 
 func disableTroopButtons() -> void:
@@ -71,34 +77,22 @@ func disableTroopButtons() -> void:
 		buttons[i].pressed.disconnect(spawnUnit.bind(i))
 
 func spawnUnit(index : int) -> void:
-	spawnForAllPlayers.rpc(
-		index, 
-		multiplayer.get_unique_id(), 
-		Global.globalDirection
-	)
-
-@rpc("any_peer", "call_local", "reliable")
-func spawnForAllPlayers(index : int, spawnerID : int, direction : int) -> void:
-	if !multiplayer.is_server():
-		return
+	if(Variables.gold < unitPrices[index]):
+		return;
 	
+	Variables.gold -= unitPrices[index]
 	var unit : Entity
 	
-	# Determines who spawned the unit
-	if multiplayer.get_unique_id() == spawnerID:
-		unit = Global.faction.units[index].instantiate()
-	else:
-		unit = Global.enemyFaction.units[index].instantiate()
+	unit = Global.faction.units[index].instantiate()
 	
 	# flip workers
 	if unit is Worker:
-		unit.set_direction(direction*(-1))
+		unit.set_direction(Global.globalDirection  * (-1))
 	else: # set dir for regular troops
-		unit.set_direction(direction)
-	unit.spawnOwnerID = spawnerID
+		unit.set_direction(Global.globalDirection)
 	
 	# Determines where to spawn the unit
-	if direction == 1:
+	if Global.globalDirection == 1:
 		unit.global_position = playerOneBase.spawnPoint.global_position
 		playerOneUnits.add_child(unit, true)
 		return

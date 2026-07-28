@@ -14,6 +14,7 @@
 script = ExtResource("1_jayrr")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1424583123]
+visible = false
 position = Vector2(3331, -1230)
 rotation = -1.5707964
 scale = Vector2(3.1546783, 3.064069)
@@ -26,8 +27,9 @@ scale = Vector2(4.8058515, 5.7999377)
 texture = ExtResource("3_e2j0w")
 
 [node name="ForegroundPath" type="Sprite2D" parent="." unique_id=879552186]
-position = Vector2(3062, 383)
-scale = Vector2(2.4672499, 3.7703443)
+position = Vector2(2822, 1641)
+rotation = -0.017453292
+scale = Vector2(2.587, 3.933)
 texture = ExtResource("4_pu5qa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2141850081]
