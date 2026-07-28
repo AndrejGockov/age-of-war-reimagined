@@ -18,22 +18,15 @@ func _ready() -> void:
 	# Sets player names
 	menu.get_node("MarginContainer/HBoxContainer/PlayerName").text = Global.playerName
 	
-	setBases.rpc()
+	setBases()
 	
-	if multiplayer.get_unique_id() == 1:
-		addUnitsToSynchronizer(playerOneSpawner, Global.faction.units)
-		addUnitsToSynchronizer(playerTwoSpawner, Global.enemyFaction.units)
-	else:
-		addUnitsToSynchronizer(playerTwoSpawner, Global.faction.units)
-		addUnitsToSynchronizer(playerOneSpawner, Global.enemyFaction.units)
+	addUnitsToSynchronizer(playerOneSpawner, Global.faction.units)
+	addUnitsToSynchronizer(playerTwoSpawner, Global.enemyFaction.units)
 	
 	await get_tree().process_frame
 	setTroopButtons()
 
 func _process(delta: float) -> void:
-	if !multiplayer.is_server():
-		return
-	
 	if matchIsOver:
 		return
 	
@@ -55,14 +48,9 @@ func addUnitsToSynchronizer(spawner : MultiplayerSpawner, units : Array[PackedSc
 	for scene in units:
 		spawner.add_spawnable_scene(scene.resource_path)
 
-@rpc("any_peer", "call_local", "reliable")
 func setBases() -> void:
-	var senderID = Multiplayer.getSenderID()
-	
-	if senderID == 1:
-		playerOneBase.hitpoints = Global.faction.baseHP
-	else:
-		playerTwoBase.hitpoints = Global.enemyFaction.baseHP
+	playerOneBase.hitpoints = Global.faction.baseHP
+	playerTwoBase.hitpoints = Global.enemyFaction.baseHP
 
 # Sets the buttons to spawn the appropriate troops
 func setTroopButtons() -> void:

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqo6y5iffulfg"]
 
-[ext_resource type="Script" uid="uid://dbuvekjcv5x2y" path="res://Scenes/SinglePlayer/game.gd" id="1_jayrr"]
+[ext_resource type="Script" uid="uid://dbuvekjcv5x2y" path="res://Scenes/SinglePlayer/singeplayer.gd" id="1_jayrr"]
 [ext_resource type="Texture2D" uid="uid://bywxi7oqtr7tb" path="res://Assets/Sprites/backgroundTemp.jpg" id="2_51p76"]
 [ext_resource type="Texture2D" uid="uid://b8uaahe4je8uv" path="res://Assets/Background Path.png" id="3_e2j0w"]
 [ext_resource type="Texture2D" uid="uid://ba2xateic2n5h" path="res://Assets/Foreground Path.png" id="4_pu5qa"]
