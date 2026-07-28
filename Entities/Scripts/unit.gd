@@ -11,8 +11,8 @@ extends Entity
 # healthbar
 @onready var health_bar = $HealthBar
 
-func _init(price : int, speed : float, direction : float, 
-		hitpoints : int, attackSpeed : float) -> void:
+func _init(price : int = 0, speed : float  = 0, direction : float  = 0, 
+		hitpoints : int = 0, attackSpeed : float = 0) -> void:
 	#maxHitpoints : int,
 	self.price = price
 	self.speed = speed
@@ -27,9 +27,6 @@ func _ready() -> void:
 	hitbox.target_position.x = abs(hitbox.target_position.x) * direction
 	# hitbox.target_position.x *= direction
 
-func _process(delta: float) -> void:
-	pass
-
 func attack(collidedObject) -> void:
 	if !attackCoolDown.is_stopped():
 		return
@@ -42,6 +39,7 @@ func unit_algorithm() -> void:
 	# Remove dead unit
 	if hitpoints <= 0:
 		queue_free()
+		return
 	
 	# Attack enemy when in range
 	if hitbox.is_colliding():

@@ -6,7 +6,11 @@ extends CharacterBody2D
 @export var price : int = 100
 @export var speed : float = 500
 @export var direction : float = 1.0
-@export var hitpoints : int = 100
+signal health_changed(new_health: int)
+@export var hitpoints : int = 100:
+	set(value):
+		hitpoints = value
+		health_changed.emit(hitpoints)
 @export var maxHitpoints : int = 100
 
 # Tracks who spawned the entity

@@ -27,3 +27,6 @@ func _on_host_game_pressed() -> void:
 func _on_close_join_pressed() -> void:
 	gameButtons.show()
 	joinGame.hide()
+
+func _on_singleplayer_pressed() -> void:
+	Global.changeLevelTo("res://Scenes/SinglePlayer/singleplayer.tscn")

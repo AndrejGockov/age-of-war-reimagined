@@ -4,7 +4,8 @@ extends Control
 @onready var label: Label = $Label
 
 func _ready() -> void:
-	print(get_children()) 
+	pass
+	#hitbox.target_position.x = abs(hitbox.target_position.x) * direction
 
 # setup func
 func setup(max_hp: int, curr_hp: int) -> void:

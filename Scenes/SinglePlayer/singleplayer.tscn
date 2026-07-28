@@ -1,50 +1,50 @@
-[gd_scene format=3 uid="uid://bybxbjn34wgpw"]
+[gd_scene format=3 uid="uid://cqo6y5iffulfg"]
 
-[ext_resource type="Script" uid="uid://exwxbfy8thcr" path="res://Scenes/Game/game.gd" id="1_qikps"]
-[ext_resource type="Texture2D" uid="uid://bywxi7oqtr7tb" path="res://Assets/Sprites/backgroundTemp.jpg" id="2_ciybh"]
-[ext_resource type="PackedScene" uid="uid://cw2l0tlxs8tfg" path="res://Scenes/UI/In_Game_Menu/in_game_menu.tscn" id="2_i1e5p"]
-[ext_resource type="Texture2D" uid="uid://cpnd3451scpgw" path="res://Assets/Game Background.png" id="3_1q8bt"]
-[ext_resource type="PackedScene" uid="uid://cau4y46jjkajq" path="res://Entities/Structures/Faction_Base/base.tscn" id="3_ciybh"]
-[ext_resource type="Texture2D" uid="uid://b8uaahe4je8uv" path="res://Assets/Background Path.png" id="3_gvja8"]
-[ext_resource type="Script" uid="uid://cmm16ylyks3yg" path="res://Scenes/Game/camera_2d.gd" id="4_ln2h6"]
-[ext_resource type="Texture2D" uid="uid://ba2xateic2n5h" path="res://Assets/Foreground Path.png" id="4_m1o7v"]
-[ext_resource type="PackedScene" uid="uid://6t3pyvv5adxh" path="res://Entities/Structures/Gold_Mine/gold_mine.tscn" id="5_3k6gv"]
+[ext_resource type="Script" uid="uid://dbuvekjcv5x2y" path="res://Scenes/SinglePlayer/game.gd" id="1_jayrr"]
+[ext_resource type="Texture2D" uid="uid://bywxi7oqtr7tb" path="res://Assets/Sprites/backgroundTemp.jpg" id="2_51p76"]
+[ext_resource type="Texture2D" uid="uid://b8uaahe4je8uv" path="res://Assets/Background Path.png" id="3_e2j0w"]
+[ext_resource type="Texture2D" uid="uid://ba2xateic2n5h" path="res://Assets/Foreground Path.png" id="4_pu5qa"]
+[ext_resource type="Texture2D" uid="uid://cpnd3451scpgw" path="res://Assets/Game Background.png" id="5_sci1s"]
+[ext_resource type="PackedScene" uid="uid://cau4y46jjkajq" path="res://Entities/Structures/Faction_Base/base.tscn" id="6_q8n2n"]
+[ext_resource type="PackedScene" uid="uid://6t3pyvv5adxh" path="res://Entities/Structures/Gold_Mine/gold_mine.tscn" id="7_h7djq"]
+[ext_resource type="Script" uid="uid://cmm16ylyks3yg" path="res://Scenes/Game/camera_2d.gd" id="8_2f8hx"]
+[ext_resource type="PackedScene" uid="uid://cw2l0tlxs8tfg" path="res://Scenes/UI/In_Game_Menu/in_game_menu.tscn" id="9_dndse"]
 
 [node name="Game" type="Node2D" unique_id=564710753]
-script = ExtResource("1_qikps")
+script = ExtResource("1_jayrr")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1424583123]
 position = Vector2(3331, -1230)
 rotation = -1.5707964
 scale = Vector2(3.1546783, 3.064069)
-texture = ExtResource("2_ciybh")
+texture = ExtResource("2_51p76")
 
 [node name="BackgroundPath" type="Sprite2D" parent="." unique_id=706675129]
 position = Vector2(3088, 298)
 rotation = -0.02617994
 scale = Vector2(4.8058515, 5.7999377)
-texture = ExtResource("3_gvja8")
+texture = ExtResource("3_e2j0w")
 
 [node name="ForegroundPath" type="Sprite2D" parent="." unique_id=879552186]
 position = Vector2(3062, 383)
 scale = Vector2(2.4672499, 3.7703443)
-texture = ExtResource("4_m1o7v")
+texture = ExtResource("4_pu5qa")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2141850081]
 position = Vector2(3021, -2160)
 scale = Vector2(5.3142905, 4.624628)
-texture = ExtResource("3_1q8bt")
+texture = ExtResource("5_sci1s")
 
-[node name="Player_1_Base" parent="." unique_id=1787322015 instance=ExtResource("3_ciybh")]
+[node name="Player_1_Base" parent="." unique_id=1787322015 instance=ExtResource("6_q8n2n")]
 position = Vector2(-104, 120)
 
-[node name="Player_1_Goldmine" parent="." unique_id=53667084 instance=ExtResource("5_3k6gv")]
+[node name="Player_1_Goldmine" parent="." unique_id=53667084 instance=ExtResource("7_h7djq")]
 position = Vector2(-1640, 480)
 
-[node name="Player_2_Base" parent="." unique_id=395976895 instance=ExtResource("3_ciybh")]
+[node name="Player_2_Base" parent="." unique_id=395976895 instance=ExtResource("6_q8n2n")]
 position = Vector2(6164, 100)
 
-[node name="Player_2_Goldmine" parent="." unique_id=1797292747 instance=ExtResource("5_3k6gv")]
+[node name="Player_2_Goldmine" parent="." unique_id=1797292747 instance=ExtResource("7_h7djq")]
 position = Vector2(7568, 536)
 
 [node name="Player_1_Units" type="Node2D" parent="." unique_id=1694820944]
@@ -67,13 +67,13 @@ metadata/_edit_use_anchors_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1560498722 node_paths=PackedStringArray("left_marker", "right_marker")]
 position = Vector2(3025, -336)
 zoom = Vector2(0.2, 0.2)
-script = ExtResource("4_ln2h6")
+script = ExtResource("8_2f8hx")
 left_marker = NodePath("../LeftMarker")
 right_marker = NodePath("../RightMarker")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=1771999926]
 
-[node name="InGameMenu" parent="Camera2D/CanvasLayer" unique_id=331908393 instance=ExtResource("2_i1e5p")]
+[node name="InGameMenu" parent="Camera2D/CanvasLayer" unique_id=331908393 instance=ExtResource("9_dndse")]
 layout_direction = 0
 
 [node name="LeftMarker" type="Marker2D" parent="." unique_id=440820848]
@@ -81,3 +81,6 @@ position = Vector2(-2000, 480)
 
 [node name="RightMarker" type="Marker2D" parent="." unique_id=255929026]
 position = Vector2(7928, 536)
+
+[node name="Button" type="Button" parent="." unique_id=1163815834]
+text = "Singleplayer"

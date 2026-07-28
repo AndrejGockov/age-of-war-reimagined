@@ -8,22 +8,24 @@ func _ready() -> void:
 	hasGold = false
 
 func _process(delta: float) -> void:
-	if is_multiplayer_authority() && timer.is_stopped():
+	if !multiplayer.is_server():
+		return
+	if timer.is_stopped():
 		move()
 
 func collect_gold(duration : float):
 	work(duration)
 	change_direction()
 	hasGold = true
-	print(hasGold)
+	#print(hasGold)
 
 func deposit_gold(duration : float):
-	print(hasGold)
+	#print(hasGold)
 	if !hasGold:
 		return
 	
 	work(duration)
-	await timer.is_stopped()
+	await timer.timeout
 	Variables.gold += Variables.collectedGold
 	change_direction()
 	hasGold = false
