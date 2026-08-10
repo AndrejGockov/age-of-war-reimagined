@@ -52,7 +52,7 @@ func unit_algorithm() -> void:
 			attack(collidedObject)
 			return
 		
-		# if we want units to not stack ontop of eachother	
-		return
+		# if we want units to not stack ontop of eachother
+		#return
 	
 	move()

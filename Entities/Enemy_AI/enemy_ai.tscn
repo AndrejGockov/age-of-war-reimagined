@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cd3fho6f5v1oe"]
+
+[ext_resource type="Script" uid="uid://css0sckj4co1x" path="res://Entities/Enemy_AI/enemy_ai.gd" id="1_yoj2b"]
+
+[node name="EnemyAI" type="Node2D" unique_id=27043687]
+script = ExtResource("1_yoj2b")
+
+[node name="UnitBuffer" type="Timer" parent="." unique_id=1664009936]
+one_shot = true
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=546908440]
+one_shot = true
