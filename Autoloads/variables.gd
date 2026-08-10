@@ -7,7 +7,7 @@ var collectGold : float = 3.0
 # In game gold
 signal updateGold(gold : int)
 
-var startingGold : int = 100
+var startingGold : int = 300
 var collectedGold : int = 100
 var gold : int = startingGold:
 	set(value):

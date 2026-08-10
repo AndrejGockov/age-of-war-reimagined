@@ -31,16 +31,17 @@ func _ready() -> void:
 	setTroopButtons()
 
 func _process(delta: float) -> void:
-	if matchIsOver:
-		return
-	
-	if playerOneBase.hitpoints <= 0:
-		matchIsOver = true
-		endMatch.rpc(Global.enemyPlayerName)
-	
-	if playerTwoBase.hitpoints <= 0:
-		matchIsOver = true
-		endMatch.rpc(Global.playerName)
+	pass
+	#if matchIsOver:
+		#return
+	#
+	#if playerOneBase.hitpoints <= 0:
+		#matchIsOver = true
+		#endMatch.rpc(Global.enemyPlayerName)
+	#
+	#if playerTwoBase.hitpoints <= 0:
+		#matchIsOver = true
+		#endMatch.rpc(Global.playerName)
 
 @rpc("any_peer", "call_local", "reliable")
 func endMatch(winnerName : String):

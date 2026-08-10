@@ -26,7 +26,7 @@ var Cavalry : PackedScene = load("res://Entities/Factions/Castle/Cavalry/cavalry
 func _ready() -> void:
 	# Starting values
 	unitBuffer.wait_time = 5.0
-	waveTimer.wait_time = 6.0
+	waveTimer.wait_time = 20.0
 	
 	# Set unit spawnpoint
 	spawnpoint = base.spawnPoint.global_position
@@ -34,7 +34,10 @@ func _ready() -> void:
 	waves.append(
 		Wave.new(
 			[
-				Spearman
+				Spearman,
+				Spearman,
+				Spearman,
+				Spearman,
 			]
 		)
 	)
@@ -42,15 +45,92 @@ func _ready() -> void:
 	waves.append(
 		Wave.new(
 			[
+				Spearman,
+				Spearman,
+				Spearman,
+				Musketeer,
+				Musketeer,
+				Musketeer,
+				Musketeer,
+			]
+			)
+		)
+	
+	waves.append(
+		Wave.new(
+			[
+				Spearman,
+				Knight,
+				Spearman,
+				Knight,
+				Spearman,
+				Knight,
+				Musketeer,
+				Musketeer,
+			]
+			)
+		)
+	
+	waves.append(
+		Wave.new(
+			[
+				Spearman,
+				Knight,
+				Spearman,
+				Knight,
+				Spearman,
+				Knight,
+				Musketeer,
+				Musketeer,
+			]
+			)
+		)
+	
+	waves.append(
+		Wave.new(
+			[
+				Knight,
+				Knight,
+				Knight,
+				Priest,
+				Musketeer,
+				Musketeer,
+			]
+			)
+		)
+	
+	waves.append(
+		Wave.new(
+			[
+				Knight,
+				Knight,
+				Knight,
+				Musketeer,
+				Musketeer,
+			]
+			)
+		)
+	
+	waves.append(
+		Wave.new(
+			[
+				Cavalry,
+				Cavalry,
+				Priest,
+				Musketeer,
 				Musketeer
 			]
 			)
 		)
 	
+	
 	currentWave = waves[0]
 	spawn_wave()
 
 func spawn_wave() -> void:
+	waveTimer.start()
+	await waveTimer.timeout
+	
 	for currentUnit : PackedScene in currentWave.wave:
 		var unit : Entity = currentUnit.instantiate()
 		unit.global_position = spawnpoint
@@ -60,19 +140,19 @@ func spawn_wave() -> void:
 		unitBuffer.start()
 		await unitBuffer.timeout
 	
-	waveTimer.start()
-	await waveTimer.timeout
-	
-	if currentWaveIndex < 1:
-		currentWaveIndex+=1
-	else:
-		currentWaveIndex = 0
-	
-	if unitBuffer.wait_time <=  1.0:
+	# Decreases time between how long units spawn in next wave
+	if unitBuffer.wait_time <=  1.5:
 		unitBuffer.wait_time -= 0.5
 	
+	# Decreases time between waves
 	if waveTimer.wait_time <=  5.0:
 		waveTimer.wait_time -= 0.25
+	
+	# Loops through waves
+	if currentWaveIndex < 1:
+		currentWaveIndex += 1
+	else:
+		currentWaveIndex = 0
 	
 	currentWave = waves[currentWaveIndex]
 	spawn_wave()

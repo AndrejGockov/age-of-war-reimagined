@@ -94,6 +94,3 @@ position = Vector2(-2000, 480)
 
 [node name="RightMarker" type="Marker2D" parent="." unique_id=255929026]
 position = Vector2(7928, 536)
-
-[node name="Button" type="Button" parent="." unique_id=1163815834]
-text = "Singleplayer"
