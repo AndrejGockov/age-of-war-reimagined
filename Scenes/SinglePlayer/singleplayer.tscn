@@ -60,9 +60,9 @@ position = Vector2(7765, 536)
 
 [node name="Player_2_Units" type="Node2D" parent="." unique_id=1847819805]
 
-[node name="EnemyAI" parent="." unique_id=27043687 node_paths=PackedStringArray("unitNode", "spawnPoint") instance=ExtResource("9_e2j0w")]
+[node name="EnemyAI" parent="." unique_id=27043687 node_paths=PackedStringArray("unitNode", "base") instance=ExtResource("9_e2j0w")]
 unitNode = NodePath("../Player_2_Units")
-spawnPoint = NodePath("../Player_2_Base")
+base = NodePath("../Player_2_Base")
 
 [node name="Player_1_MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1607185544]
 spawn_path = NodePath("../Player_1_Units")
