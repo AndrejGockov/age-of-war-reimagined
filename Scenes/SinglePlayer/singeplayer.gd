@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var menu : Control = $Camera2D/CanvasLayer/InGameMenu
+@onready var gameOver : Control = $Camera2D/CanvasLayer/InGameMenu/GameOver
+@onready var resultLabel : Control = $Camera2D/CanvasLayer/InGameMenu/GameOver/Panel/VBoxContainer/ResultLabel
 
 @onready var playerOneBase : Base = $Player_1_Base
 @onready var playerOneUnits : Node2D = $Player_1_Units
@@ -13,6 +15,8 @@ extends Node2D
 @export var matchIsOver : bool = false
 
 @onready var winner : LineEdit = $winnertext
+
+
 
 var unitPrices : Array[int]
 
@@ -32,16 +36,32 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	pass
-	#if matchIsOver:
-		#return
-	#
-	#if playerOneBase.hitpoints <= 0:
-		#matchIsOver = true
+	if matchIsOver:
+		return
+	
+	if playerOneBase.hitpoints <= 0:
+		matchIsOver = true
+		show_game_over(false) # player lost
+		return
 		#endMatch.rpc(Global.enemyPlayerName)
-	#
-	#if playerTwoBase.hitpoints <= 0:
-		#matchIsOver = true
+	
+	if playerTwoBase.hitpoints <= 0:
+		matchIsOver = true
+		show_game_over(true) # player won
+		return
 		#endMatch.rpc(Global.playerName)
+		
+func show_game_over(player_won: bool) -> void:
+	if player_won:
+		resultLabel.text = "YOU WON!"
+	else:
+		resultLabel.text = "YOU LOST!"
+	
+	gameOver.show()
+	
+	disableTroopButtons()
+	get_tree().paused = true
+	
 
 @rpc("any_peer", "call_local", "reliable")
 func endMatch(winnerName : String):

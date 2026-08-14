@@ -41,7 +41,12 @@ action = &"spawn_fifth_unit"
 [sub_resource type="Shortcut" id="Shortcut_co8ag"]
 events = [SubResource("InputEventAction_b083l")]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u12ce"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64qkc"]
+
 [node name="InGameMenu" type="Control" unique_id=331908393]
+process_mode = 3
 layout_direction = 2
 layout_mode = 3
 anchors_preset = 15
@@ -129,4 +134,124 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "Menu"
 
+[node name="PauseMenu" type="Panel" parent="." unique_id=1880253023]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" unique_id=1245132314]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PauseMenu/VBoxContainer" unique_id=1470065479]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Paused"
+
+[node name="HSeparator" type="HSeparator" parent="PauseMenu/VBoxContainer" unique_id=1164322161]
+layout_mode = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="PauseMenu/VBoxContainer" unique_id=1323113555]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Continue" type="Button" parent="PauseMenu/VBoxContainer/ButtonContainer" unique_id=411085670]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[node name="Close" type="Button" parent="PauseMenu/VBoxContainer/ButtonContainer" unique_id=235331007]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Close"
+
+[node name="GameOver" type="Control" parent="." unique_id=1717262733]
+process_mode = 3
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GameOver" unique_id=1308314479]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -50.0
+offset_right = 200.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/Panel" unique_id=510683847]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.5
+offset_top = -37.0
+offset_right = 78.5
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultLabel" type="Label" parent="GameOver/Panel/VBoxContainer" unique_id=129618612]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="GameOver/Panel/VBoxContainer" unique_id=1117155829]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_u12ce")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/Panel/VBoxContainer" unique_id=1929642491]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+alignment = 1
+
+[node name="GameOverClose" type="Button" parent="GameOver/Panel/VBoxContainer/VBoxContainer" unique_id=1731160874]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back to Main Menu"
+
+[node name="HSeparator" type="HSeparator" parent="GameOver/Panel/VBoxContainer/VBoxContainer" unique_id=891944034]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_64qkc")
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/Worker" to="." method="_on_worker_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/ButtonContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseMenu/VBoxContainer/ButtonContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="GameOver/Panel/VBoxContainer/VBoxContainer/GameOverClose" to="." method="_on_game_over_close_pressed"]
