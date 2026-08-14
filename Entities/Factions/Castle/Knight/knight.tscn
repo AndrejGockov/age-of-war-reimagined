@@ -115,4 +115,4 @@ texture_filter = 1
 texture_repeat = 1
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_rfwwh")
-animation = &"Attack"
+animation = &"Idle"
