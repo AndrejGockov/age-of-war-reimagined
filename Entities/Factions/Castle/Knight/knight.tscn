@@ -7,16 +7,70 @@
 [ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="5_fiv7c"]
 [ext_resource type="Texture2D" uid="uid://cbam1wpxbn4rd" path="res://Assets/Sprites/knight.jpeg" id="6_w83lo"]
 [ext_resource type="Script" uid="uid://br1uekyo1256m" path="res://Entities/Scripts/health_bar.gd" id="7_ith23"]
+[ext_resource type="Texture2D" uid="uid://rykj0ujdksir" path="res://Assets/Sprites/NES - Super Mario Bros. - Playable Characters - Mario & Luigi.png" id="8_f6eso"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krcli"]
+atlas = ExtResource("8_f6eso")
+region = Rect2(136, 71, 17, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kvsd"]
+atlas = ExtResource("8_f6eso")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6eso"]
+atlas = ExtResource("8_f6eso")
+region = Rect2(20, 32, 17, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfwwh"]
+atlas = ExtResource("8_f6eso")
+region = Rect2(38, 32, 17, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntqjq"]
+atlas = ExtResource("8_f6eso")
+region = Rect2(56, 32, 17, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfwwh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krcli")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kvsd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6eso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfwwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntqjq")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
 
 [node name="knight" type="CharacterBody2D" unique_id=1405163039 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
 script = ExtResource("1_mulu6")
 attackDamage = 50
-maxHitpoints = 1000
 hitbox = NodePath("unit_raycast")
 attackCoolDown = NodePath("unit_timer")
 unitName = "Knight"
 hitpoints = 1000
+maxHitpoints = 1000
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_77xu6")]
 
@@ -55,3 +109,10 @@ offset_right = 76.0
 offset_bottom = -175.0
 text = "Health:"
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1480045539]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_rfwwh")
+animation = &"Attack"

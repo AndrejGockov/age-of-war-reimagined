@@ -30,7 +30,8 @@ func _ready() -> void:
 func attack(collidedObject) -> void:
 	if !attackCoolDown.is_stopped():
 		return
-		
+		if animated_sprite:
+			animated_sprite.play("Attack")
 	collidedObject.hitpoints -= attackDamage
 	# Start cooldown after attack
 	attackCoolDown.start()
