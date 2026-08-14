@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5md8xl6i8sg1" path="res://Scenes/Options/window_mode_button.tscn" id="2_c8f8i"]
 [ext_resource type="PackedScene" uid="uid://bgr0o26gbofln" path="res://Scenes/Options/resolution_mode_button.tscn" id="2_l32xl"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oxfvm"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l32xl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ldl8"]
 
@@ -35,9 +35,10 @@ theme_override_constants/margin_bottom = 40
 [node name="TabContainer" type="TabContainer" parent="MarginContainer" unique_id=1708779433]
 layout_mode = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="Graphics" type="TabBar" parent="MarginContainer/TabContainer" unique_id=817108201]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -58,7 +59,7 @@ theme_override_constants/separation = 128
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1272743432]
 layout_mode = 2
 theme_override_constants/separation = 12
-theme_override_styles/separator = SubResource("StyleBoxEmpty_oxfvm")
+theme_override_styles/separator = SubResource("StyleBoxEmpty_l32xl")
 
 [node name="Window_Mode_button" parent="MarginContainer/TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" unique_id=154007722 instance=ExtResource("2_c8f8i")]
 layout_mode = 2
@@ -84,7 +85,6 @@ text = "TBA
 "
 
 [node name="Controls" type="TabBar" parent="MarginContainer/TabContainer" unique_id=1192428931]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

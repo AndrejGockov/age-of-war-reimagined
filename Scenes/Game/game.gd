@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 func endMatch(winnerName : String):	
 	winner.text = winnerName + " WINS"
 	disableTroopButtons()
+	
 
 # Adds units to corresponding MultiplayerSpawner
 func addUnitsToSynchronizer(spawner : MultiplayerSpawner, units : Array[PackedScene]) -> void:
@@ -86,7 +87,7 @@ func spawnUnit(index : int) -> void:
 	spawnForAllPlayers.rpc(
 		index, 
 		multiplayer.get_unique_id(), 
-		Global.globalDirection
+		Global.globalDirection1
 	)
 
 @rpc("any_peer", "call_local", "reliable")
