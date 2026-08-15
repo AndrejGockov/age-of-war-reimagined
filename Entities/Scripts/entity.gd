@@ -18,6 +18,7 @@ signal health_changed(new_health: int)
 
 func set_direction(direction : float) -> void:
 	self.direction = direction
+	
 
 func move() -> void:
 	if animated_sprite:

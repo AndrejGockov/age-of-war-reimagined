@@ -13,39 +13,33 @@
 atlas = ExtResource("8_f6eso")
 region = Rect2(136, 71, 17, 34)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3kvsd"]
-atlas = ExtResource("8_f6eso")
-region = Rect2(0, 32, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6eso"]
 atlas = ExtResource("8_f6eso")
 region = Rect2(20, 32, 17, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfwwh"]
-atlas = ExtResource("8_f6eso")
-region = Rect2(38, 32, 17, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntqjq"]
 atlas = ExtResource("8_f6eso")
 region = Rect2(56, 32, 17, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfwwh"]
+atlas = ExtResource("8_f6eso")
+region = Rect2(38, 32, 17, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rfwwh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_krcli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6eso")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntqjq")
 }],
 "loop": true,
 "name": &"Attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3kvsd")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -115,4 +109,5 @@ texture_filter = 1
 texture_repeat = 1
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_rfwwh")
-animation = &"Idle"
+animation = &"Attack"
+frame_progress = 0.38724184

@@ -25,6 +25,8 @@ func _init(price : int = 0, speed : float  = 0, direction : float  = 0,
 func _ready() -> void:
 	# Changes which direction it's facing
 	hitbox.target_position.x = abs(hitbox.target_position.x) * direction
+	if animated_sprite:
+		animated_sprite.flip_h = direction < 0
 	# hitbox.target_position.x *= direction
 
 func attack(collidedObject) -> void:
