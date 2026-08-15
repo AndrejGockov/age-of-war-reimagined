@@ -6,12 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Entities/Shared/Unit/unit_timer.tscn" id="4_w83lo"]
 [ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="5_fiv7c"]
 [ext_resource type="Texture2D" uid="uid://cbam1wpxbn4rd" path="res://Assets/Sprites/knight.jpeg" id="6_w83lo"]
+[ext_resource type="Texture2D" uid="uid://b06p1qg7rpew3" path="res://Assets/Sprites/Unit Sprites/Knight/Attack/0001.png" id="8_1pa6o"]
 [ext_resource type="PackedScene" uid="uid://ltjxnj2caxmg" path="res://Entities/Shared/Unit/health_bar.tscn" id="8_3kvsd"]
 [ext_resource type="Texture2D" uid="uid://c7ejaknbepeoo" path="res://Assets/Sprites/Unit Sprites/Knight/0001.png" id="8_jw6i5"]
-[ext_resource type="Texture2D" uid="uid://c51ttow3ix5ro" path="res://Assets/Sprites/Unit Sprites/Knight/Idletest.png" id="8_rfwwh"]
+[ext_resource type="Texture2D" uid="uid://fmferea2a3xg" path="res://Assets/Sprites/Unit Sprites/Knight/Attack/0002.png" id="9_3xoyn"]
 [ext_resource type="Texture2D" uid="uid://c6ci4xsn1fx0h" path="res://Assets/Sprites/Unit Sprites/Knight/0002.png" id="9_83sfg"]
+[ext_resource type="Texture2D" uid="uid://b8tqwb3bs0582" path="res://Assets/Sprites/Unit Sprites/Knight/Attack/0003.png" id="10_g2glc"]
 [ext_resource type="Texture2D" uid="uid://m5y23ihnvfg8" path="res://Assets/Sprites/Unit Sprites/Knight/0003.png" id="10_kunxv"]
 [ext_resource type="Texture2D" uid="uid://c0cqwr2gxblfp" path="res://Assets/Sprites/Unit Sprites/Knight/0004.png" id="11_sss1m"]
+[ext_resource type="Texture2D" uid="uid://iw6umyene4vy" path="res://Assets/Sprites/Unit Sprites/Knight/Attack/0004.png" id="11_u8e32"]
 [ext_resource type="Texture2D" uid="uid://duooh1aouk3o6" path="res://Assets/Sprites/Unit Sprites/Knight/0005.png" id="12_1pa6o"]
 [ext_resource type="Texture2D" uid="uid://n466vbq3xlrq" path="res://Assets/Sprites/Unit Sprites/Knight/0006.png" id="13_3xoyn"]
 [ext_resource type="Texture2D" uid="uid://bru67qlpm0eod" path="res://Assets/Sprites/Unit Sprites/Knight/0007.png" id="14_g2glc"]
@@ -43,7 +46,16 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_rfwwh")
+"texture": ExtResource("8_1pa6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3xoyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_g2glc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_u8e32")
 }],
 "loop": true,
 "name": &"Attack",
@@ -176,7 +188,6 @@ texture_filter = 1
 texture_repeat = 1
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_rfwwh")
-animation = &"Attack"
-frame_progress = 0.639288
+animation = &"Walk"
 
 [node name="HealthBar" parent="." unique_id=967409695 instance=ExtResource("8_3kvsd")]
