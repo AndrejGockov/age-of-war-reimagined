@@ -20,6 +20,7 @@ corner_radius_bottom_left = 12
 
 [sub_resource type="LabelSettings" id="LabelSettings_0b03v"]
 font_size = 26
+outline_size = 3
 
 [node name="HealthBar" type="Control" unique_id=967409695]
 layout_mode = 3
@@ -28,10 +29,11 @@ script = ExtResource("1_peh47")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1856311145]
 layout_mode = 0
-offset_left = -83.0
-offset_top = -217.0
-offset_right = 84.0
-offset_bottom = -155.0
+offset_left = -129.0
+offset_top = -260.0
+offset_right = 38.0
+offset_bottom = -198.0
+scale = Vector2(1.5, 1.5)
 theme_override_styles/background = SubResource("StyleBoxFlat_0b03v")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3n47b")
 step = 1.0
@@ -39,10 +41,11 @@ show_percentage = false
 
 [node name="Label" type="Label" parent="." unique_id=247884585]
 layout_mode = 0
-offset_left = -75.0
-offset_top = -203.425
-offset_right = 76.0
-offset_bottom = -167.425
+offset_left = -117.0
+offset_top = -241.0
+offset_right = 34.0
+offset_bottom = -205.0
+scale = Vector2(1.5, 1.5)
 text = "Health:"
 label_settings = SubResource("LabelSettings_0b03v")
 horizontal_alignment = 1
