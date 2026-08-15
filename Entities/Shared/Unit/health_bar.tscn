@@ -2,6 +2,25 @@
 
 [ext_resource type="Script" uid="uid://br1uekyo1256m" path="res://Entities/Scripts/health_bar.gd" id="1_peh47"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0b03v"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n47b"]
+bg_color = Color(0.42070287, 0.6784343, 0.33556956, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_0b03v"]
+font_size = 26
+
 [node name="HealthBar" type="Control" unique_id=967409695]
 layout_mode = 3
 anchors_preset = 0
@@ -13,13 +32,18 @@ offset_left = -83.0
 offset_top = -217.0
 offset_right = 84.0
 offset_bottom = -155.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0b03v")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3n47b")
 step = 1.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="." unique_id=247884585]
 layout_mode = 0
 offset_left = -75.0
-offset_top = -198.0
+offset_top = -203.425
 offset_right = 76.0
-offset_bottom = -175.0
+offset_bottom = -167.425
 text = "Health:"
+label_settings = SubResource("LabelSettings_0b03v")
+horizontal_alignment = 1
+vertical_alignment = 1

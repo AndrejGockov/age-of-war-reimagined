@@ -15,6 +15,23 @@
 [node name="Game" type="Node2D" unique_id=564710753]
 script = ExtResource("1_jayrr")
 
+[node name="Mountain" type="Parallax2D" parent="." unique_id=1516453762]
+scroll_scale = Vector2(0.3, 1)
+
+[node name="Mountain" type="Sprite2D" parent="Mountain" unique_id=2141850081]
+position = Vector2(1470, -1881)
+scale = Vector2(5.3142905, 4.624628)
+texture = ExtResource("5_e2j0w")
+
+[node name="BackgroundPath" type="Parallax2D" parent="." unique_id=1353834990]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="BackgroundPath" type="Sprite2D" parent="BackgroundPath" unique_id=706675129]
+position = Vector2(1240.9998, -369)
+rotation = -0.026179941
+scale = Vector2(4.8058515, 5.7999377)
+texture = ExtResource("3_e2j0w")
+
 [node name="Background" type="Sprite2D" parent="." unique_id=1424583123]
 visible = false
 position = Vector2(3331, -1230)
@@ -22,22 +39,11 @@ rotation = -1.5707964
 scale = Vector2(3.1546783, 3.064069)
 texture = ExtResource("2_51p76")
 
-[node name="BackgroundPath" type="Sprite2D" parent="." unique_id=706675129]
-position = Vector2(3088, 298)
-rotation = -0.02617994
-scale = Vector2(4.8058515, 5.7999377)
-texture = ExtResource("3_e2j0w")
-
 [node name="ForegroundPath" type="Sprite2D" parent="." unique_id=879552186]
 position = Vector2(2822, 1641)
 rotation = -0.017453292
 scale = Vector2(2.587, 3.933)
 texture = ExtResource("4_pu5qa")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2141850081]
-position = Vector2(3007, -1857)
-scale = Vector2(5.3142905, 4.624628)
-texture = ExtResource("5_e2j0w")
 
 [node name="Mine_Player_1" type="Sprite2D" parent="." unique_id=1331296369]
 position = Vector2(-2168, -298)

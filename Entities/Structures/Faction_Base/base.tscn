@@ -23,9 +23,11 @@ script = ExtResource("1_nnhjt")
 spawnPoint = NodePath("spawn_point")
 
 [node name="base" parent="." unique_id=941657374 instance=ExtResource("1_qxknv")]
+visible = false
 debug_color = Color(0.44257218, 0.7871579, 0.33771947, 1)
 
 [node name="spawn_point" parent="." unique_id=459909708 groups=["Base"] instance=ExtResource("2_nnhjt")]
+visible = false
 position = Vector2(0, 380)
 
 [node name="BaseHitpoints" type="Label" parent="." unique_id=492564132]
@@ -50,7 +52,6 @@ vertical_alignment = 1
 replication_config = SubResource("SceneReplicationConfig_fk6ua")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=720674655]
-visible = false
 position = Vector2(3, -245)
 scale = Vector2(0.71, 0.71)
 texture = ExtResource("4_5whcw")
