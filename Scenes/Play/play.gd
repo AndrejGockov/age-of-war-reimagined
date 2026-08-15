@@ -30,3 +30,7 @@ func _on_close_join_pressed() -> void:
 
 func _on_singleplayer_pressed() -> void:
 	Global.changeLevelTo("res://Scenes/SinglePlayer/singleplayer.tscn")
+
+
+func _on_menu_pressed() -> void:
+	Global.changeLevelTo("res://Scenes/HomeScreen/home_screen.tscn")
