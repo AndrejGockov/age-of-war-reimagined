@@ -2,9 +2,7 @@ extends Node2D
 
 @onready var menu : Control = $Camera2D/CanvasLayer/InGameMenu
 @onready var gameOver : Control = $Camera2D/CanvasLayer/InGameMenu/GameOver
-@onready var resultLabel : Control = $GameOver/Panel/VBoxContainer/ResultLabel
-#$Camera2D/CanvasLayer/InGameMenu/GameOver/Panel/VBoxContainer/ResultLabel
-
+@onready var resultLabel : Control = $Camera2D/CanvasLayer/InGameMenu/GameOver/Panel/VBoxContainer/ResultLabel
 @onready var playerOneBase : Base = $Player_1_Base
 @onready var playerOneUnits : Node2D = $Player_1_Units
 @onready var playerOneSpawner : MultiplayerSpawner = $Player_1_MultiplayerSpawner
