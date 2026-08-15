@@ -1,8 +1,7 @@
 extends Node
 
-var peer : NodeTunnelPeer
+var peer  = null#: NodeTunnelPeer
 var hostID : int = -1
-
 var roomCode : String = ""
 
 var config = ConfigFile.new()
@@ -25,49 +24,69 @@ func _process(delta: float) -> void:
 	#print("Connected clients: ", total_participants)
 
 func setupNewPeer() -> void:
-	if err != OK:
-		print("Failed to connect to nodetunnel")
+	# NodeTunnel is not available in Web builds
+	if OS.has_feature("web"):
+		print("NodeTunnel is now disabled on Web")
 		return
 	
-	# Closes old peer if it exists
-	if peer:
-		peer.close()
 	
-	# Creates new peer and connects to nodetunnel
-	peer = NodeTunnelPeer.new()
-	peer.connect_to_relay("eu_central.nodetunnel.io:8080", 
-	config.get_value("nodetunnel", "id"))
-	multiplayer.multiplayer_peer = peer
-	
-	# DO NOT TRY HOSTING OR CONNECTING BEFORE THIS PRINTS -Andrej
-	await peer.authenticated
-	print("Peer authenticated")
+	#if err != OK:
+		#print("Failed to connect to nodetunnel")
+		#return
+	#
+	## Closes old peer if it exists
+	#if peer:
+		#peer.close()
+	#
+	## Creates new peer and connects to nodetunnel
+	#peer = NodeTunnelPeer.new()
+	#
+	#peer.connect_to_relay("eu_central.nodetunnel.io:8080", 
+	#config.get_value("nodetunnel", "id"))
+	#multiplayer.multiplayer_peer = peer
+	#
+	## DO NOT TRY HOSTING OR CONNECTING BEFORE THIS PRINTS -Andrej
+	#await peer.authenticated
+	#print("Peer authenticated")
 
 func disconnectPeer() -> void:
-	peer.close()
+	if OS.has_feature("web"):
+		return
+	if peer:
+		peer.close()
+	peer = null
 	multiplayer.multiplayer_peer = null
+	
 	setupNewPeer()
 	#Multiplayer.peer.disconnect_peer(Multiplayer.peer.get_unique_id())
 
 func join(roomID : String):
-	await setupNewPeer()
-	peer.join_room(roomID)
-	print("Joining room...")
+	if OS.has_feature("web"):
+		print("Multiplayer is not available on Web")
+		return
 	
-	await peer.room_connected
-	
-	roomCode = roomID
-	print(peer.get_unique_id())
-	print("Connected to room: ", peer.room_id)
+	#await setupNewPeer()
+	#peer.join_room(roomID)
+	#print("Joining room...")
+	#
+	#await peer.room_connected
+	#
+	#roomCode = roomID
+	#print(peer.get_unique_id())
+	#print("Connected to room: ", peer.room_id)
 
 func host():
-	await setupNewPeer()
-	peer.host_room(false, "")
-	print("Hosting room...")
+	if OS.has_feature("web"):
+		print("Multiplayer is not available on Web")
+		return
 	
-	await peer.room_connected
-	print("Connected to room: ", peer.room_id)
-	hostID = peer.get_unique_id()
+	#await setupNewPeer()
+	#peer.host_room(false, "")
+	#print("Hosting room...")
+	#
+	#await peer.room_connected
+	#print("Connected to room: ", peer.room_id)
+	#hostID = peer.get_unique_id()
 
 @rpc("authority", "call_remote", "reliable")
 func changeSceneForClients(scene_path: String) -> void:

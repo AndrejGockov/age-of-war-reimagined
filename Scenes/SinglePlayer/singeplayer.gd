@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var menu : Control = $Camera2D/CanvasLayer/InGameMenu
 @onready var gameOver : Control = $Camera2D/CanvasLayer/InGameMenu/GameOver
-@onready var resultLabel : Control = $Camera2D/CanvasLayer/InGameMenu/GameOver/Panel/VBoxContainer/ResultLabel
+@onready var resultLabel : Control = $GameOver/Panel/VBoxContainer/ResultLabel
+#$Camera2D/CanvasLayer/InGameMenu/GameOver/Panel/VBoxContainer/ResultLabel
 
 @onready var playerOneBase : Base = $Player_1_Base
 @onready var playerOneUnits : Node2D = $Player_1_Units
@@ -13,9 +14,6 @@ extends Node2D
 @onready var playerTwoSpawner : MultiplayerSpawner = $Player_2_MultiplayerSpawner
 
 @export var matchIsOver : bool = false
-
-@onready var winner : LineEdit = $winnertext
-
 
 
 var unitPrices : Array[int]
@@ -65,7 +63,7 @@ func show_game_over(player_won: bool) -> void:
 
 @rpc("any_peer", "call_local", "reliable")
 func endMatch(winnerName : String):
-	winner.text = winnerName + " WINS"
+	#winner.text = winnerName + " WINS"
 	disableTroopButtons()
 
 # Adds units to corresponding MultiplayerSpawner

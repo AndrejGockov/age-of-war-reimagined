@@ -7,9 +7,14 @@ func _ready() -> void:
 	Global.changeLevel.connect(onChangeLevel)
 
 func onChangeLevel(levelPath : String) -> void:
+	
+	if not OS.has_feature("web") and multiplayer.multiplayer_peer != null:
+		if multiplayer.is_server():
+			Multiplayer.changeSceneForClients.rpc(levelPath)
+	
 	# Changes scene for other peers
-	if multiplayer.is_server():
-		Multiplayer.changeSceneForClients.rpc(levelPath)
+	#if multiplayer.is_server():
+		#Multiplayer.changeSceneForClients.rpc(levelPath)
 	#multiplayer.peer != null && 
 	
 	for childNode : Node in level.get_children():
