@@ -3,34 +3,320 @@
 [ext_resource type="Script" uid="uid://dbuvekjcv5x2y" path="res://Scenes/SinglePlayer/singeplayer.gd" id="1_jayrr"]
 [ext_resource type="Texture2D" uid="uid://bywxi7oqtr7tb" path="res://Assets/Sprites/backgroundTemp.jpg" id="2_51p76"]
 [ext_resource type="Texture2D" uid="uid://b8uaahe4je8uv" path="res://Assets/Background Path.png" id="3_e2j0w"]
+[ext_resource type="Texture2D" uid="uid://c61sh7jj42x8e" path="res://Assets/Sprites/Background_Tree_V3.png" id="3_lqjch"]
+[ext_resource type="Texture2D" uid="uid://chxggxxld2v7c" path="res://Assets/Sprites/Tree_V1.png" id="3_sci1s"]
+[ext_resource type="Texture2D" uid="uid://bp0x2daku8jxy" path="res://Assets/Sprites/Tree_V2.png" id="4_h7djq"]
 [ext_resource type="Texture2D" uid="uid://ba2xateic2n5h" path="res://Assets/Foreground Path.png" id="4_pu5qa"]
+[ext_resource type="Texture2D" uid="uid://xsdtyk41aruj" path="res://Assets/Sprites/Rocks_&_Spear.png" id="4_sci1s"]
+[ext_resource type="Texture2D" uid="uid://cktry8r6ir4bu" path="res://Assets/Sprites/Tree_V3.png" id="5_2f8hx"]
 [ext_resource type="Texture2D" uid="uid://bhkifg3p3pvrd" path="res://Assets/Sprites/Mountains.png" id="5_e2j0w"]
-[ext_resource type="Texture2D" uid="uid://c8gob75ordcc3" path="res://Assets/Sprites/Mine.png" id="6_e2j0w"]
+[ext_resource type="Texture2D" uid="uid://b5npuhhrhtybv" path="res://Assets/Sprites/Background_Tree_V1.png" id="5_txq5j"]
 [ext_resource type="PackedScene" uid="uid://cau4y46jjkajq" path="res://Entities/Structures/Faction_Base/base.tscn" id="6_q8n2n"]
 [ext_resource type="PackedScene" uid="uid://6t3pyvv5adxh" path="res://Entities/Structures/Gold_Mine/gold_mine.tscn" id="7_h7djq"]
 [ext_resource type="Script" uid="uid://cmm16ylyks3yg" path="res://Scenes/Game/camera_2d.gd" id="8_2f8hx"]
+[ext_resource type="Texture2D" uid="uid://dog5t4wf7p7p8" path="res://Assets/Sprites/Rocks_V2.png" id="8_dndse"]
 [ext_resource type="PackedScene" uid="uid://cw2l0tlxs8tfg" path="res://Scenes/UI/In_Game_Menu/in_game_menu.tscn" id="9_dndse"]
 [ext_resource type="PackedScene" uid="uid://cd3fho6f5v1oe" path="res://Entities/Enemy_AI/enemy_ai.tscn" id="9_e2j0w"]
+[ext_resource type="Texture2D" uid="uid://brhk31hd4w058" path="res://Assets/Sprites/ForeGround_Branch_V1.png" id="9_ybbjn"]
+[ext_resource type="Texture2D" uid="uid://dabq763a7rpk4" path="res://Assets/Sprites/ForeGround_Branch_V2.png" id="10_ybbjn"]
+[ext_resource type="Texture2D" uid="uid://canr8xg10exyu" path="res://Assets/Sprites/Rocks_V3.png" id="11_52us3"]
+[ext_resource type="Texture2D" uid="uid://dps2ghyj42tdf" path="res://Assets/Sprites/Foreground_Branch.png" id="12_lqjch"]
+[ext_resource type="Texture2D" uid="uid://danx4pbl6v6x" path="res://Assets/Sprites/Rocks_V1.png" id="12_txq5j"]
+[ext_resource type="Texture2D" uid="uid://c56v6was85g8p" path="res://Assets/Sprites/Mine_TopLayer.png" id="18_xjnlw"]
+[ext_resource type="Texture2D" uid="uid://bs5ht0j686pj5" path="res://Assets/Sprites/Mine_BottomLayer.png" id="19_1snm1"]
 
 [node name="Game" type="Node2D" unique_id=564710753]
 script = ExtResource("1_jayrr")
 
 [node name="Mountain" type="Parallax2D" parent="." unique_id=1516453762]
-scroll_scale = Vector2(0.3, 1)
+scroll_scale = Vector2(0.2, 1)
 
 [node name="Mountain" type="Sprite2D" parent="Mountain" unique_id=2141850081]
-position = Vector2(1470, -1881)
+position = Vector2(1709.0001, -1915)
 scale = Vector2(5.3142905, 4.624628)
 texture = ExtResource("5_e2j0w")
 
-[node name="BackgroundPath" type="Parallax2D" parent="." unique_id=1353834990]
+[node name="BackgroundTrees" type="Parallax2D" parent="." unique_id=758380727]
 scroll_scale = Vector2(0.5, 1)
 
+[node name="Tree19" type="Sprite2D" parent="BackgroundTrees" unique_id=303293582]
+position = Vector2(5571, -1422)
+scale = Vector2(3.9586015, 1.8503443)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Tree20" type="Sprite2D" parent="BackgroundTrees" unique_id=2078864532]
+position = Vector2(4907, -1254)
+scale = Vector2(5.9348226, 2.4576373)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Tree21" type="Sprite2D" parent="BackgroundTrees" unique_id=902127353]
+position = Vector2(6405, -1406)
+scale = Vector2(3.9586015, 1.8503443)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Tree10" type="Sprite2D" parent="BackgroundTrees" unique_id=1261506196]
+position = Vector2(5907, -1349)
+scale = Vector2(1.7503817, 1.0526681)
+texture = ExtResource("3_lqjch")
+
+[node name="Tree11" type="Sprite2D" parent="BackgroundTrees" unique_id=705367892]
+position = Vector2(879, -1363)
+scale = Vector2(1.7387037, 1.1895114)
+texture = ExtResource("5_txq5j")
+
+[node name="Tree12" type="Sprite2D" parent="BackgroundTrees" unique_id=872244207]
+position = Vector2(489, -1291)
+scale = Vector2(2.1293972, 1.4567991)
+texture = ExtResource("5_txq5j")
+
+[node name="Tree13" type="Sprite2D" parent="BackgroundTrees" unique_id=303430497]
+position = Vector2(1651.0001, -1299)
+scale = Vector2(1.7387037, 1.1895114)
+texture = ExtResource("3_lqjch")
+
+[node name="Tree14" type="Sprite2D" parent="BackgroundTrees" unique_id=813139222]
+position = Vector2(2074, -1320)
+scale = Vector2(1.7387037, 1.1895114)
+texture = ExtResource("5_txq5j")
+flip_h = true
+
+[node name="Tree15" type="Sprite2D" parent="BackgroundTrees" unique_id=237918519]
+position = Vector2(2781, -1345)
+scale = Vector2(2.1293972, 1.4567991)
+texture = ExtResource("5_txq5j")
+flip_h = true
+
+[node name="Tree16" type="Sprite2D" parent="BackgroundTrees" unique_id=1116546212]
+position = Vector2(3638.9995, -1392)
+scale = Vector2(1.9896234, 1.3602736)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Tree17" type="Sprite2D" parent="BackgroundTrees" unique_id=1618176335]
+position = Vector2(3206, -1373)
+scale = Vector2(2.9828873, 1.8067228)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Tree18" type="Sprite2D" parent="BackgroundTrees" unique_id=987684778]
+position = Vector2(4377.9995, -1306)
+scale = Vector2(1.9896234, 1.3602736)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Tree8" type="Sprite2D" parent="BackgroundTrees" unique_id=449670643]
+position = Vector2(98.00003, -1218)
+scale = Vector2(1.013478, 0.7831513)
+texture = ExtResource("3_lqjch")
+
+[node name="Tree1" type="Sprite2D" parent="BackgroundTrees" unique_id=982897811]
+position = Vector2(-2945.0002, -1213)
+scale = Vector2(1.0067165, 0.8849584)
+texture = ExtResource("5_txq5j")
+
+[node name="Tree2" type="Sprite2D" parent="BackgroundTrees" unique_id=1053544247]
+position = Vector2(-2550, -1276)
+scale = Vector2(1.2329296, 1.0838119)
+texture = ExtResource("5_txq5j")
+
+[node name="Tree3" type="Sprite2D" parent="BackgroundTrees" unique_id=1418830403]
+position = Vector2(-2241, -1195)
+scale = Vector2(1.0067165, 0.8849584)
+texture = ExtResource("3_lqjch")
+
+[node name="Tree4" type="Sprite2D" parent="BackgroundTrees" unique_id=1736351030]
+position = Vector2(-1838.0001, -1213)
+scale = Vector2(1.0067165, 0.8849584)
+texture = ExtResource("5_txq5j")
+flip_h = true
+
+[node name="Tree5" type="Sprite2D" parent="BackgroundTrees" unique_id=1899971060]
+position = Vector2(-1443, -1293)
+scale = Vector2(1.2329296, 1.0838119)
+texture = ExtResource("5_txq5j")
+flip_h = true
+
+[node name="Tree6" type="Sprite2D" parent="BackgroundTrees" unique_id=838832399]
+position = Vector2(-1080.0001, -1269)
+scale = Vector2(1.152, 1.012)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Tree9" type="Sprite2D" parent="BackgroundTrees" unique_id=1902932196]
+position = Vector2(-197, -1335.0001)
+scale = Vector2(1.7271037, 1.3441439)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Tree7" type="Sprite2D" parent="BackgroundTrees" unique_id=1190917514]
+position = Vector2(-592, -1272)
+scale = Vector2(1.152, 1.012)
+texture = ExtResource("3_lqjch")
+flip_h = true
+
+[node name="Trees" type="Parallax2D" parent="." unique_id=529200471]
+scroll_scale = Vector2(0.5, 1)
+
+[node name="Tree1" type="Sprite2D" parent="Trees" unique_id=543644157]
+position = Vector2(-3191, -1368)
+texture = ExtResource("3_sci1s")
+
+[node name="Tree2" type="Sprite2D" parent="Trees" unique_id=133290967]
+position = Vector2(-2772, -1430)
+texture = ExtResource("4_h7djq")
+
+[node name="Tree3" type="Sprite2D" parent="Trees" unique_id=1673653567]
+position = Vector2(-2378, -1430)
+texture = ExtResource("5_2f8hx")
+
+[node name="Tree4" type="Sprite2D" parent="Trees" unique_id=87388483]
+position = Vector2(-2061, -1400)
+texture = ExtResource("3_sci1s")
+
+[node name="Tree5" type="Sprite2D" parent="Trees" unique_id=795115075]
+position = Vector2(-1642, -1462)
+texture = ExtResource("4_h7djq")
+
+[node name="Tree6" type="Sprite2D" parent="Trees" unique_id=1836589253]
+position = Vector2(-1248, -1462)
+texture = ExtResource("5_2f8hx")
+
+[node name="Tree7" type="Sprite2D" parent="Trees" unique_id=1010703286]
+position = Vector2(-845, -1420)
+texture = ExtResource("3_sci1s")
+
+[node name="Tree8" type="Sprite2D" parent="Trees" unique_id=1399332589]
+position = Vector2(-426, -1482)
+texture = ExtResource("4_h7djq")
+
+[node name="Tree9" type="Sprite2D" parent="Trees" unique_id=12769270]
+position = Vector2(-32, -1482)
+texture = ExtResource("5_2f8hx")
+
+[node name="Tree10" type="Sprite2D" parent="Trees" unique_id=642552725]
+position = Vector2(285, -1452)
+texture = ExtResource("3_sci1s")
+
+[node name="Tree11" type="Sprite2D" parent="Trees" unique_id=358634449]
+position = Vector2(704, -1514)
+texture = ExtResource("4_h7djq")
+
+[node name="Tree12" type="Sprite2D" parent="Trees" unique_id=518960764]
+position = Vector2(1098, -1514)
+texture = ExtResource("5_2f8hx")
+
+[node name="Tree13" type="Sprite2D" parent="Trees" unique_id=1228557303]
+position = Vector2(1449, -1472)
+texture = ExtResource("3_sci1s")
+
+[node name="Tree14" type="Sprite2D" parent="Trees" unique_id=830836457]
+position = Vector2(1868, -1534)
+texture = ExtResource("4_h7djq")
+
+[node name="Tree15" type="Sprite2D" parent="Trees" unique_id=366033467]
+position = Vector2(2262, -1534)
+texture = ExtResource("5_2f8hx")
+
+[node name="Tree16" type="Sprite2D" parent="Trees" unique_id=220970209]
+position = Vector2(2579, -1504)
+texture = ExtResource("3_sci1s")
+
+[node name="Tree17" type="Sprite2D" parent="Trees" unique_id=2041400929]
+position = Vector2(2998, -1566)
+texture = ExtResource("4_h7djq")
+
+[node name="Tree18" type="Sprite2D" parent="Trees" unique_id=1585105109]
+position = Vector2(3392, -1566)
+texture = ExtResource("5_2f8hx")
+
+[node name="Tree19" type="Sprite2D" parent="Trees" unique_id=1993451523]
+position = Vector2(3818, -1531)
+texture = ExtResource("5_2f8hx")
+
+[node name="Tree20" type="Sprite2D" parent="Trees" unique_id=1960836156]
+position = Vector2(4169, -1489)
+texture = ExtResource("3_sci1s")
+
+[node name="Tree21" type="Sprite2D" parent="Trees" unique_id=566363109]
+position = Vector2(4588, -1551)
+texture = ExtResource("4_h7djq")
+
+[node name="Tree22" type="Sprite2D" parent="Trees" unique_id=316421314]
+position = Vector2(4982, -1551)
+texture = ExtResource("5_2f8hx")
+
+[node name="Tree23" type="Sprite2D" parent="Trees" unique_id=1603357015]
+position = Vector2(5299, -1521)
+texture = ExtResource("3_sci1s")
+
+[node name="Tree24" type="Sprite2D" parent="Trees" unique_id=923428087]
+position = Vector2(5718, -1583)
+texture = ExtResource("4_h7djq")
+
+[node name="Tree25" type="Sprite2D" parent="Trees" unique_id=1930038332]
+position = Vector2(6112, -1583)
+texture = ExtResource("5_2f8hx")
+
+[node name="BackgroundPath" type="Parallax2D" parent="." unique_id=1353834990]
+scroll_scale = Vector2(0.6, 1)
+
 [node name="BackgroundPath" type="Sprite2D" parent="BackgroundPath" unique_id=706675129]
-position = Vector2(1240.9998, -369)
+position = Vector2(1755, -348)
 rotation = -0.026179941
 scale = Vector2(4.8058515, 5.7999377)
 texture = ExtResource("3_e2j0w")
+
+[node name="RockSpear" type="Sprite2D" parent="BackgroundPath" unique_id=897304054]
+position = Vector2(1027, -660)
+scale = Vector2(0.6013889, 0.6013889)
+texture = ExtResource("4_sci1s")
+
+[node name="Rocks1" type="Sprite2D" parent="BackgroundPath" unique_id=462413756]
+position = Vector2(2117.75, -774.25)
+scale = Vector2(0.80625004, 0.80625004)
+texture = ExtResource("8_dndse")
+
+[node name="Rocks2" type="Sprite2D" parent="BackgroundPath" unique_id=715723813]
+position = Vector2(3367, -517.0001)
+scale = Vector2(0.80625004, 0.80625004)
+texture = ExtResource("11_52us3")
+
+[node name="Rocks3" type="Sprite2D" parent="BackgroundPath" unique_id=1306638297]
+position = Vector2(1635, -108.000015)
+scale = Vector2(0.80625004, 0.80625004)
+texture = ExtResource("12_txq5j")
+
+[node name="Foreground" type="Parallax2D" parent="." unique_id=627041964]
+z_index = 1
+scroll_scale = Vector2(1.4, 1)
+
+[node name="ForegroundRock" type="Sprite2D" parent="Foreground" unique_id=391660635]
+position = Vector2(-504.2, 1263.8)
+scale = Vector2(2.22, 2.22)
+texture = ExtResource("9_ybbjn")
+
+[node name="ForegroundBranch" type="Sprite2D" parent="Foreground" unique_id=1858960506]
+position = Vector2(2236.215, 1300.8)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("12_lqjch")
+
+[node name="ForegroundRock2" type="Sprite2D" parent="Foreground" unique_id=3118718]
+position = Vector2(863, 1337)
+scale = Vector2(2.22, 2.22)
+texture = ExtResource("10_ybbjn")
+
+[node name="ForegroundRock3" type="Sprite2D" parent="Foreground" unique_id=576028165]
+position = Vector2(5485, 1342)
+scale = Vector2(2.22, 2.22)
+texture = ExtResource("9_ybbjn")
+
+[node name="ForegroundRock4" type="Sprite2D" parent="Foreground" unique_id=195376455]
+position = Vector2(6641, 1382.0001)
+scale = Vector2(2.22, 2.22)
+texture = ExtResource("10_ybbjn")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1424583123]
 visible = false
@@ -41,19 +327,32 @@ texture = ExtResource("2_51p76")
 
 [node name="ForegroundPath" type="Sprite2D" parent="." unique_id=879552186]
 position = Vector2(2822, 1641)
-rotation = -0.017453292
-scale = Vector2(2.587, 3.933)
+rotation = -0.01745329
+scale = Vector2(2.5870001, 3.933)
 texture = ExtResource("4_pu5qa")
 
 [node name="Mine_Player_1" type="Sprite2D" parent="." unique_id=1331296369]
-position = Vector2(-2168, -298)
+z_index = 1
+position = Vector2(-2096, -252)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("6_e2j0w")
+texture = ExtResource("18_xjnlw")
+
+[node name="Mine_Player_lowerlayer" type="Sprite2D" parent="." unique_id=588480616]
+position = Vector2(-2096, -252)
+scale = Vector2(0.7999999, 0.7999999)
+texture = ExtResource("19_1snm1")
 
 [node name="Mine_Player_2" type="Sprite2D" parent="." unique_id=1321607947]
+z_index = 1
 position = Vector2(8173, -298)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("6_e2j0w")
+texture = ExtResource("18_xjnlw")
+flip_h = true
+
+[node name="Mine_Player_2lowerlayer" type="Sprite2D" parent="." unique_id=701271426]
+position = Vector2(8173, -298)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("19_1snm1")
 flip_h = true
 
 [node name="Player_1_Base" parent="." unique_id=1787322015 instance=ExtResource("6_q8n2n")]
@@ -99,8 +398,3 @@ position = Vector2(-2000, 480)
 
 [node name="RightMarker" type="Marker2D" parent="." unique_id=255929026]
 position = Vector2(7928, 536)
-
-[node name="Mine_Player_3" type="Sprite2D" parent="." unique_id=1172400286]
-position = Vector2(-2168, -298)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("6_e2j0w")

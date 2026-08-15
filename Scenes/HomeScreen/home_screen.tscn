@@ -6,21 +6,36 @@
 script = ExtResource("1_xof06")
 
 [node name="Play" type="Button" parent="." unique_id=2013209376]
-offset_right = 41.0
-offset_bottom = 31.0
+offset_left = 895.99994
+offset_top = 440.0
+offset_right = 936.99994
+offset_bottom = 471.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Play"
 
 [node name="Options" type="Button" parent="." unique_id=907914650]
-offset_top = 48.0
-offset_right = 70.0
-offset_bottom = 79.0
+offset_left = 856.0
+offset_top = 552.0
+offset_right = 926.0
+offset_bottom = 583.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Options"
+metadata/_edit_use_anchors_ = true
 
 [node name="Credits" type="Button" parent="." unique_id=535280195]
-offset_top = 96.0
-offset_right = 63.0
-offset_bottom = 127.0
+offset_left = 864.0
+offset_top = 664.0
+offset_right = 927.0
+offset_bottom = 695.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Credits"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
