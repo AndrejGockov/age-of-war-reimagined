@@ -36,7 +36,7 @@ theme_override_constants/margin_bottom = 40
 layout_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 2
+current_tab = 1
 
 [node name="Graphics" type="TabBar" parent="MarginContainer/TabContainer" unique_id=817108201]
 visible = false
@@ -78,21 +78,9 @@ layout_mode = 2
 [node name="Resolution_Mode_button" parent="MarginContainer/TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1225822737 instance=ExtResource("2_l32xl")]
 layout_mode = 2
 
-[node name="Sound" type="TabBar" parent="MarginContainer/TabContainer" unique_id=1725951875]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="Label" type="Label" parent="MarginContainer/TabContainer/Sound" unique_id=1316176827]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "TBA
-"
-
 [node name="Controls" type="TabBar" parent="MarginContainer/TabContainer" unique_id=1192428931]
 layout_mode = 2
-metadata/_tab_index = 2
+metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Controls" unique_id=1586263228]
 layout_mode = 1
@@ -148,5 +136,22 @@ layout_mode = 0
 offset_right = 103.0
 offset_bottom = 31.0
 text = "Back Button"
+
+[node name="Sound" type="TabBar" parent="." unique_id=1725951875]
+visible = false
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 71.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Sound" unique_id=1316176827]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TBA
+"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
