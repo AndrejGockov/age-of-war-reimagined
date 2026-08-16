@@ -8,7 +8,6 @@ const RESOLUTION_DICT: Dictionary = {
 	"1920 x 1080": Vector2i(1920, 1080)
 }
 
-
 func _ready() -> void:
 	option_button.item_selected.connect(on_resolution_change)
 	add_resolution_items()

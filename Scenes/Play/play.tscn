@@ -2,49 +2,71 @@
 
 [ext_resource type="Script" uid="uid://c7kyvenrgdenq" path="res://Scenes/Play/play.gd" id="1_g62g8"]
 
-[node name="Play" type="Node2D" unique_id=579384653]
+[node name="Play" type="Node2D" unique_id=352154564]
 script = ExtResource("1_g62g8")
 
-[node name="GameButtons" type="VBoxContainer" parent="." unique_id=24938874]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1341032216]
 
-[node name="Singleplayer" type="Button" parent="GameButtons" unique_id=1477138643]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1229441993]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control" unique_id=994825409]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -68.0
+offset_right = 63.5
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameButtons" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer" unique_id=24938874]
+layout_mode = 2
+
+[node name="Singleplayer" type="Button" parent="CanvasLayer/Control/VBoxContainer/GameButtons" unique_id=1477138643]
 layout_mode = 2
 text = "Singleplayer"
 
-[node name="JoinGame" type="Button" parent="GameButtons" unique_id=2002628519]
+[node name="JoinGame" type="Button" parent="CanvasLayer/Control/VBoxContainer/GameButtons" unique_id=2002628519]
 layout_mode = 2
-text = "join game"
+text = "Join game"
 
-[node name="HostGame" type="Button" parent="GameButtons" unique_id=500858776]
+[node name="HostGame" type="Button" parent="CanvasLayer/Control/VBoxContainer/GameButtons" unique_id=500858776]
 layout_mode = 2
-text = "host game"
+text = "Host game"
 
-[node name="Menu" type="Button" parent="GameButtons" unique_id=2111110815]
+[node name="Menu" type="Button" parent="CanvasLayer/Control/VBoxContainer/GameButtons" unique_id=2111110815]
 layout_mode = 2
-text = "return to menu"
+text = "Return to Menu"
 
-[node name="JoinGame" type="VBoxContainer" parent="." unique_id=1818578254]
+[node name="JoinGame" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer" unique_id=1818578254]
 visible = false
-offset_right = 598.0
-offset_bottom = 299.0
+layout_mode = 2
 
-[node name="CloseJoin" type="Button" parent="JoinGame" unique_id=815499504]
+[node name="CloseJoin" type="Button" parent="CanvasLayer/Control/VBoxContainer/JoinGame" unique_id=815499504]
 layout_mode = 2
 text = "Close join game"
 
-[node name="Connect" type="Button" parent="JoinGame" unique_id=433097579]
+[node name="Connect" type="Button" parent="CanvasLayer/Control/VBoxContainer/JoinGame" unique_id=433097579]
 layout_mode = 2
 text = "Connect"
 
-[node name="LineEdit" type="LineEdit" parent="JoinGame" unique_id=1262971298]
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control/VBoxContainer/JoinGame" unique_id=1262971298]
 layout_mode = 2
 placeholder_text = "Enter Code"
 
-[connection signal="pressed" from="GameButtons/Singleplayer" to="." method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="GameButtons/JoinGame" to="." method="_on_join_game_pressed"]
-[connection signal="pressed" from="GameButtons/HostGame" to="." method="_on_host_game_pressed"]
-[connection signal="pressed" from="GameButtons/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="JoinGame/CloseJoin" to="." method="_on_close_join_pressed"]
-[connection signal="pressed" from="JoinGame/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/GameButtons/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/GameButtons/JoinGame" to="." method="_on_join_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/GameButtons/HostGame" to="." method="_on_host_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/GameButtons/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/JoinGame/CloseJoin" to="." method="_on_close_join_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/JoinGame/Connect" to="." method="_on_connect_pressed"]
