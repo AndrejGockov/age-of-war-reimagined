@@ -11,11 +11,13 @@ The goal of this project is add multiplayer and inovate on to the original game 
 - Martin Jovanov
 - Hristijan Donchevski
 
+## Documentation
+All documentation for the game is written and updated in the [/docs](/docs) folder.
+
 ## Plugins
 - [NodeTunnel](https://github.com/curtjs/nodetunnel)
 
 ## Installing and running
-
 1. Clone the repository: `git@github.com:AndrejGockov/moeraspolozenie.mk.git`
 2. Open in Godot
 3. Run the project `F5`
