@@ -1,5 +1,5 @@
 <h1 align="center">
-    Age of War Reimagined
+	Age of War Reimagined
 </h1>
 
 This project is a recreation of the classic flash game **Age of War**. <br />

@@ -136,7 +136,7 @@ func spawn_wave() -> void:
 		unit.global_position = spawnpoint
 		unit.set_direction(direction)
 		unitNode.add_child(unit, true)
-		
+		unit.animated_sprite.flip_h = true
 		unitBuffer.start()
 		await unitBuffer.timeout
 	

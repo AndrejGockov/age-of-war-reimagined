@@ -12,7 +12,7 @@ signal health_changed(new_health: int)
 		hitpoints = value
 		health_changed.emit(hitpoints)
 @export var maxHitpoints : int = 100
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 # Tracks who spawned the entity
 @export var spawnOwnerID : int = 1 
 
