@@ -32,6 +32,7 @@ func deposit_gold(duration : float):
 
 func change_direction():
 	direction *= (-1)
+	animated_sprite.flip_h = direction < 0
 
 func work(duration : float):
 	timer.wait_time = duration

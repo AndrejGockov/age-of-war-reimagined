@@ -195,7 +195,7 @@ scale = Vector2(1.005, 1.304)
 texture = ExtResource("5_txq5j")
 
 [node name="Sprite2D" type="Sprite2D" parent="BackgroundTrees" unique_id=627671745]
-position = Vector2(1529.8257, -1298.0392)
+position = Vector2(1529.826, -1322.759)
 rotation = 1.5707964
 scale = Vector2(3.0318387, 9712.173)
 texture = SubResource("GradientTexture1D_xjnlw")

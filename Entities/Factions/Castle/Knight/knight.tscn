@@ -188,6 +188,8 @@ texture_filter = 1
 texture_repeat = 1
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_rfwwh")
-animation = &"Walk"
+animation = &"Attack"
+frame = 3
+frame_progress = 0.22797903
 
 [node name="HealthBar" parent="." unique_id=967409695 instance=ExtResource("8_3kvsd")]

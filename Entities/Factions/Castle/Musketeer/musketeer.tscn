@@ -7,6 +7,59 @@
 [ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="5_eb2wv"]
 [ext_resource type="Texture2D" uid="uid://bd5q17wgt07ia" path="res://Assets/Sprites/musketeer.jpg" id="6_wsa7e"]
 [ext_resource type="PackedScene" uid="uid://ltjxnj2caxmg" path="res://Entities/Shared/Unit/health_bar.tscn" id="7_dreuq"]
+[ext_resource type="Texture2D" uid="uid://cgeveislropmt" path="res://Assets/Sprites/Unit Sprites/Musketeer/Attack/0005.png" id="8_54tij"]
+[ext_resource type="Texture2D" uid="uid://bb8il1gbf8fxk" path="res://Assets/Sprites/Unit Sprites/Musketeer/Attack/0001.png" id="9_qyk8q"]
+[ext_resource type="Texture2D" uid="uid://h3yearv1vv8n" path="res://Assets/Sprites/Unit Sprites/Musketeer/Attack/0002.png" id="10_k2y8m"]
+[ext_resource type="Texture2D" uid="uid://c4nxsgce8nxyg" path="res://Assets/Sprites/Unit Sprites/Musketeer/Attack/0003.png" id="11_yd6gs"]
+[ext_resource type="Texture2D" uid="uid://7lmqcopbvjqh" path="res://Assets/Sprites/Unit Sprites/Musketeer/0001.png" id="12_du0ff"]
+[ext_resource type="Texture2D" uid="uid://bf16aek0fjq37" path="res://Assets/Sprites/Unit Sprites/Musketeer/Attack/0004.png" id="12_vptsb"]
+[ext_resource type="Texture2D" uid="uid://d03q51g0pam5c" path="res://Assets/Sprites/Unit Sprites/Musketeer/0002.png" id="13_54tij"]
+[ext_resource type="Texture2D" uid="uid://crfmww7dug0s6" path="res://Assets/Sprites/Unit Sprites/Musketeer/0003.png" id="14_qyk8q"]
+[ext_resource type="Texture2D" uid="uid://h5fxk0dn8edo" path="res://Assets/Sprites/Unit Sprites/Musketeer/0004.png" id="15_k2y8m"]
+[ext_resource type="Texture2D" uid="uid://rhyrw2txcf35" path="res://Assets/Sprites/Unit Sprites/Musketeer/0005.png" id="16_yd6gs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v2de8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_54tij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qyk8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_k2y8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yd6gs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_vptsb")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_du0ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_54tij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qyk8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_k2y8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_yd6gs")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 7.0
+}]
 
 [node name="Musketeer" type="CharacterBody2D" unique_id=1617145020 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
@@ -17,6 +70,7 @@ attackCoolDown = NodePath("unit_timer")
 unitName = "Musketeer"
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("2_iogmw")]
+visible = false
 
 [node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("3_ldx10")]
 target_position = Vector2(70, 0)
@@ -26,8 +80,18 @@ target_position = Vector2(70, 0)
 [node name="MultiplayerSynchronizer" parent="." unique_id=2049026701 instance=ExtResource("5_eb2wv")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=613715667]
+visible = false
 position = Vector2(-3.4999907, 1.0000012)
 scale = Vector2(0.9324895, 1.1563637)
 texture = ExtResource("6_wsa7e")
 
 [node name="HealthBar" parent="." unique_id=967409695 instance=ExtResource("7_dreuq")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1306136347]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_v2de8")
+animation = &"Attack"
+frame_progress = 0.6140495
+offset = Vector2(298.84, -66.93)
