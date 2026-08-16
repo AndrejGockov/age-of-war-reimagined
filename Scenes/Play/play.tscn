@@ -15,15 +15,15 @@ text = "Singleplayer"
 
 [node name="JoinGame" type="Button" parent="GameButtons" unique_id=2002628519]
 layout_mode = 2
-text = "join game"
+text = "Join Game"
 
 [node name="HostGame" type="Button" parent="GameButtons" unique_id=500858776]
 layout_mode = 2
-text = "host game"
+text = "Host Game"
 
 [node name="Menu" type="Button" parent="GameButtons" unique_id=2111110815]
 layout_mode = 2
-text = "return to menu"
+text = "Return to Menu"
 
 [node name="JoinGame" type="VBoxContainer" parent="." unique_id=1818578254]
 visible = false
