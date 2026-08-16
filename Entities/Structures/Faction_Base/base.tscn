@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://bpqa34g00i23m" path="res://Entities/Structures/Faction_Base/base.gd" id="1_nnhjt"]
 [ext_resource type="PackedScene" uid="uid://nri0geei7tpe" path="res://Entities/Shared/Base/base_collision_shape_2d.tscn" id="1_qxknv"]
 [ext_resource type="PackedScene" uid="uid://cjkmf1gvl5ctb" path="res://Entities/Shared/Base/spawn_point.tscn" id="2_nnhjt"]
+[ext_resource type="Texture2D" uid="uid://caxct6rxypjl" path="res://Assets/Sprites/Castle.png" id="4_5whcw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5whcw"]
+font_size = 64
+font_color = Color(1, 0, 0, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_fk6ua"]
 properties/0/path = NodePath(".:hitpoints")
@@ -14,18 +23,37 @@ script = ExtResource("1_nnhjt")
 spawnPoint = NodePath("spawn_point")
 
 [node name="base" parent="." unique_id=941657374 instance=ExtResource("1_qxknv")]
+visible = false
 debug_color = Color(0.44257218, 0.7871579, 0.33771947, 1)
 
 [node name="spawn_point" parent="." unique_id=459909708 groups=["Base"] instance=ExtResource("2_nnhjt")]
+visible = false
 position = Vector2(0, 380)
 
 [node name="BaseHitpoints" type="Label" parent="." unique_id=492564132]
-offset_left = -109.0
-offset_top = -21.0
-offset_right = 257.0
-offset_bottom = 116.0
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.82
+offset_top = -365.38
+offset_right = 169.18
+offset_bottom = -228.38
+grow_horizontal = 2
+grow_vertical = 2
+text = "2000"
+label_settings = SubResource("LabelSettings_5whcw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=743586365]
 replication_config = SubResource("SceneReplicationConfig_fk6ua")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=720674655]
+position = Vector2(3, -245)
+scale = Vector2(0.71, 0.71)
+texture = ExtResource("4_5whcw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

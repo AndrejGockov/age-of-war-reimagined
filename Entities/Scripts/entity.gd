@@ -12,13 +12,17 @@ signal health_changed(new_health: int)
 		hitpoints = value
 		health_changed.emit(hitpoints)
 @export var maxHitpoints : int = 100
-
+@onready var animated_sprite = $AnimatedSprite2D
 # Tracks who spawned the entity
 @export var spawnOwnerID : int = 1 
 
 func set_direction(direction : float) -> void:
 	self.direction = direction
+	
 
 func move() -> void:
+	if animated_sprite:
+		animated_sprite.play("Walk")
+	
 	velocity = Vector2(speed * direction, 0)
 	move_and_slide()

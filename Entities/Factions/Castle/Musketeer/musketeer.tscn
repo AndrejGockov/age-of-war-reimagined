@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bodkjyhjdiudl" path="res://Entities/Shared/Unit/unit_timer.tscn" id="4_e8f3i"]
 [ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="5_eb2wv"]
 [ext_resource type="Texture2D" uid="uid://bd5q17wgt07ia" path="res://Assets/Sprites/musketeer.jpg" id="6_wsa7e"]
-[ext_resource type="Script" uid="uid://br1uekyo1256m" path="res://Entities/Scripts/health_bar.gd" id="7_dreuq"]
+[ext_resource type="PackedScene" uid="uid://ltjxnj2caxmg" path="res://Entities/Shared/Unit/health_bar.tscn" id="7_dreuq"]
 
 [node name="Musketeer" type="CharacterBody2D" unique_id=1617145020 node_paths=PackedStringArray("hitbox", "attackCoolDown")]
 collision_mask = 0
@@ -30,26 +30,4 @@ position = Vector2(-3.4999907, 1.0000012)
 scale = Vector2(0.9324895, 1.1563637)
 texture = ExtResource("6_wsa7e")
 
-[node name="HealthBar" type="Control" parent="." unique_id=1258150939]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("7_dreuq")
-
-[node name="ProgressBar" type="ProgressBar" parent="HealthBar" unique_id=1116014997]
-layout_mode = 0
-offset_left = -83.0
-offset_top = -217.0
-offset_right = 84.0
-offset_bottom = -155.0
-step = 1.0
-show_percentage = false
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="HealthBar" unique_id=162611820]
-layout_mode = 0
-offset_left = -75.0
-offset_top = -198.0
-offset_right = 76.0
-offset_bottom = -175.0
-text = "Health:"
-metadata/_edit_use_anchors_ = true
+[node name="HealthBar" parent="." unique_id=967409695 instance=ExtResource("7_dreuq")]
