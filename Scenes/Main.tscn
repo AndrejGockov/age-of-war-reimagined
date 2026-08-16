@@ -9,3 +9,4 @@ script = ExtResource("1_jjgbg")
 [node name="Level" type="Node" parent="." unique_id=127442325]
 
 [node name="HomeScreen" parent="Level" unique_id=1638291709 instance=ExtResource("2_8gbba")]
+z_index = 2

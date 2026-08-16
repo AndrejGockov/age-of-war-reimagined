@@ -25,18 +25,18 @@
 [ext_resource type="Texture2D" uid="uid://c56v6was85g8p" path="res://Assets/Sprites/Mine_TopLayer.png" id="18_xjnlw"]
 [ext_resource type="Texture2D" uid="uid://bs5ht0j686pj5" path="res://Assets/Sprites/Mine_BottomLayer.png" id="19_1snm1"]
 
-[sub_resource type="Gradient" id="Gradient_xjnlw"]
+[sub_resource type="Gradient" id="Gradient_j4p5e"]
 colors = PackedColorArray(0, 0, 0, 1, 0.21176471, 0.21176471, 0.21176471, 0.8901961)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_1snm1"]
-gradient = SubResource("Gradient_xjnlw")
+gradient = SubResource("Gradient_j4p5e")
 
-[sub_resource type="Gradient" id="Gradient_j4p5e"]
+[sub_resource type="Gradient" id="Gradient_xjnlw"]
 offsets = PackedFloat32Array(0.25714287, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_xjnlw"]
-gradient = SubResource("Gradient_j4p5e")
+gradient = SubResource("Gradient_xjnlw")
 width = 260
 
 [node name="Game" type="Node2D" unique_id=564710753]
@@ -64,6 +64,7 @@ offset_right = -3228.0
 offset_bottom = -1452.33
 scale = Vector2(95.43944, 18.703293)
 color = Color(0.0846666, 0.060619667, 0.023957234, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="BackgroundTrees" type="Parallax2D" parent="." unique_id=758380727]
 scroll_scale = Vector2(0.5, 1)
