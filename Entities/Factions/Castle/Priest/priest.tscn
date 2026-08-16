@@ -7,9 +7,117 @@
 [ext_resource type="PackedScene" uid="uid://bdg7r2nyqofxi" path="res://Entities/Shared/Unit/multiplayer_synchronizer.tscn" id="4_m4wc7"]
 [ext_resource type="Texture2D" uid="uid://54snyyhe1bok" path="res://Assets/Sprites/priest.png" id="6_dojap"]
 [ext_resource type="PackedScene" uid="uid://ltjxnj2caxmg" path="res://Entities/Shared/Unit/health_bar.tscn" id="7_m4wc7"]
+[ext_resource type="Texture2D" uid="uid://4iaevstw6r6x" path="res://Assets/Sprites/Unit Sprites/Priest/Attack/0001.png" id="8_e35fg"]
+[ext_resource type="Texture2D" uid="uid://bx67kvkt1jqj3" path="res://Assets/Sprites/Unit Sprites/Priest/Attack/0002.png" id="9_8tv0c"]
+[ext_resource type="Texture2D" uid="uid://dl80otljttb2j" path="res://Assets/Sprites/Unit Sprites/Priest/Attack/0003.png" id="10_u42bw"]
+[ext_resource type="Texture2D" uid="uid://j3tgfr5hdbhx" path="res://Assets/Sprites/Unit Sprites/Priest/0001.png" id="12_rmbkn"]
+[ext_resource type="Texture2D" uid="uid://w4pq8c5kusl5" path="res://Assets/Sprites/Unit Sprites/Priest/0002.png" id="13_oxyj8"]
+[ext_resource type="Texture2D" uid="uid://cmnjqu3o6yma" path="res://Assets/Sprites/Unit Sprites/Priest/0003.png" id="14_lpqwl"]
+[ext_resource type="Texture2D" uid="uid://dm8w3gp48750e" path="res://Assets/Sprites/Unit Sprites/Priest/0004.png" id="15_emvls"]
+[ext_resource type="Texture2D" uid="uid://8jhhgb5pq6hn" path="res://Assets/Sprites/Unit Sprites/Priest/0005.png" id="16_6g0vq"]
+[ext_resource type="Texture2D" uid="uid://bwamdathxv56t" path="res://Assets/Sprites/Unit Sprites/Priest/healing.png" id="16_8tv0c"]
+[ext_resource type="Texture2D" uid="uid://cbqr8c7aka82r" path="res://Assets/Sprites/Unit Sprites/Priest/no healing.png" id="16_u42bw"]
+[ext_resource type="Texture2D" uid="uid://b36gch5md6tjd" path="res://Assets/Sprites/Unit Sprites/Priest/low healing.png" id="18_4joty"]
+[ext_resource type="Texture2D" uid="uid://cgkplmpsden5x" path="res://Assets/Sprites/Unit Sprites/Priest/lower healing.png" id="19_4vtdf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dojap"]
 size = Vector2(958, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yq0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_e35fg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u42bw")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_rmbkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_oxyj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lpqwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_emvls")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6g0vq")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u42bw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_u42bw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4joty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8tv0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4joty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4vtdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_4vtdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u42bw")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="priest" type="CharacterBody2D" unique_id=1235379818 node_paths=PackedStringArray("healing_cooldown", "healing_hitbox", "hitbox", "attackCoolDown")]
 collision_mask = 0
@@ -21,6 +129,7 @@ attackCoolDown = NodePath("unit_timer")
 unitName = "Priest"
 
 [node name="unit_collision_shape_2D" parent="." unique_id=1535709342 instance=ExtResource("1_maixf")]
+visible = false
 
 [node name="unit_raycast" parent="." unique_id=1754191596 instance=ExtResource("2_mc38g")]
 target_position = Vector2(40, 0)
@@ -30,9 +139,11 @@ target_position = Vector2(40, 0)
 [node name="MultiplayerSynchronizer" parent="." unique_id=2049026701 instance=ExtResource("4_m4wc7")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=327907439]
+visible = false
 texture = ExtResource("6_dojap")
 
 [node name="healing_hitbox" type="Area2D" parent="." unique_id=815149299]
+visible = false
 position = Vector2(-195, 22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="healing_hitbox" unique_id=299184084]
@@ -40,6 +151,21 @@ position = Vector2(195, 34)
 shape = SubResource("RectangleShape2D_dojap")
 
 [node name="healing_cooldown" type="Timer" parent="." unique_id=812001701]
+wait_time = 7.0
 one_shot = true
 
 [node name="HealthBar" parent="." unique_id=967409695 instance=ExtResource("7_m4wc7")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1482743539]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_5yq0f")
+animation = &"Walk"
+frame = 4
+frame_progress = 0.7824972
+offset = Vector2(128.61, 0)
+
+[node name="HealingOrb" type="AnimatedSprite2D" parent="." unique_id=946092943]
+scale = Vector2(3.355, 1)
+sprite_frames = SubResource("SpriteFrames_u42bw")

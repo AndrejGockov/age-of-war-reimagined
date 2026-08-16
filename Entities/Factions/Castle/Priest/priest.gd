@@ -3,7 +3,7 @@ extends Unit
 @export var healing_cooldown : Timer
 @export var healing_hitbox : Area2D
 @export var heal_amount : int = 30
-
+@onready var healing_orb: AnimatedSprite2D = $HealingOrb
 func _init() -> void:
 	pass
 			
@@ -57,6 +57,7 @@ func _on_heal_timeout() -> void:
 		if body.direction == direction and body.has_method("heal"):
 			print("healing: ", body, " for ", heal_amount)
 			body.heal(heal_amount)
+			healing_orb.play()
 			print("body hp: ", body.hitpoints)
 		else: 
 			print("has no method heal or has different direction")

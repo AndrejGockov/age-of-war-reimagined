@@ -61,6 +61,6 @@ texture_repeat = 1
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_6jfdd")
 animation = &"Walk"
-frame_progress = 0.67591035
+frame_progress = 0.5949322
 offset = Vector2(-95.925, -75.27)
 flip_h = true

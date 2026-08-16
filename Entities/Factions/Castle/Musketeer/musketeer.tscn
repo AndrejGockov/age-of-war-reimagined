@@ -93,5 +93,5 @@ texture_repeat = 1
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_v2de8")
 animation = &"Attack"
-frame_progress = 0.6140495
-offset = Vector2(298.84, -66.93)
+frame_progress = 0.2704686
+offset = Vector2(253.345, -66.93)
