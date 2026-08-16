@@ -12,8 +12,7 @@ func _init() -> void:
 			load("res://Entities/Factions/Castle/Musketeer/musketeer.tscn"),
 			load("res://Entities/Factions/Castle/Knight/knight.tscn"),
 			load("res://Entities/Factions/Castle/Priest/priest.tscn"),
-			load("res://Entities/Factions/Castle/Cavalry/cavalry.tscn")
-			
+			#load("res://Entities/Factions/Castle/Cavalry/cavalry.tscn")
 		]
 	)
 

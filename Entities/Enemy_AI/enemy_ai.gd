@@ -15,7 +15,7 @@ var Spearman : PackedScene = load("res://Entities/Factions/Castle/Spearman/spear
 var Musketeer : PackedScene = load("res://Entities/Factions/Castle/Musketeer/musketeer.tscn")
 var Knight : PackedScene = load("res://Entities/Factions/Castle/Knight/knight.tscn")
 var Priest : PackedScene = load("res://Entities/Factions/Castle/Priest/priest.tscn")
-var Cavalry : PackedScene = load("res://Entities/Factions/Castle/Cavalry/cavalry.tscn")
+#var Cavalry : PackedScene = load("res://Entities/Factions/Castle/Cavalry/cavalry.tscn")
 
 # Waves
 @export var waves : Array[Wave] = []
@@ -114,8 +114,10 @@ func _ready() -> void:
 	waves.append(
 		Wave.new(
 			[
-				Cavalry,
-				Cavalry,
+				#Cavalry,
+				#Cavalry,
+				Knight,
+				Knight, #temp knights
 				Priest,
 				Musketeer,
 				Musketeer
