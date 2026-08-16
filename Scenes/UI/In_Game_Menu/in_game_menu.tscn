@@ -71,10 +71,12 @@ layout_mode = 2
 theme_override_constants/separation = 12
 
 [node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1008357352]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Control" unique_id=681842538]
+visible = false
 layout_mode = 1
 offset_right = 200.0
 offset_bottom = 200.0
@@ -83,11 +85,13 @@ texture = ExtResource("1_mfpj2")
 flip_h = true
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer" unique_id=1439368544]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 116
 theme_override_styles/separator = SubResource("StyleBoxEmpty_mfpj2")
 
 [node name="PlayerName" type="Label" parent="MarginContainer/HBoxContainer" unique_id=205584789]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Loading Name . . ."

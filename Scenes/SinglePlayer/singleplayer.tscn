@@ -371,7 +371,7 @@ scale = Vector2(3.1546783, 3.064069)
 texture = ExtResource("2_51p76")
 
 [node name="ForegroundPath" type="Sprite2D" parent="." unique_id=879552186]
-position = Vector2(2822, 1641)
+position = Vector2(2822, 1680)
 rotation = -0.01745329
 scale = Vector2(2.5870001, 3.933)
 texture = ExtResource("4_pu5qa")
