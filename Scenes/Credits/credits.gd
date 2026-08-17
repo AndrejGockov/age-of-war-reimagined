@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 # Homescreen Button
 func _on_back_pressed() -> void:

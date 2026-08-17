@@ -76,6 +76,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_l32xl")
 layout_mode = 2
 
 [node name="Resolution_Mode_button" parent="MarginContainer/TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" unique_id=1225822737 instance=ExtResource("2_l32xl")]
+visible = false
 layout_mode = 2
 
 [node name="Controls" type="TabBar" parent="MarginContainer/TabContainer" unique_id=1192428931]
