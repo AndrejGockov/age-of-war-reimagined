@@ -47,18 +47,18 @@ func _on_heal_timeout() -> void:
 		return
 		
 	for body in healing_hitbox.get_overlapping_bodies():
-		print("units in range = ", healing_hitbox.get_overlapping_bodies().size())
+		#print("units in range = ", healing_hitbox.get_overlapping_bodies().size())
 		
 		if !is_instance_valid(body) or body == self or body is Base:
 			continue
 		
-		print("direction check: ", body.direction, " == ", direction)
+		#print("direction check: ", body.direction, " == ", direction)
 		
 		if body.direction == direction and body.has_method("heal"):
 			print("healing: ", body, " for ", heal_amount)
 			body.heal(heal_amount)
 			healing_orb.play()
-			print("body hp: ", body.hitpoints)
+			#print("body hp: ", body.hitpoints)
 		else: 
 			print("has no method heal or has different direction")
 		
